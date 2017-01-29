@@ -1,0 +1,114 @@
+<ion-view can-swipe-back="true">
+    <ion-content class="has-header has-footer">
+
+        <div class="profile-section">
+            <div class="row">
+                <img class="profile-pic" ng-src="{{getPicture(employee.id)}}" onerror="this.src='img/default-user.jpg'" />
+            </div>
+            <div class="row">
+                <div class="profile-name" ng-bind="getName(employee.name)"></div>
+            </div>
+            <div class="row">
+                <div class="profile-name-data" ng-bind="getTitle(employee)"></div>
+            </div>
+            <div class="row">
+                <div class="profile-name-data" ng-bind="getLocation(employee.addresses[0])"></div>
+            </div>
+        </div>
+        <div class="profile-section profile-contact">
+            <div class="row">
+                <div class="profile-item">
+                    <span class="profile-label ">EMAIL</span>
+                    <div class="profile-data" ng-click="actionSendEmail(employee.emails[0])">
+                        <i class="icon purple-icon icon-email"></i>
+                        <span ng-bind="getEmail(employee.emails[0])"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="profile-item">
+                    <span class="profile-label ">JABBER</span>
+                    <div class="profile-data" ng-click="actionSendJabber(employee.emails[0])">
+                        <i class="icon purple-icon icon-jabber"></i>
+                        <span ng-bind="getJabber(employee.emails[0]) "></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="profile-item">
+                    <span class="profile-label ">DESK PHONE</span>
+                    <div class="profile-data " ng-click="actionCallPhone(employee.phoneNumbers[0])">
+                        <i class="icon purple-icon icon-phone"></i>
+                        <span ng-bind="getOfficeNumber(employee.phoneNumbers[0]) "></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="profile-item">
+                    <span class="profile-label">MOBILE PHONE</span>
+                    <div class="profile-data" ng-click="actionCallPhone(employee.phoneNumbers[1])">
+                        <i class="icon purple-icon icon-mobile"></i>
+                        <span ng-bind="getMobileNumber(employee.phoneNumbers[1])"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="profile-item">
+                    <span class="profile-label">OFFICE ADDRESS</span>
+                    <div class="profile-data" ng-click="actionGetDirections(employee.addresses[0])">
+                        <i class="icon purple-icon ion-map"></i>
+                        <span ng-bind="getAddress(employee.addresses[0])"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-section">
+            <div class="row">
+                <span class="profile-team-name" ng-bind="getTeam(employee.name)"></span>
+            </div>
+            <div class="row">
+                <span class="profile-team-role">REPORTS TO</span>
+            </div>
+            <ion-list>
+                <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="manager in managers" type="item-text-wrap" href="{{getProfileURL(manager.id)}}">
+                    <img ng-src="{{getPicture(manager.id)}}" onerror="this.src='img/default-user.jpg'" />
+                    <div class="search-result">
+                        <div class="search-result-title" ng-bind-html="getTeamMemberName(manager)"></div>
+                        <div class="search-result-data" ng-bind-html="getTeamMemberTitle(manager)"></div>
+                        <div class="search-result-data" ng-bind-html="getTeamMemberLocation(manager)"></div>
+                    </div>
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+            </ion-list>
+            <div class="row">
+                <span class="profile-team-role">HR MANAGER</span>
+            </div>
+            <ion-list>
+                <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="hrmanager in hrmanagers" type="item-text-wrap" href="{{getProfileURL(hrmanager.id)}}">
+                    <img ng-src="{{getPicture(hrmanager.id)}}" onerror="this.src='img/default-user.jpg'" />
+                    <div class="search-result">
+                        <div class="search-result-title" ng-bind-html="getTeamMemberName(hrmanager)"></div>
+                        <div class="search-result-data" ng-bind-html="getTeamMemberTitle(hrmanager)"></div>
+                        <div class="search-result-data" ng-bind-html="getTeamMemberLocation(hrmanager)"></div>
+                    </div>
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+            </ion-list>
+            <div class="row">
+                <span class="profile-team-role">DIRECT REPORTS</span>
+            </div>
+            <ion-list>
+                <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="directReport in directReports" type="item-text-wrap" href="{{getProfileURL(directReport.id)}}">
+                    <img ng-src="{{getPicture(directReport.id)}}" onerror="this.src='img/default-user.jpg'" />
+                    <div class="search-result">
+                        <div class="search-result-title" ng-bind-html="getTeamMemberName(directReport)"></div>
+                        <div class="search-result-data" ng-bind-html="getTeamMemberTitle(directReport)"></div>
+                        <div class="search-result-data" ng-bind-html="getTeamMemberLocation(directReport)"></div>
+                    </div>
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+            </ion-list>
+        </div>
+
+    </ion-content>
+</ion-view>

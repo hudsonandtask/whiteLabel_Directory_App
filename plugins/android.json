@@ -1,0 +1,18 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.inbcu.corpsys.nbcunow.directory"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.inbcu.corpsys.nbcunow.directory"
+        }
+    },
+    "dependent_plugins": {}
+}

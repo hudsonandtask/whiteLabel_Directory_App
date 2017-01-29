@@ -1,0 +1,27 @@
+<ion-view>
+
+    <div class="bar bar-subheader search-bar">
+        <form class="search-form" ng-submit="search()">
+            <div class="item-input-wrapper search-wrapper">
+                <i class="icon white-icon icon-search"></i>
+                <input type="search" placeholder="Search for..." ng-model="searchKey" class="search-control" />
+                <i ng-if="searchKey.length > 0" ng-click="clearSearch()" class="icon white-icon icon-cancel"></i>
+            </div>
+        </form>
+    </div>
+
+    <ion-content class="has-header has-subheader has-footer">
+        <ion-list>
+            <ion-item class="item-avatar item-icon-right" ng-repeat="employee in employeeList" type="item-text-wrap" href="{{getProfileURL(employee.id)}}">
+                <img ng-src="{{getPicture(employee.id)}}" onerror="this.src='img/default-user.jpg'" />
+                <div class="search-result">
+                    <div class="search-result-title" ng-bind-html="getName(employee)"></div>
+                    <div class="search-result-data" ng-bind-html="getTitle(employee)"></div>
+                    <div class="search-result-data" ng-bind-html="getLocation(employee)"></div>
+                </div>
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+</ion-view>

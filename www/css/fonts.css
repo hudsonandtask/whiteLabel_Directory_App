@@ -1,0 +1,102 @@
+@charset "UTF-8";
+@font-face {
+    font-family: rock-sans-normal;
+    src: url('../fonts/Rock-SansNormal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: rock-sans-bold;
+    src: url('../fonts/Rock-SansBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: rock-sans-italic;
+    src: url('../fonts/Rock-SansItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: nbcunow-icons;
+    src: url('../fonts/nbcunow-font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[data-icon]:before {
+    font-family: nbcunow-icons !important;
+    content: attr(data-icon);
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    font-family: nbcunow-icons !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chat-white:before {
+    content: "\6a";
+}
+
+.icon-phone-white:before {
+    content: "\6f";
+}
+
+.icon-user-outline:before {
+    content: "\76";
+}
+
+.icon-search:before {
+    content: "\45";
+}
+
+.icon-mobile:before {
+    content: "\49";
+}
+
+.icon-phone:before {
+    content: "\50";
+}
+
+.icon-email-white:before {
+    content: "\52";
+}
+
+.icon-email:before {
+    content: "\53";
+}
+
+.icon-jabber:before {
+    content: "\55";
+}
+
+.icon-arrow-next:before {
+    content: "\6b";
+}
+
+.icon-cancel:before {
+    content: "\4b";
+}
+
+.icon-jabber-large:before {
+    content: "\2a";
+}

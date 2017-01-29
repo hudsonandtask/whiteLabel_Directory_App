@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" name="format-detection" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta http-equiv="Cache-control" content="NO-CACHE|NO-STORE">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: ; style-src 'self' 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' "> -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://solr.inbcu.com:8080 http://stage.nbcunow.com http://www.nbcunow.com https://api.inbcu.com ws://localhost:35729 data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' localhost:35729 'unsafe-eval' 'unsafe-inline';">
+
+    <title>Directory</title>
+
+    <!-- ionic css -->
+    <link href="lib/css/ionic.css" rel="stylesheet">
+
+    <!-- your app's css -->
+    <link href="css/fonts.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+
+    <!-- angularjs scripts -->
+    <script src="lib/js/ionic.js"></script>
+    <script src="lib/js/angular/angular.js"></script>
+    <script src="lib/js/angular/angular-animate.js"></script>
+    <script src="lib/js/angular/angular-sanitize.js"></script>
+    <script src="lib/js/angular-ui/angular-ui-router.js"></script>
+    <script src="lib/js/ionic-angular.js"></script>
+
+    <!-- ngCordova -->
+    <script src="lib/js/ng-cordova.js"></script>
+
+    <!-- cordova script -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's script -->
+    <script src="js/services/networkService.js"></script>
+    <script src="js/services/searchService.js"></script>
+    <script src="js/services/profileService.js"></script>
+    <script src="js/controllers/searchController.js"></script>
+    <script src="js/controllers/profileController.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-app="directory" ng-csp animation="slide-left-right-ios">
+
+    <ion-nav-bar>
+        <ion-nav-back-button class="icon ion-chevron-left"></ion-nav-back-button>
+
+        <ion-nav-title>
+            <img class="logo" src="img/logo.png" />
+        </ion-nav-title>
+    </ion-nav-bar>
+
+    <ion-nav-view></ion-nav-view>
+
+    <ion-footer-bar>
+        <div class="title">&copy;2017 NBCUniversal Media, LLC</div>
+    </ion-footer-bar>
+
+</body>
+
+</html>
