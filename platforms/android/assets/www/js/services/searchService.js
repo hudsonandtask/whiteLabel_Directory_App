@@ -1,7 +1,7 @@
 angular.module('directory.services.searchService', [])
     .factory('searchService', function ($q, $http) {
         var SOLR_URL = "http://solr.inbcu.com:8080/solr/collection1/";
-        // var D8_URL = "http://dev.nbcunow.com/ed_search";
+        // var D8_URL = "http://dev.nbcunow.com/api/v1/taxonomy/";
 
         var testListData = [{
             "id": "1",
