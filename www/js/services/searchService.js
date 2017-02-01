@@ -80,6 +80,8 @@ angular.module('directory.services.searchService', [])
                 var regexCharStr = /^[a-zA-Z]*$/;
                 var regexCharSpaceStr = /^[a-zA-Z ]*$/;
 
+                // TODO: need select list values here?
+
                 if (regexCharStr.test(trimSearchText)) {
                     params = "select?q=category:worker%20AND%20title:" + trimSearchText + "%2A&wt=json&rows=50";
                 } else if (regexCharSpaceStr.test(trimSearchText)) {

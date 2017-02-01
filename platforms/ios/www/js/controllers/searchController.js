@@ -4,6 +4,7 @@ angular.module('directory.controllers.searchController', [])
         $scope.searchKey = "";
 
         $scope.clearSearch = function () {
+            console.log("clearing search terms");
             $scope.searchKey = "";
         };
 
