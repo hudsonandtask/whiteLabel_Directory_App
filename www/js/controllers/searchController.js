@@ -1,5 +1,5 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($scope, appData, $ionicLoading, $cordovaKeyboard, searchService) {
+    .controller('searchController', function ($scope, $state, $stateParams, appData, $ionicLoading, $cordovaKeyboard, searchService) {
 
         $scope.searchKey = "";
 
@@ -10,6 +10,9 @@ angular.module('directory.controllers.searchController', [])
         $scope.search = function () {
             $cordovaKeyboard.close();
             $ionicLoading.show();
+
+            var test = $stateParams.filter;
+
             searchService.searchByName($scope.searchKey).then(function (result) {
                 $scope.employeeList = result;
                 $ionicLoading.hide();
@@ -17,6 +20,10 @@ angular.module('directory.controllers.searchController', [])
                 console.log(error);
                 $ionicLoading.hide();
             });
+        };
+
+        $scope.getFilterURL = function () {
+            return $state.href("filter");
         };
 
         $scope.getPicture = function (id) {

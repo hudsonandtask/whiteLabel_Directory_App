@@ -1,8 +1,11 @@
-angular.module('directory', ['ionic', 'directory.services.searchService', 'directory.controllers.searchController', 'directory.services.profileService', 'directory.controllers.profileController', 'directory.services.networkService', 'ngCordova'])
-    .run(function ($ionicPlatform, networkService) {
+angular.module('directory', ['ionic', 'directory.services.filterService', 'directory.controllers.filterController', 
+                                        'directory.services.searchService', 'directory.controllers.searchController', 
+                                        'directory.services.profileService', 'directory.controllers.profileController', 
+                                        'directory.services.networkService', 'ngCordova'])
+    .run(function ($ionicPlatform, $ionicPopup, networkService) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
             if (window.StatusBar) {
@@ -41,6 +44,11 @@ angular.module('directory', ['ionic', 'directory.services.searchService', 'direc
     })
     .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         $stateProvider
+            .state('filter', {
+                url: '/filter',
+                templateUrl: 'templates/filter.html',
+                controller: 'filterController'
+            })
             .state('search', {
                 url: '/search',
                 templateUrl: 'templates/search.html',

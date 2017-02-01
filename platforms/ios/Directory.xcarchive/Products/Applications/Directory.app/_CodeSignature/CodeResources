@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		9sVSQggs9vqxd6Jr+TOejXiIhj0=
+		+fKod6anAdOLUC01/RxuFVCmyjg=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,11 +94,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		yCvBnoIKx+y/VWJfbz/E4mZhYYY=
+		lHZXmkCmYg0m9JrpxC6rmTWm1OA=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		x+AoV4p3KWVrjDMmmXyWUPLbklo=
+		2QWn4LYUs8quMnYFyHfZa4QzJDg=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		6mCbLucN08DWRDZEQterUEIXDTQ=
+		OtE5j332IOxy+7eQfDWiPNhiBJo=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -174,7 +174,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		6k+WsN0/f1JzqiAfDBe+fdcTgU0=
+		/z7n0LCK0EFjIoNoZISHFaoX2Go=
 		</data>
 		<key>www/cordova-js-src/exec.js</key>
 		<data>
@@ -194,7 +194,7 @@
 		</data>
 		<key>www/css/app.css</key>
 		<data>
-		YvgmekwiDdA6fXej5l+R/e0nJIE=
+		S8+JK7s3yHnaIB85gXhY7FbwRjo=
 		</data>
 		<key>www/css/fonts.css</key>
 		<data>
@@ -278,11 +278,15 @@
 		</data>
 		<key>www/index.html</key>
 		<data>
-		agFqbD4IZq+LffKXhaCAFePkczA=
+		QylxoGjjSRzYBfor2EzjP4ekafg=
 		</data>
 		<key>www/js/app.js</key>
 		<data>
-		iRFllDSAtEOmEuDc/MJPgOm04mk=
+		Od1e4mELlv7ApNq/fRy1cGN/xLI=
+		</data>
+		<key>www/js/controllers/filterController.js</key>
+		<data>
+		R93tc5r9XkDrpoHWF/WRmBfdvl4=
 		</data>
 		<key>www/js/controllers/profileController.js</key>
 		<data>
@@ -290,7 +294,11 @@
 		</data>
 		<key>www/js/controllers/searchController.js</key>
 		<data>
-		kJxHswRY7BaKA6tjyfNtGqFmBns=
+		ZgMnR1Ih1tRvYsazUi/mjtZqZUI=
+		</data>
+		<key>www/js/services/filterService.js</key>
+		<data>
+		ZWUKA5WzaC8aBirWkvVRl1iNN2g=
 		</data>
 		<key>www/js/services/networkService.js</key>
 		<data>
@@ -302,7 +310,7 @@
 		</data>
 		<key>www/js/services/searchService.js</key>
 		<data>
-		kIpPmpZqjK9vmbHRNH/FrizM1ug=
+		xhr94tKmqJrs1X40B66nu8Zheis=
 		</data>
 		<key>www/lib/angular-animate/README.md</key>
 		<data>
@@ -331,6 +339,42 @@
 		<key>www/lib/angular-animate/package.json</key>
 		<data>
 		f4m6zwb+GUlgmU0ZChfR6Lo6XvQ=
+		</data>
+		<key>www/lib/angular-cache/CHANGELOG.md</key>
+		<data>
+		/B+Qm/tdeWHOLLLx3cQe7JpndxI=
+		</data>
+		<key>www/lib/angular-cache/LICENSE</key>
+		<data>
+		bAhl40jMGOgkel/v/M5oh0GTVq8=
+		</data>
+		<key>www/lib/angular-cache/README.md</key>
+		<data>
+		GxQPfviB4fExGPps/kA18uLQtqw=
+		</data>
+		<key>www/lib/angular-cache/dist/angular-cache.js</key>
+		<data>
+		HnEGC474aHoe1p6Lzu3Ay3xlTAw=
+		</data>
+		<key>www/lib/angular-cache/dist/angular-cache.js.map</key>
+		<data>
+		MBltlo60+Evck+ncwVGOa/23z/8=
+		</data>
+		<key>www/lib/angular-cache/dist/angular-cache.min.js</key>
+		<data>
+		jr5H9VvPZABjeOWmoLPxUVMT7GM=
+		</data>
+		<key>www/lib/angular-cache/dist/angular-cache.min.map</key>
+		<data>
+		DOruCOa4O7h65cis4271+zOY7Rs=
+		</data>
+		<key>www/lib/angular-cache/package.json</key>
+		<data>
+		v4qsKeuDTM+UTbTpRiFqILYXYPQ=
+		</data>
+		<key>www/lib/angular-cache/src/index.js</key>
+		<data>
+		5A55ZJis3hXg5T95UhKN0UM7W1g=
 		</data>
 		<key>www/lib/angular-sanitize/README.md</key>
 		<data>
@@ -816,13 +860,17 @@
 		<data>
 		gexyZjGUVvhbQiJbBzCrImXWv34=
 		</data>
+		<key>www/templates/filter.html</key>
+		<data>
+		LEYTqxU/QxL+cQ8gKWfjjq5ZMks=
+		</data>
 		<key>www/templates/profile.html</key>
 		<data>
 		r0z1wzInHpWhVJ7u7L1WszUHHZA=
 		</data>
 		<key>www/templates/search.html</key>
 		<data>
-		SPnnoB0ElK33leb/VZmnuHLwi6Q=
+		s2J1hRMusJc+BgifhDKtu2zz03Y=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -1051,11 +1099,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9sVSQggs9vqxd6Jr+TOejXiIhj0=
+			+fKod6anAdOLUC01/RxuFVCmyjg=
 			</data>
 			<key>hash2</key>
 			<data>
-			VM8q19jSz/TqP6wehoRG/1L/Qi7Hvoijc85px0kqqzE=
+			xw5Skhc/Lmqf2t80SZ9zxwF7EDcNmJTC8mshhJzx4S4=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1073,11 +1121,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yCvBnoIKx+y/VWJfbz/E4mZhYYY=
+			lHZXmkCmYg0m9JrpxC6rmTWm1OA=
 			</data>
 			<key>hash2</key>
 			<data>
-			l94C3r7ghZrwPfLENspOfvzV8m9RFdAlDTJZohhSUwA=
+			ebiPD7laqEjZnHXiYP0r+v5Kg5oNGvVl2jqCFVF0CDA=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1238,11 +1286,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6mCbLucN08DWRDZEQterUEIXDTQ=
+			OtE5j332IOxy+7eQfDWiPNhiBJo=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZpMmrBwST5NscfN9LqifIGWsrJ8QBCeMR043yV0sCGk=
+			ezQ77Npl58kQA50uoX/t4wdCMUzI4lklh9ie5uKhqcw=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1271,11 +1319,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6k+WsN0/f1JzqiAfDBe+fdcTgU0=
+			/z7n0LCK0EFjIoNoZISHFaoX2Go=
 			</data>
 			<key>hash2</key>
 			<data>
-			SRjBbIE57b5Tu7CooajEJcedFItZQnnLHmekZ0gTar8=
+			8o9JjcIynCLTGBXmrqs4A8KIOEDt4JpcEigpj0BnAl4=
 			</data>
 		</dict>
 		<key>www/cordova-js-src/exec.js</key>
@@ -1326,11 +1374,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YvgmekwiDdA6fXej5l+R/e0nJIE=
+			S8+JK7s3yHnaIB85gXhY7FbwRjo=
 			</data>
 			<key>hash2</key>
 			<data>
-			GFXK75ccGtfgZYdOf2cm28DCaZXvDDdMi0UXpkI5KmI=
+			MEckwfTTlyb7pCch3EKWH5Mf3hiSOv39j7ypoc/F7Aw=
 			</data>
 		</dict>
 		<key>www/css/fonts.css</key>
@@ -1557,22 +1605,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			agFqbD4IZq+LffKXhaCAFePkczA=
+			QylxoGjjSRzYBfor2EzjP4ekafg=
 			</data>
 			<key>hash2</key>
 			<data>
-			4d7NpSScu83kAxAtp1QHg1u9A5bv3RYGEE4ycYPpir0=
+			MBF66Q8E9mrJvhNpShfXIT9ljDj2QdE1lEmrXf7T9Qg=
 			</data>
 		</dict>
 		<key>www/js/app.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iRFllDSAtEOmEuDc/MJPgOm04mk=
+			Od1e4mELlv7ApNq/fRy1cGN/xLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			o23WipbHYDpxmRn+9fyFR1iUNFVlnhKepQwUFJy6yt0=
+			TIKIQWyHARISA6oHeO4lOixNSuxV0uIEoOM7PY/nDFI=
+			</data>
+		</dict>
+		<key>www/js/controllers/filterController.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			R93tc5r9XkDrpoHWF/WRmBfdvl4=
+			</data>
+			<key>hash2</key>
+			<data>
+			jyu1Yxs5LpvYy4fi8kWYBceKvpNZH7TMO0G5wWYnydk=
 			</data>
 		</dict>
 		<key>www/js/controllers/profileController.js</key>
@@ -1590,11 +1649,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kJxHswRY7BaKA6tjyfNtGqFmBns=
+			ZgMnR1Ih1tRvYsazUi/mjtZqZUI=
 			</data>
 			<key>hash2</key>
 			<data>
-			r9hDP4wwrbx1qCpvxAAbnqJdW7VGgIqM2WeqcQ1n2NE=
+			5WxWzAkGSUQ2bT/gtc5ruccK6I57ZMVZa2DcXgn+BSc=
+			</data>
+		</dict>
+		<key>www/js/services/filterService.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZWUKA5WzaC8aBirWkvVRl1iNN2g=
+			</data>
+			<key>hash2</key>
+			<data>
+			dta9S1w99JhcqmiBj8B1LVfwhrgcNB6s1ZjgdGObr54=
 			</data>
 		</dict>
 		<key>www/js/services/networkService.js</key>
@@ -1623,11 +1693,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kIpPmpZqjK9vmbHRNH/FrizM1ug=
+			xhr94tKmqJrs1X40B66nu8Zheis=
 			</data>
 			<key>hash2</key>
 			<data>
-			o3OP7szd7VaaDDsW0MVqOHjAT+UrwyrA6oAmJYK8D4s=
+			765o7rBvjuxVK2o0NHUh90R6y2zJM+nKbRz96EyHPME=
 			</data>
 		</dict>
 		<key>www/lib/angular-animate/README.md</key>
@@ -1705,6 +1775,105 @@
 			<key>hash2</key>
 			<data>
 			UqQ86bjJXCsbrhNwp+wyZv20Vn7Kavzkb4MkrSZcdd8=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/CHANGELOG.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/B+Qm/tdeWHOLLLx3cQe7JpndxI=
+			</data>
+			<key>hash2</key>
+			<data>
+			/Any+aC803ImuJaMCQ4SQVhxrhK0feAocUGLKp1kKbY=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/LICENSE</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bAhl40jMGOgkel/v/M5oh0GTVq8=
+			</data>
+			<key>hash2</key>
+			<data>
+			PvRAPKf8Va4Ii2HIY25pjURt5xDblmaVW+5cVaGCc3E=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/README.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GxQPfviB4fExGPps/kA18uLQtqw=
+			</data>
+			<key>hash2</key>
+			<data>
+			P8PgC32tdzVw6lcGRGv2zipEFEwJxvrObOlm2JDrX+4=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/dist/angular-cache.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HnEGC474aHoe1p6Lzu3Ay3xlTAw=
+			</data>
+			<key>hash2</key>
+			<data>
+			dg79gzr9/pgFw/Hz2EBMNQHjv8L3SFmEpvzXEXC4k/k=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/dist/angular-cache.js.map</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MBltlo60+Evck+ncwVGOa/23z/8=
+			</data>
+			<key>hash2</key>
+			<data>
+			F0mbaA8wmmCC0R3affc1VknrUR6bjPbAXfeenviy8Do=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/dist/angular-cache.min.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jr5H9VvPZABjeOWmoLPxUVMT7GM=
+			</data>
+			<key>hash2</key>
+			<data>
+			UddglcXzkrNeF74XhWbajnR2U4yaXP8+dqKF33XXoUc=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/dist/angular-cache.min.map</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DOruCOa4O7h65cis4271+zOY7Rs=
+			</data>
+			<key>hash2</key>
+			<data>
+			5LkMbB0AlsVmU6pX4Q508sk0b/c5gDAJGFEOxAW8SJw=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/package.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			v4qsKeuDTM+UTbTpRiFqILYXYPQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			T9nLU+TvacUadNH6ZnRQdBXpE50bIRHqTxN3QHWo3ic=
+			</data>
+		</dict>
+		<key>www/lib/angular-cache/src/index.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			5A55ZJis3hXg5T95UhKN0UM7W1g=
+			</data>
+			<key>hash2</key>
+			<data>
+			Le4+Ia7ttHFQXDXYbEmmjtqvnkfL+HRPQtAmlrNRQbc=
 			</data>
 		</dict>
 		<key>www/lib/angular-sanitize/README.md</key>
@@ -3038,6 +3207,17 @@
 			s8oy4VvWgJx67mjrcY9CWo7fZ0VqTuZEyLnykDMBTXs=
 			</data>
 		</dict>
+		<key>www/templates/filter.html</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LEYTqxU/QxL+cQ8gKWfjjq5ZMks=
+			</data>
+			<key>hash2</key>
+			<data>
+			WRRhzIOA/qilQ37UsWKcNPDQ9HP/hFNK54eshs4eH+Y=
+			</data>
+		</dict>
 		<key>www/templates/profile.html</key>
 		<dict>
 			<key>hash</key>
@@ -3053,11 +3233,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SPnnoB0ElK33leb/VZmnuHLwi6Q=
+			s2J1hRMusJc+BgifhDKtu2zz03Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			3sIhP/SuZUazEfGqetexF4tt9CuW5nSrNXarEiFDIig=
+			/Cwl05J6IKf6IqHSUVTOQfqFWHL1mFrY8T9sVfA28RY=
 			</data>
 		</dict>
 	</dict>
