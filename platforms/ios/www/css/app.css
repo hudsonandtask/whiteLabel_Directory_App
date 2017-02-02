@@ -1,3 +1,7 @@
+* {
+  line-height: 1.5;
+}
+
 body {
     font-family: rock-sans-normal;
     font-size: 18px;
@@ -22,7 +26,10 @@ body {
   text-align: center;
 }
 
-.platform-android .bar .title {
+/*.platform-android*/
+/*.platform-android*/
+
+.bar .title {
   text-align: center;
 }
 
@@ -47,6 +54,7 @@ body {
     color: #ffffff;
     font-size: 18px;
     font-weight: bold !important;
+    padding-top: 4px;
 }
 
 .purple-icon {
@@ -70,11 +78,20 @@ span.back-text {
 }
 
 .filter-bar {
-    margin-top: 44px;
+    top: 98px;
     border-radius: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.bar.bar-subheader.bar-light.filter-bar {
+  background-color: #eef0f3;
+  height: 48px;
+}
+
+.bar.bar-subheader.bar-light.filter-bar a {
+  line-height: 52px;
 }
 
 .filter-bar > a {
@@ -115,6 +132,11 @@ span.back-text {
     color: #ffffff;
     line-height: normal;
     margin: 0px;
+    color: #ffffff;
+}
+
+input[type="search"].search-control {
+  color: #ffffff;
 }
 
 .search-input::-moz-placeholder {
@@ -150,6 +172,55 @@ input:-ms-input-placeholder {
     font-family: rock-sans-normal;
     color: #a7b6c0;
     line-height: normal;
+}
+
+.has-subheader.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer {
+  top: 136px;
+}
+
+.has-subheader.scroll-content.ionic-scroll.has-header.has-footer {
+  top: 145px;
+  bottom: 47px;
+}
+
+/*.has-header {
+  top: 136px;
+}*/
+
+.filter-pane {
+  background-color: rgba(64, 60, 95, 0.98);
+}
+
+.filter-pane .nav-bar-container .bar-header {
+  background-color: #3c385c;
+  color: #ffffff;
+  height: 55px;
+}
+
+.filter-pane .nav-bar-container .bar-header .button.back-button {
+  background-color: #3c385c;
+  color: #ffffff;
+}
+
+.filter-pane .nav-bar-container .bar-header .title.title-left.header-item {
+  top: 5px;
+  /*left: 0px !important;*/
+  text-align: center;
+}
+
+.filter-pane .has-subheader.filter-pane-content.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer {
+  top: 75px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.filter-pane .has-subheader.filter-pane-content.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer .button.button-full.bar-light {
+  background-color: #a8e9f4;
+  color: #ffffff;
+  font-family: 'Rock-SansBold';
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 .search-result {}

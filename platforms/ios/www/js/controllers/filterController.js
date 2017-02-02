@@ -40,7 +40,7 @@ angular.module('directory.controllers.filterController', [])
 
             $scope.applyFilter = function () {
                 filterService.setFilterCache($scope.filter);
-                
+
                 $state.go('search');
             };
 
@@ -94,7 +94,8 @@ angular.module('directory.controllers.filterController', [])
                     locations = list.map(function(item) {
                         return {
                             tid: item.tid,
-                            name: item.name
+                            name: item.name,
+                            machine_name: item.machine_name
                         };
                     });
                 }

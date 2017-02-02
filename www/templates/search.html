@@ -16,14 +16,15 @@
 
     <ion-content class="has-header has-subheader has-footer">
         <ion-list>
-            <ion-item class="item-avatar item-icon-right" ng-repeat="employee in employeeList" type="item-text-wrap" href="{{getProfileURL(employee.id)}}">
+          <!-- was ng-repeat -->
+            <ion-item class="item-avatar item-icon-right" collection-repeat="employee in employeeList" type="item-text-wrap" href="{{getProfileURL(employee.id)}}">
                 <img ng-src="{{getPicture(employee.id)}}" onerror="this.src='img/default-user.jpg'" />
                 <div class="search-result">
                     <div class="search-result-title" ng-bind-html="getName(employee)"></div>
                     <div class="search-result-data" ng-bind-html="getTitle(employee)"></div>
                     <div class="search-result-data" ng-bind-html="getLocation(employee)"></div>
                 </div>
-                <i class="icon ion-chevron-right"></i>
+                <!--<i class="icon ion-chevron-right"></i>-->
             </ion-item>
         </ion-list>
     </ion-content>
