@@ -127,12 +127,14 @@ angular.module('directory.services.searchService', [])
                 // $search_query .= 'fq=category:worker';
                 // // Only include requested user types (exclude Function and Partner usertypes)
                 // $search_query .= '&fq=usertype:(Contractor%20OR%20Daily%20Hire%20OR%20Employee%20OR%20Expat%20OR%20Hourly)';
+                params += '&fq=usertype:(Contractor%20OR%20Daily%20Hire%20OR%20Employee%20OR%20Expat%20OR%20Hourly)';
                 // // num rows and others
                 // $search_query .= '&wt=json&indent=true&rows=' . $rows;
                 // // start
                 // $search_query .= '&start=' . $start;
                 // // sort
                 // $search_query .= '&sort=firstname+asc, lastname+asc, businessphone+asc';
+                params += '&sort=firstname+asc, lastname+asc, businessphone+asc';
 
                 params += "&wt=json&rows=50";
 
