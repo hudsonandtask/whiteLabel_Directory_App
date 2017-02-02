@@ -64,7 +64,7 @@ angular.module('directory.services.searchService', [])
               }];
 
         return {
-            searchByName: function (searchText) {
+            searchByName: function (searchText, filter) {
                 var deferred = $q.defer();
                 var params = "";
 
@@ -94,6 +94,10 @@ angular.module('directory.services.searchService', [])
                         params = "select?q=category:worker%20AND%20title:" + trimSearchText + "%2A&wt=json&rows=50";
                     }
                 }
+
+                var filteredGroup = filter.selectedGroup;
+                var filteredCompany = filter.selectedCompany;
+                var filteredLocation = filter.selectedLocation;
 
                 var URL = SOLR_URL + params;
                 // var URL = SOLR_URL + "select?q=*:*";

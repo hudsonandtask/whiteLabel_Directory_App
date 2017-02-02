@@ -5,7 +5,7 @@ body {
     padding: 0;
 }
 
-.title.title-center.header-item {
+.title .title-center .header-item {
 
 }
 
@@ -17,8 +17,21 @@ body {
 
 }
 
+.bar .title {
+  height: 55px;
+  text-align: center;
+}
+
+.platform-android .bar .title {
+  text-align: center;
+}
+
 .bar-header {
   border-bottom-width: 0px;
+}
+
+.bar-subheader {
+  top: 55px;
 }
 
 .list {

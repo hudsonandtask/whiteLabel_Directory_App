@@ -1,6 +1,6 @@
 angular.module('directory.controllers.filterController', [])
        .controller('filterController', function ($scope, $state, $q, $ionicLoading, $cordovaKeyboard, filterService) {
-
+            // initializes variables
             $scope.filter = {};
             $scope.groups = [];
             $scope.companies = [];
@@ -18,6 +18,8 @@ angular.module('directory.controllers.filterController', [])
                     $scope.companies = $scope.getCompanies(biz);
                     $scope.groups = $scope.getGroups(biz);
                     $scope.locations = $scope.getLocations(loc);
+
+                    $scope.filter = filterService.getFilterCache();
                 }, function(reason) {
                     // Error callback where reason is the value of the first rejected promise
                     $ionicLoading.hide();
@@ -37,7 +39,9 @@ angular.module('directory.controllers.filterController', [])
             };
 
             $scope.applyFilter = function () {
-                $state.go('search', { filter: $scope.filter });
+                filterService.setFilterCache($scope.filter);
+                
+                $state.go('search');
             };
 
             $scope.getCompanies = function (list) {
