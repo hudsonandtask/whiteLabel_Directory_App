@@ -5,7 +5,33 @@ body {
     padding: 0;
 }
 
-.list {}
+.title .title-center .header-item {
+
+}
+
+.logo {
+  padding-bottom: 6px;
+}
+
+.nav-bar-title {
+
+}
+
+.bar .title {
+  height: 55px;
+}
+
+.bar-header {
+  border-bottom-width: 0px;
+}
+
+.bar-subheader {
+  top: 55px;
+}
+
+.list {
+
+}
 
 .contact {
     margin: 0px 0px 20px 0px !important;

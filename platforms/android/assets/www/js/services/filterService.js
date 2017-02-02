@@ -13,6 +13,8 @@ angular.module('directory.services.filterService', [])
                 var URL = TEMP_URL + "/api/v1/taxonomy/idm_businesssegment";
                 var dataRequest = JSON.parse(angular.toJson(""));
 
+                // console.log(URL);
+
                 $http({
                     method: 'GET',
                     url: URL,
@@ -20,10 +22,13 @@ angular.module('directory.services.filterService', [])
                     cache: false,
                     timeout: 30000
                 }).success(function (data, status, config) {
-                    console.log("Success" + data.response.data);
-                    deferred.resolve(data.response.data);
+                    // console.log("susccess");
+                    // console.log("Success" + angular.toJson(data.data));
+                    // deferred.resolve(data.response.data);
+                    deferred.resolve(data.data);
                 }).error(function (data, status) {
-                    console.log("Error" + data.response.data);
+                    // console.log("fail");
+                    // console.log("Error" + data.response.data);
                     deferred.reject(status);
                 });
                 return deferred.promise;
@@ -31,8 +36,8 @@ angular.module('directory.services.filterService', [])
             getAllLocations: function () {
                 var deferred = $q.defer();
 
-                deferred.resolve({"265":{"tid":"265","parent":"0","name":"Atlanta, GA ","machine_name":["604000000"],"children":[]},"263":{"tid":"263","parent":"0","name":"Englewood Cliffs, NJ","machine_name":["usnjenc1","usnjenc3"],"children":[]},"258":{"tid":"258","parent":"0","name":"Hialeah, FL","machine_name":["usflhia1"],"children":[]},"264":{"tid":"264","parent":"0","name":"London, GB","machine_name":["gblon011"],"children":[]},"266":{"tid":"266","parent":"0","name":"Los Angeles, CA","machine_name":["uscalag8","uscalag7","uscalag3"],"children":[]},"260":{"tid":"260","parent":"0","name":"New York, NY","machine_name":["usnyny11","usnyny22","usnyothr"],"children":[]},"257":{"tid":"257","parent":"0","name":"Orlando, FL","machine_name":["usflorl2","usflorl3"],"children":[]},"261":{"tid":"261","parent":"0","name":"Philadelphia, PA","machine_name":["ccpap22"],"children":[]},"262":{"tid":"262","parent":"0","name":"Stamford, CT","machine_name":["usctsta4"],"children":[]},"259":{"tid":"259","parent":"0","name":"Universal City, CA","machine_name":["uscauni1","uscauni2"],"children":[]}});
-                return deferred.promise;
+                // deferred.resolve({"265":{"tid":"265","parent":"0","name":"Atlanta, GA ","machine_name":["604000000"],"children":[]},"263":{"tid":"263","parent":"0","name":"Englewood Cliffs, NJ","machine_name":["usnjenc1","usnjenc3"],"children":[]},"258":{"tid":"258","parent":"0","name":"Hialeah, FL","machine_name":["usflhia1"],"children":[]},"264":{"tid":"264","parent":"0","name":"London, GB","machine_name":["gblon011"],"children":[]},"266":{"tid":"266","parent":"0","name":"Los Angeles, CA","machine_name":["uscalag8","uscalag7","uscalag3"],"children":[]},"260":{"tid":"260","parent":"0","name":"New York, NY","machine_name":["usnyny11","usnyny22","usnyothr"],"children":[]},"257":{"tid":"257","parent":"0","name":"Orlando, FL","machine_name":["usflorl2","usflorl3"],"children":[]},"261":{"tid":"261","parent":"0","name":"Philadelphia, PA","machine_name":["ccpap22"],"children":[]},"262":{"tid":"262","parent":"0","name":"Stamford, CT","machine_name":["usctsta4"],"children":[]},"259":{"tid":"259","parent":"0","name":"Universal City, CA","machine_name":["uscauni1","uscauni2"],"children":[]}});
+                // return deferred.promise;
 
                 var URL = TEMP_URL + "/api/v1/taxonomy/idm_location";
                 var dataRequest = JSON.parse(angular.toJson(""));
@@ -44,7 +49,9 @@ angular.module('directory.services.filterService', [])
                     cache: false,
                     timeout: 30000
                 }).success(function (data, status, config) {
-                    deferred.resolve(data.response.data);
+                    // deferred.resolve(data.response.data);
+                    // console.log("test");
+                    deferred.resolve(data.data);
                 }).error(function (data, status) {
                     deferred.reject(status);
                 });
