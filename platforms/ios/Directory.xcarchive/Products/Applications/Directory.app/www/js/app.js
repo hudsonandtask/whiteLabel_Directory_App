@@ -2,7 +2,7 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
                                         'directory.services.searchService', 'directory.controllers.searchController', 
                                         'directory.services.profileService', 'directory.controllers.profileController', 
                                         'directory.services.networkService', 'ngCordova'])
-    .run(function ($ionicPlatform, $ionicPopup, networkService) {
+    .run(function ($ionicPlatform, $ionicPopup, networkService, CacheFactory) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);

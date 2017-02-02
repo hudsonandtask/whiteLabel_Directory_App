@@ -1,20 +1,22 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($scope, $state, $stateParams, appData, $ionicLoading, $cordovaKeyboard, searchService) {
+    .controller('searchController', function ($scope, $state, appData, $ionicLoading, $cordovaKeyboard, filterService, searchService) {
 
         $scope.searchKey = "";
 
         $scope.clearSearch = function () {
             console.log("clearing search terms");
             $scope.searchKey = "";
+
+            filterService.removeFilterCache();
         };
 
         $scope.search = function () {
             $cordovaKeyboard.close();
             $ionicLoading.show();
 
-            var test = $stateParams.filter;
+            var cachedFilter = filterService.getFilterCache();
 
-            searchService.searchByName($scope.searchKey).then(function (result) {
+            searchService.searchByName($scope.searchKey, cachedFilter).then(function (result) {
                 $scope.employeeList = result;
                 $ionicLoading.hide();
             }, function (error) {
