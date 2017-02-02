@@ -1,3 +1,7 @@
+* {
+  line-height: 1.5;
+}
+
 body {
     font-family: rock-sans-normal;
     font-size: 18px;
@@ -47,6 +51,7 @@ body {
     color: #ffffff;
     font-size: 18px;
     font-weight: bold !important;
+    padding-top: 4px;
 }
 
 .purple-icon {
@@ -70,11 +75,20 @@ span.back-text {
 }
 
 .filter-bar {
-    margin-top: 44px;
+    top: 98px;
     border-radius: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.bar.bar-subheader.bar-light.filter-bar {
+  background-color: #eef0f3;
+  height: 48px;
+}
+
+.bar.bar-subheader.bar-light.filter-bar a {
+  line-height: 52px;
 }
 
 .filter-bar > a {
@@ -115,6 +129,7 @@ span.back-text {
     color: #ffffff;
     line-height: normal;
     margin: 0px;
+    color: #fff;
 }
 
 .search-input::-moz-placeholder {
@@ -151,6 +166,14 @@ input:-ms-input-placeholder {
     color: #a7b6c0;
     line-height: normal;
 }
+
+.has-subheader.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer {
+  top: 136px;
+}
+
+/*.has-header {
+  top: 136px;
+}*/
 
 .search-result {}
 

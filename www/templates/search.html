@@ -4,11 +4,12 @@
         <form class="search-form" ng-submit="search()">
             <div class="item-input-wrapper search-wrapper">
                 <i class="icon white-icon icon-search"></i>
-                <input type="search" placeholder="Search for..." ng-model="searchKey" class="search-control" />
+                <input type="search" placeholder="Search" ng-model="searchKey" class="search-control" />
                 <i ng-if="searchKey.length > 0" ng-click="clearSearch()" class="icon white-icon icon-cancel"></i>
             </div>
         </form>
     </div>
+
     <div class='bar bar-subheader bar-light filter-bar'>
         <a class="title bar-light" href="{{getFilterURL()}}">FILTER ></a>
     </div>
