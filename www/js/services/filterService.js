@@ -67,11 +67,7 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
                 return deferred.promise;
             },
             getFilterCache: function () {
-                if (!filterCache) {
-                    filterCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
-                }
-
-                return filterCache.get(cacheKey) || {};
+                return (filterCache)? filterCache.get(cacheKey) : {};
             },
             setFilterCache: function (filter) {
                 if (!filterCache) {
@@ -82,7 +78,7 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
             },
             removeFilterCache: function () {
                 if (filterCache) {
-                    filterCache.destroy();
+                    filterCache.put(cacheKey, {});
                 }
             }
         };

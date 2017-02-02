@@ -20,10 +20,6 @@ angular.module('directory.controllers.searchController', [])
             }
         });
 
-        $scope.$on('$ionicView.afterEnter', function () {
-            var test = $ionicHistory.backView();
-        });
-
         $scope.cacheSearchKey = function () {
             if ($scope.searchKey.length) {
                 searchService.setSearchKeyCache($scope.searchKey);

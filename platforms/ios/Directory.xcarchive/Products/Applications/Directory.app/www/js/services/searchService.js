@@ -220,11 +220,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
             },
 
             getSearchKeyCache: function () {
-                if (!searchKeyCache) {
-                    searchKeyCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
-                }
-
-                return searchKeyCache.get(cacheKey) || '';
+                return (searchKeyCache)? searchKeyCache.get(cacheKey) : '';
             },
 
             setSearchKeyCache: function (searchKey) {
@@ -237,7 +233,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
 
             removeSearchKeyCache: function () {
                 if (searchKeyCache) {
-                    searchKeyCache.destroy();
+                    searchKeyCache.put(cacheKey, '');
                 }
             }
         }

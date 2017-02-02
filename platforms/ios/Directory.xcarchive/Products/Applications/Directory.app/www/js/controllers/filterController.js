@@ -18,8 +18,6 @@ angular.module('directory.controllers.filterController', [])
                     $scope.groups = $scope.getGroups(biz);
                     $scope.locations = $scope.getLocations(loc);
 
-                    $scope.filter = filterService.getFilterCache();
-
                     $ionicLoading.hide();
                 }, function(reason) {
                     // Error callback where reason is the value of the first rejected promise
@@ -30,6 +28,10 @@ angular.module('directory.controllers.filterController', [])
                     $scope.companies = [];
                     $scope.locations = [];
                 });
+            });
+
+            $scope.$on('$ionicView.enter', function () {
+                $scope.filter = filterService.getFilterCache();
             });
 
             $scope.onChangeGroup = function () {
@@ -45,11 +47,13 @@ angular.module('directory.controllers.filterController', [])
             $scope.goBackToSearch = function () {
                 $forwardView = $ionicHistory.forwardView();
                 if ($forwardView) {
+                    $forwardView.stateParams.filter = JSON.stringify(filterService.getFilterCache());
                     $forwardView.go();
                 }
-
-                $backView = $ionicHistory.backView();
-	            $backView.go();
+                else {
+                    $backView = $ionicHistory.backView();
+                    $backView.go();
+                }
             };
 
             $scope.getCompanies = function (list) {
