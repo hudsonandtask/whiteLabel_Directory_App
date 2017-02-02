@@ -9,9 +9,10 @@
             </div>
         </form>
     </div>
-
+    
     <div class='bar bar-subheader bar-light filter-bar'>
-        <a class="title bar-light" href="{{getFilterURL()}}">FILTER ></a>
+        <!--<button class="button button-full bar-light" ng-click="gotoFilter">FILTER ></button>-->
+        <a nav-direction="forward" class="title bar-light" href="{{getFilterURL()}}" ng-click="cacheSearchKey()">FILTER ></a>
     </div>
 
     <ion-content class="has-header has-subheader has-footer">

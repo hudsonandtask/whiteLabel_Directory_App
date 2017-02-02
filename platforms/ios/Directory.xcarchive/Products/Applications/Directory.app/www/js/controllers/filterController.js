@@ -1,13 +1,12 @@
 angular.module('directory.controllers.filterController', [])
-       .controller('filterController', function ($scope, $state, $q, $ionicLoading, $cordovaKeyboard, filterService) {
+       .controller('filterController', function ($scope, $state, $q, $ionicHistory, $ionicLoading, $cordovaKeyboard, filterService) {
             // initializes variables
             $scope.filter = {};
             $scope.groups = [];
             $scope.companies = [];
             $scope.locations = [];
 
-            // loads filters for groups, companies, and locations
-            var loadFilters = function () {
+            $scope.$on('$ionicView.loaded', function () {
                 $ionicLoading.show();
 
                 var promises = [ filterService.getAllBusiness(), filterService.getAllLocations() ];
@@ -20,6 +19,8 @@ angular.module('directory.controllers.filterController', [])
                     $scope.locations = $scope.getLocations(loc);
 
                     $scope.filter = filterService.getFilterCache();
+
+                    $ionicLoading.hide();
                 }, function(reason) {
                     // Error callback where reason is the value of the first rejected promise
                     $ionicLoading.hide();
@@ -29,10 +30,7 @@ angular.module('directory.controllers.filterController', [])
                     $scope.companies = [];
                     $scope.locations = [];
                 });
-            };
-
-            loadFilters();
-            $ionicLoading.hide();
+            });
 
             $scope.onChangeGroup = function () {
                 $scope.companies = $scope.getChildGroups(filter.selectedGroup);
@@ -40,8 +38,18 @@ angular.module('directory.controllers.filterController', [])
 
             $scope.applyFilter = function () {
                 filterService.setFilterCache($scope.filter);
-                
-                $state.go('search');
+
+                $state.go('search.filter', { filter: JSON.stringify($scope.filter) });
+            };
+
+            $scope.goBackToSearch = function () {
+                $forwardView = $ionicHistory.forwardView();
+                if ($forwardView) {
+                    $forwardView.go();
+                }
+
+                $backView = $ionicHistory.backView();
+	            $backView.go();
             };
 
             $scope.getCompanies = function (list) {
@@ -94,7 +102,8 @@ angular.module('directory.controllers.filterController', [])
                     locations = list.map(function(item) {
                         return {
                             tid: item.tid,
-                            name: item.name
+                            name: item.name,
+                            machine_name: item.machine_name
                         };
                     });
                 }

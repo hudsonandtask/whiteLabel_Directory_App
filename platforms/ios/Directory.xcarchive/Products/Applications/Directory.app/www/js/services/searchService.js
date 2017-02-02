@@ -1,7 +1,10 @@
-angular.module('directory.services.searchService', [])
-    .factory('searchService', function ($q, $http) {
+angular.module('directory.services.searchService', [ 'angular-cache' ])
+    .factory('searchService', function ($q, $http, CacheFactory) {
         var SOLR_URL = "http://solr.inbcu.com:8080/solr/collection1/";
         // var D8_URL = "http://dev.nbcunow.com/api/v1/taxonomy/";
+
+        var cacheKey = 'SEARCH_KEY_CACHE';
+        var searchKeyCache;
 
         var testListData = [{
             "id": "1",
@@ -81,29 +84,68 @@ angular.module('directory.services.searchService', [])
                 var regexCharSpaceStr = /^[a-zA-Z ]*$/;
 
                 // TODO: need select list values here?
-
-                if (regexCharStr.test(trimSearchText)) {
-                    params = "select?q=category:worker%20AND%20title:" + trimSearchText + "%2A&wt=json&rows=50";
-                } else if (regexCharSpaceStr.test(trimSearchText)) {
-                    params = "select?q=category:worker%20AND%20title:%22" + trimSearchText.replace(/[\s,]+/g, '%20') + "%22&wt=json&rows=50";
-                } else {
-                    if (trimSearchText.indexOf(",") != -1) {
-                        var getCommaStr = trimSearchText.split(",");
-                        params = "select?q=category:worker%20AND%20title:%22" + getCommaStr[1] + "%20" + getCommaStr[0] + "%22&wt=json&rows=50";
-                    } else {
-                        params = "select?q=category:worker%20AND%20title:" + trimSearchText + "%2A&wt=json&rows=50";
-                    }
-                }
-
                 var filteredGroup = filter.selectedGroup;
                 var filteredCompany = filter.selectedCompany;
                 var filteredLocation = filter.selectedLocation;
+
+                console.log(trimSearchText);
+                console.log(filteredGroup);
+                console.log(filteredCompany);
+                console.log(filteredLocation);
+
+                if (regexCharStr.test(trimSearchText)) {
+                    params = "select?q=category:worker%20AND%20title:%22" + trimSearchText + "%22";
+                } else if (regexCharSpaceStr.test(trimSearchText)) {
+                    params = "select?q=category:worker%20AND%20title:%22" + trimSearchText.replace(/[\s,]+/g, '%20')  + "%22";
+                } else {
+                    if (trimSearchText.indexOf(",") != -1) {
+                        var getCommaStr = trimSearchText.split(",");
+                        params = "select?q=category:worker%20AND%20title:%22" + getCommaStr[1] + "%20" + getCommaStr[0]  + "%22";
+                    } else {
+                        params = "select?q=category:worker%20AND%20title:" + trimSearchText  + "%22";
+                    }
+                }
+
+                // 1a. location
+                if (filteredLocation) {
+                    var locations = JSON.parse(filteredLocation);
+                    console.log(locations);
+                    console.log(locations.join(" "));
+                    params += "&fq=locationid:(" + locations.join(" ") + ")";
+                }
+
+                // 1b. group
+                if (filteredGroup) {
+                  // $search_query .= '&fq=businesssegment:' . $query['group'];
+                  params += "&fq=businesssegment:" + filteredGroup;
+                }
+
+                // 1b. subgroup
+                if (filteredCompany) {
+                  // $search_query .= '&fq=subbusinesssegment:' . $query['subgroup'];
+                  params += "&fq=subbusinesssegment:" + filteredCompany;
+                }
+
+                //     // category: worker
+                // $search_query .= 'fq=category:worker';
+                // // Only include requested user types (exclude Function and Partner usertypes)
+                // $search_query .= '&fq=usertype:(Contractor%20OR%20Daily%20Hire%20OR%20Employee%20OR%20Expat%20OR%20Hourly)';
+                params += '&fq=usertype:(Contractor%20OR%20Daily%20Hire%20OR%20Employee%20OR%20Expat%20OR%20Hourly)';
+                // // num rows and others
+                // $search_query .= '&wt=json&indent=true&rows=' . $rows;
+                // // start
+                // $search_query .= '&start=' . $start;
+                // // sort
+                // $search_query .= '&sort=firstname+asc, lastname+asc, businessphone+asc';
+                params += '&sort=firstname+asc, lastname+asc, businessphone+asc';
+
+                params += "&wt=json&rows=50";
 
                 var URL = SOLR_URL + params;
                 // var URL = SOLR_URL + "select?q=*:*";
 
                 // console.log(trimSearchText);
-                // console.log(D8_URL);
+                console.log(URL);
 
                 // var keyword = {keyword: trimSearchText};
                 // console.log(angular.toJson(keyword));
@@ -175,7 +217,28 @@ angular.module('directory.services.searchService', [])
                     deferred.reject(status);
                 });
                 return deferred.promise;
-            }
+            },
 
+            getSearchKeyCache: function () {
+                if (!searchKeyCache) {
+                    searchKeyCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
+                }
+
+                return searchKeyCache.get(cacheKey) || '';
+            },
+
+            setSearchKeyCache: function (searchKey) {
+                if (!searchKeyCache) {
+                    searchKeyCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
+                }
+
+                searchKeyCache.put(cacheKey, searchKey);
+            },
+
+            removeSearchKeyCache: function () {
+                if (searchKeyCache) {
+                    searchKeyCache.destroy();
+                }
+            }
         }
     });

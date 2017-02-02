@@ -2,7 +2,7 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
                                         'directory.services.searchService', 'directory.controllers.searchController', 
                                         'directory.services.profileService', 'directory.controllers.profileController', 
                                         'directory.services.networkService', 'ngCordova'])
-    .run(function ($ionicPlatform, $ionicPopup, networkService, CacheFactory) {
+    .run(function ($ionicPlatform, $ionicPopup, networkService) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -51,6 +51,11 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
             })
             .state('search', {
                 url: '/search',
+                templateUrl: 'templates/search.html',
+                controller: 'searchController'
+            })
+            .state('search.filter', {
+                url: '/search/:filter',
                 templateUrl: 'templates/search.html',
                 controller: 'searchController'
             })

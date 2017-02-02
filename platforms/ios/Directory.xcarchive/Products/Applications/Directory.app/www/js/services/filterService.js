@@ -4,10 +4,20 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
         var TEMP_URL = "http://www.nbcunow.com";
 
         var cacheKey = 'FILTER_CACHE';
-        var filterCache;
+        var cacheKeyBiz = 'FILTER_HTTP_BIZ';
+        var cacheKeyLoc = 'FILTER_HTTP_LOC';
+        
+        var filterCache, bizRequestCache, locRequestCache;
 
         return {
             getAllBusiness: function () {
+                if (bizRequestCache) {
+                    return bizRequestCache.get(cacheKeyBiz);
+                }
+                else {
+                    bizRequestCache = CacheFactory(cacheKeyBiz, { storageMode: 'sessionStorage' });
+                }
+
                 var deferred = $q.defer();
 
                 var URL = TEMP_URL + "/api/v1/taxonomy/idm_businesssegment";
@@ -20,6 +30,8 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
                     cache: false,
                     timeout: 30000
                 }).success(function (data, status, config) {
+                    bizRequestCache.put(cacheKeyBiz, data.data);
+
                     deferred.resolve(data.data);
                 }).error(function (data, status) {
                     deferred.reject(status);
@@ -27,6 +39,13 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
                 return deferred.promise;
             },
             getAllLocations: function () {
+                if (locRequestCache) {
+                    return locRequestCache.get(cacheKeyLoc);
+                }
+                else {
+                    locRequestCache = CacheFactory(cacheKeyLoc, { storageMode: 'sessionStorage' });
+                }
+
                 var deferred = $q.defer();
 
                 var URL = TEMP_URL + "/api/v1/taxonomy/idm_location";
@@ -39,6 +58,8 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
                     cache: false,
                     timeout: 30000
                 }).success(function (data, status, config) {
+                    locRequestCache.put(cacheKeyLoc, data.data);
+
                     deferred.resolve(data.data);
                 }).error(function (data, status) {
                     deferred.reject(status);
@@ -46,18 +67,23 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
                 return deferred.promise;
             },
             getFilterCache: function () {
-                filterCache = CacheFactory.get(cacheKey);
                 if (!filterCache) {
-                    filterCache = CacheFactory.createCache(cacheKey, { storageMode: 'sessionStorage' });
+                    filterCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
                 }
 
-                return filterCache;
+                return filterCache.get(cacheKey) || {};
             },
             setFilterCache: function (filter) {
-                filterCache.put(filter);
+                if (!filterCache) {
+                    filterCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
+                }
+
+                filterCache.put(cacheKey, filter);
             },
             removeFilterCache: function () {
-                filterCache.destroy();
+                if (filterCache) {
+                    filterCache.destroy();
+                }
             }
         };
     });

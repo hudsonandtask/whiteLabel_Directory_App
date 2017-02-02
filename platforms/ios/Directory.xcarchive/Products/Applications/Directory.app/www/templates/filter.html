@@ -1,6 +1,14 @@
-<ion-view>
+<ion-view class="filter-pane">
 
-    <ion-content class="has-header has-subheader has-footer">
+  <ion-nav-bar>
+      <ion-nav-back-button class="icon ion-chevron-left" ng-click="goBackToSearch()">Back</ion-nav-back-button>
+
+      <ion-nav-title>
+          <div class="filter-pane-title">FILTER BY</div>
+      </ion-nav-title>
+  </ion-nav-bar>
+
+    <ion-content class="has-header has-subheader has-footer filter-pane-content">
         <div class="list">
 
             <label class="item item-input item-select">
@@ -35,13 +43,15 @@
                 </div>
                 <select ng-model="filter.selectedLocation">
                     <option value="">- all -</option>
-                    <option ng-repeat="loc in locations" value="{{loc.name}}">{{ loc.name }}</option>
+                    <option ng-repeat="loc in locations" value="{{loc.machine_name}}">{{ loc.name }}</option>
                 </select>
             </label>
 
         </div>
         <ion-fab bottom >
-            <button class="button button-full bar-light" ng-click="applyFilter()">APPLY</button>
+            <ion-nav-button>
+                <button class="button button-full bar-light" ng-click="applyFilter()">APPLY</button>
+            </ion-nav-button>
         </ion-fab>
     </ion-content>
 
