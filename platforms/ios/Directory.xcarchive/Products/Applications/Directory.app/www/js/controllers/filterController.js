@@ -41,19 +41,11 @@ angular.module('directory.controllers.filterController', [])
             $scope.applyFilter = function () {
                 filterService.setFilterCache($scope.filter);
 
-                $state.go('search.filter', { filter: JSON.stringify($scope.filter) });
-            };
+                $ionicHistory.nextViewOptions({
+                    historyRoot: true
+                });
 
-            $scope.goBackToSearch = function () {
-                $forwardView = $ionicHistory.forwardView();
-                if ($forwardView) {
-                    $forwardView.stateParams.filter = JSON.stringify(filterService.getFilterCache());
-                    $forwardView.go();
-                }
-                else {
-                    $backView = $ionicHistory.backView();
-                    $backView.go();
-                }
+                $state.go('search.filter', { filter: JSON.stringify($scope.filter) });
             };
 
             $scope.getCompanies = function (list) {
