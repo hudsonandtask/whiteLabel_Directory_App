@@ -1,13 +1,12 @@
 angular.module('directory.controllers.filterController', [])
-       .controller('filterController', function ($scope, $state, $q, $ionicLoading, $cordovaKeyboard, filterService) {
+       .controller('filterController', function ($scope, $state, $q, $ionicHistory, $ionicLoading, $cordovaKeyboard, filterService) {
             // initializes variables
             $scope.filter = {};
             $scope.groups = [];
             $scope.companies = [];
             $scope.locations = [];
 
-            // loads filters for groups, companies, and locations
-            var loadFilters = function () {
+            $scope.$on('$ionicView.loaded', function () {
                 $ionicLoading.show();
 
                 var promises = [ filterService.getAllBusiness(), filterService.getAllLocations() ];
@@ -19,7 +18,7 @@ angular.module('directory.controllers.filterController', [])
                     $scope.groups = $scope.getGroups(biz);
                     $scope.locations = $scope.getLocations(loc);
 
-                    $scope.filter = filterService.getFilterCache();
+                    $ionicLoading.hide();
                 }, function(reason) {
                     // Error callback where reason is the value of the first rejected promise
                     $ionicLoading.hide();
@@ -29,10 +28,11 @@ angular.module('directory.controllers.filterController', [])
                     $scope.companies = [];
                     $scope.locations = [];
                 });
-            };
+            });
 
-            loadFilters();
-            $ionicLoading.hide();
+            $scope.$on('$ionicView.enter', function () {
+                $scope.filter = filterService.getFilterCache();
+            });
 
             $scope.onChangeGroup = function () {
                 $scope.companies = $scope.getChildGroups(filter.selectedGroup);
@@ -41,7 +41,11 @@ angular.module('directory.controllers.filterController', [])
             $scope.applyFilter = function () {
                 filterService.setFilterCache($scope.filter);
 
-                $state.go('search');
+                $ionicHistory.nextViewOptions({
+                    historyRoot: true
+                });
+
+                $state.go('search.filter', { filter: JSON.stringify($scope.filter) });
             };
 
             $scope.getCompanies = function (list) {

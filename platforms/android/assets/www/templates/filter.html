@@ -1,12 +1,12 @@
 <ion-view class="filter-pane">
 
-  <ion-nav-bar>
-      <ion-nav-back-button class="icon ion-chevron-left">Back</ion-nav-back-button>
+    <!--<ion-nav-bar>
+        <ion-nav-back-button class="icon ion-chevron-left">Back</ion-nav-back-button>
 
-      <ion-nav-title>
-          <div class="filter-pane-title">FILTER BY</div>
-      </ion-nav-title>
-  </ion-nav-bar>
+        <ion-nav-title>
+            <div class="filter-pane-title">FILTER BY</div>
+        </ion-nav-title>
+    </ion-nav-bar>-->
 
     <ion-content class="has-header has-subheader has-footer filter-pane-content">
         <div class="list">
@@ -49,7 +49,9 @@
 
         </div>
         <ion-fab bottom >
-            <button class="button button-full bar-light" ng-click="applyFilter()">APPLY</button>
+            <ion-nav-button>
+                <button class="button button-full bar-light" ng-click="applyFilter()">APPLY</button>
+            </ion-nav-button>
         </ion-fab>
     </ion-content>
 

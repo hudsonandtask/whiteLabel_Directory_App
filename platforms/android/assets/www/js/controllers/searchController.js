@@ -2,11 +2,36 @@ angular.module('directory.controllers.searchController', [])
     .controller('searchController', function ($scope, $state, appData, $ionicLoading, $cordovaKeyboard, filterService, searchService) {
 
         $scope.searchKey = "";
+        $scope.filter = {};
+
+        $scope.$on('$ionicView.loaded', function () {
+            var filter = $state.params.filter || {};
+            if (filter && filter.length) {
+                $scope.filter = JSON.parse(filter);
+            }
+            if (!$scope.searchKey.length) {
+                var cachedSearchKey = searchService.getSearchKeyCache();
+                if (cachedSearchKey) {
+                    $scope.searchKey = cachedSearchKey;
+                }
+            }
+            if ($scope.filter && $scope.searchKey.length) {
+                $scope.search();
+            }
+        });
+
+        $scope.cacheSearchKey = function () {
+            if ($scope.searchKey.length) {
+                searchService.setSearchKeyCache($scope.searchKey);
+            }
+        };
 
         $scope.clearSearch = function () {
             console.log("clearing search terms");
             $scope.searchKey = "";
-
+            $scope.filter = "";
+            
+            searchService.removeSearchKeyCache();
             filterService.removeFilterCache();
         };
 
@@ -14,9 +39,7 @@ angular.module('directory.controllers.searchController', [])
             $cordovaKeyboard.close();
             $ionicLoading.show();
 
-            var cachedFilter = filterService.getFilterCache();
-
-            searchService.searchByName($scope.searchKey, cachedFilter).then(function (result) {
+            searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {
                 $scope.employeeList = result;
                 $ionicLoading.hide();
             }, function (error) {

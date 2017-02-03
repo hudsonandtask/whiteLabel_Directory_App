@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		0FED18F9AD4E43E2BE65BFCC /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D42C490CC0AB42A98EA0FD7E /* CDVSplashScreen.m */; };
@@ -249,7 +250,7 @@
 				LastUpgradeCheck = 820;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = YRES4W7K56;
+						DevelopmentTeam = 2A25GE77WB;
 					};
 				};
 			};
@@ -356,7 +357,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = YRES4W7K56;
+				DEVELOPMENT_TEAM = 2A25GE77WB;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -382,7 +383,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = YRES4W7K56;
+				DEVELOPMENT_TEAM = 2A25GE77WB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Directory/Directory-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;

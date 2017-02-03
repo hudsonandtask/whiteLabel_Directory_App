@@ -1,7 +1,10 @@
-angular.module('directory.services.searchService', [])
-    .factory('searchService', function ($q, $http) {
+angular.module('directory.services.searchService', [ 'angular-cache' ])
+    .factory('searchService', function ($q, $http, CacheFactory) {
         var SOLR_URL = "http://solr.inbcu.com:8080/solr/collection1/";
         // var D8_URL = "http://dev.nbcunow.com/api/v1/taxonomy/";
+
+        var cacheKey = 'SEARCH_KEY_CACHE';
+        var searchKeyCache;
 
         var testListData = [{
             "id": "1",
@@ -214,7 +217,24 @@ angular.module('directory.services.searchService', [])
                     deferred.reject(status);
                 });
                 return deferred.promise;
-            }
+            },
 
+            getSearchKeyCache: function () {
+                return (searchKeyCache)? searchKeyCache.get(cacheKey) : '';
+            },
+
+            setSearchKeyCache: function (searchKey) {
+                if (!searchKeyCache) {
+                    searchKeyCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
+                }
+
+                searchKeyCache.put(cacheKey, searchKey);
+            },
+
+            removeSearchKeyCache: function () {
+                if (searchKeyCache) {
+                    searchKeyCache.put(cacheKey, '');
+                }
+            }
         }
     });
