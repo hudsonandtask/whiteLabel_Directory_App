@@ -191,6 +191,10 @@ input:-ms-input-placeholder {
   bottom: 47px;
 }
 
+.search-list-row-odd > a.item-content {
+    background-color: #a7b6c0;
+}
+
 /*.has-header {
   top: 136px;
 }*/

@@ -1,5 +1,5 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($scope, $state, appData, $ionicHistory, $ionicLoading, $cordovaKeyboard, filterService, searchService) {
+    .controller('searchController', function ($scope, $state, appData, $ionicLoading, $cordovaKeyboard, filterService, searchService) {
 
         $scope.searchKey = "";
         $scope.filter = {};
@@ -29,7 +29,8 @@ angular.module('directory.controllers.searchController', [])
         $scope.clearSearch = function () {
             console.log("clearing search terms");
             $scope.searchKey = "";
-
+            $scope.filter = "";
+            
             searchService.removeSearchKeyCache();
             filterService.removeFilterCache();
         };

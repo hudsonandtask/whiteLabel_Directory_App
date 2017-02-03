@@ -29,7 +29,8 @@ angular.module('directory.controllers.searchController', [])
         $scope.clearSearch = function () {
             console.log("clearing search terms");
             $scope.searchKey = "";
-
+            $scope.filter = "";
+            
             searchService.removeSearchKeyCache();
             filterService.removeFilterCache();
         };
