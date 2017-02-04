@@ -139,7 +139,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 // $search_query .= '&sort=firstname+asc, lastname+asc, businessphone+asc';
                 params += '&sort=firstname+asc, lastname+asc, businessphone+asc';
 
-                params += "&wt=json&rows=50";
+                params += "&wt=json&rows=1000";
 
                 var URL = SOLR_URL + params;
                 // var URL = SOLR_URL + "select?q=*:*";

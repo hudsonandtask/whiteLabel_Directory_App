@@ -191,8 +191,8 @@ input:-ms-input-placeholder {
   bottom: 47px;
 }
 
-.search-list-row-odd > a.item-content {
-    background-color: #a7b6c0;
+.search-list-row-even > a.item-content {
+    background-color: #fafafa;
 }
 
 /*.has-header {

@@ -10,16 +10,16 @@ angular.module('directory.controllers.profileController', [])
                     searchService.searchById($scope.employee.manager.managerId).then(function (result) {
                         $scope.managers = result;
 
-                        // FIX THIS: IT FAILS
-                        // if (!($scope.employee.custom_hrmanager === undefined) || !($scope.employee.custom_hrmanager === null)) {
-                        //   searchService.searchById($scope.employee.custom_hrmanager.custom_hrmanagerid).then(function (result) {
-                        //       $scope.hrmanagers = result;
-                        //       $ionicLoading.hide();
-                        //   }, function (error) {
-                        //       $ionicLoading.hide();
-                        //       $scope.hrmanagers = [];
-                        //   });
-                        // }
+                        // // FIX THIS: IT FAILS
+                        if (($scope.employee.custom_hrmanager) || ($scope.employee.custom_hrmanager)) {
+                          searchService.searchById($scope.employee.custom_hrmanager.custom_hrmanagerid).then(function (result) {
+                              $scope.hrmanagers = result;
+                              $ionicLoading.hide();
+                          }, function (error) {
+                              $ionicLoading.hide();
+                              $scope.hrmanagers = [];
+                          });
+                        }
                     }, function (error) {
                         $ionicLoading.hide();
                         $scope.managers = [];

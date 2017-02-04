@@ -191,7 +191,7 @@ input:-ms-input-placeholder {
   bottom: 47px;
 }
 
-.search-list-row-odd > a.item-content {
+.search-list-row-even > a.item-content {
     background-color: #fafafa;
 }
 
