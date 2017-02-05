@@ -6,7 +6,7 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
         var cacheKey = 'FILTER_CACHE';
         var cacheKeyBiz = 'FILTER_HTTP_BIZ';
         var cacheKeyLoc = 'FILTER_HTTP_LOC';
-        
+
         var filterCache, bizRequestCache, locRequestCache;
 
         return {
@@ -73,6 +73,8 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
                 if (!filterCache) {
                     filterCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
                 }
+
+                console.log("Set: " + JSON.stringify(filter));
 
                 filterCache.put(cacheKey, filter);
             },

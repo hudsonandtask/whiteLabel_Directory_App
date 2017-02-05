@@ -39,11 +39,14 @@ angular.module('directory.controllers.filterController', [])
             };
 
             $scope.applyFilter = function () {
+                console.log("applying filters");
                 filterService.setFilterCache($scope.filter);
 
                 $ionicHistory.nextViewOptions({
                     historyRoot: true
                 });
+
+                console.log(JSON.stringify($scope.filter));
 
                 $state.go('search.filter', { filter: JSON.stringify($scope.filter) });
             };
@@ -96,6 +99,7 @@ angular.module('directory.controllers.filterController', [])
                 var locations = [];
                 if (list && list.length) {
                     locations = list.map(function(item) {
+                        console.log(JSON.stringify(item));
                         return {
                             tid: item.tid,
                             name: item.name,

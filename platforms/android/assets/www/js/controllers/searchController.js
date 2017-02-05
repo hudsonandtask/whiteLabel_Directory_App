@@ -3,7 +3,10 @@ angular.module('directory.controllers.searchController', [])
 
       var DEFAULT_PAGE_SIZE_STEP = 10;
       $scope.numberOfResults = 0;
-      
+
+      $scope.sttButton=false;
+      $scope.smrBlock=false;
+
       $scope.currentPage = 1;
       $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
 
@@ -44,14 +47,33 @@ angular.module('directory.controllers.searchController', [])
             $scope.currentPage = 1;
             $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
             $scope.employeeList = null;
+            $scope.sttButton=false;
+            $scope.smrBlock=false;
 
             searchService.removeSearchKeyCache();
             filterService.removeFilterCache();
         };
 
+        $scope.getScrollPosition = function() {
+          //monitor the scroll
+          var moveData = $ionicScrollDelegate.getScrollPosition().top;
+          // console.log(moveData);
+            if(moveData>150){
+              $scope.$apply(function(){
+                $scope.sttButton=true;
+              });//apply
+            } else {
+              $scope.$apply(function(){
+                $scope.sttButton=false;
+              });//apply
+            }
+        }; //getScrollPosition
+
         $scope.scrollToTop = function () {
+          // preventDefault();
           console.log("scrolling to top");
           $ionicScrollDelegate.scrollTop(true);
+          $scope.sttButton=false;  //hide the button when reached top
         };
 
         $scope.search = function () {
@@ -60,6 +82,9 @@ angular.module('directory.controllers.searchController', [])
 
             searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {
                 $scope.numberOfResults = result.length;
+                if($scope.numberOfResults > DEFAULT_PAGE_SIZE_STEP) {
+                  $scope.smrBlock=true;
+                }
                 $scope.employeeList = result;
                 $ionicLoading.hide();
             }, function (error) {

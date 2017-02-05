@@ -139,7 +139,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 // $search_query .= '&sort=firstname+asc, lastname+asc, businessphone+asc';
                 params += '&sort=firstname+asc, lastname+asc, businessphone+asc';
 
-                params += "&wt=json&rows=50";
+                params += "&wt=json&rows=1000";
 
                 var URL = SOLR_URL + params;
                 // var URL = SOLR_URL + "select?q=*:*";
@@ -159,7 +159,8 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                     cache: false,
                     timeout: 30000
                 }).success(function (data, status, config) {
-                    // console.log(String(data));
+                    console.log("SOLR Result: " + String(data));
+                    // $scope.numberOfResults = solr count
                     deferred.resolve(data.response.docs);
                 }).error(function (data, status) {
                     deferred.reject(status);
