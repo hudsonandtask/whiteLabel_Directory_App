@@ -1,5 +1,16 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($scope, $state, appData, $ionicLoading, $cordovaKeyboard, filterService, searchService) {
+    .controller('searchController', function ($scope, $state, appData, $ionicLoading, $cordovaKeyboard, filterService, searchService, $ionicScrollDelegate) {
+
+      var DEFAULT_PAGE_SIZE_STEP = 10;
+      $scope.numberOfResults = 0;
+      
+      $scope.currentPage = 1;
+      $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+
+      $scope.loadNextPage = function() {
+        $scope.currentPage++;
+        $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+      }
 
         $scope.searchKey = "";
         $scope.filter = {};
@@ -30,9 +41,17 @@ angular.module('directory.controllers.searchController', [])
             console.log("clearing search terms");
             $scope.searchKey = "";
             $scope.filter = "";
-            
+            $scope.currentPage = 1;
+            $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+            $scope.employeeList = null;
+
             searchService.removeSearchKeyCache();
             filterService.removeFilterCache();
+        };
+
+        $scope.scrollToTop = function () {
+          console.log("scrolling to top");
+          $ionicScrollDelegate.scrollTop(true);
         };
 
         $scope.search = function () {
@@ -40,6 +59,7 @@ angular.module('directory.controllers.searchController', [])
             $ionicLoading.show();
 
             searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {
+                $scope.numberOfResults = result.length;
                 $scope.employeeList = result;
                 $ionicLoading.hide();
             }, function (error) {

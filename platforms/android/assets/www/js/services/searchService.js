@@ -159,7 +159,8 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                     cache: false,
                     timeout: 30000
                 }).success(function (data, status, config) {
-                    // console.log(String(data));
+                    console.log("SOLR Result: " + String(data));
+                    // $scope.numberOfResults = solr count
                     deferred.resolve(data.response.docs);
                 }).error(function (data, status) {
                     deferred.reject(status);

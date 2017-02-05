@@ -73,7 +73,7 @@ span.back-text {
 }
 
 .bar-footer {
-    background: #000000;
+    background: purple;
     color: #ffffff;
 }
 
@@ -193,6 +193,19 @@ input:-ms-input-placeholder {
 
 .search-list-row-even > a.item-content {
     background-color: #fafafa;
+}
+
+.load-more-results {
+  background-color: #fafafa;
+  height: 80px;
+  text-align: center;
+}
+
+.scroll-to-top {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  /*z-index: 1000;*/
 }
 
 /*.has-header {
