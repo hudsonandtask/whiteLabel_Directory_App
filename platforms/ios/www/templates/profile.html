@@ -5,17 +5,23 @@
             <div class="row">
                 <img class="profile-pic" ng-src="{{getPicture(employee.id)}}" onerror="this.src='img/default-user.jpg'" />
             </div>
-            <div class="row">
+            <div class="row" ng-if="employee.name">
                 <div class="profile-name" ng-bind="getName(employee.name)"></div>
             </div>
-            <div class="row">
-                <div class="profile-name-data" ng-bind="getTitle(employee)"></div>
+            <div class="row" ng-if="employee.title">
+                <div class="profile-name-data" ng-bind="getTitle(employee)">title</div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="employee.addresses[0]">
                 <div class="profile-name-data" ng-bind="getLocation(employee.addresses[0])"></div>
             </div>
+            <div class="row" ng-if="employee.custom_orgsegment">
+                <div class="profile-name-data">{{employee.custom_orgsegment}}</div>
+            </div>
+            <div class="row" ng-if="employee.custom_orgname">
+                <div class="profile-name-data">{{employee.custom_orgname}}</div>
+            </div>
         </div>
-        <div class="profile-section profile-contact">
+        <div class="profile-section profile-contact" ng-if="employee.emails[0]">
             <div class="row">
                 <div class="profile-item">
                     <span class="profile-label ">EMAIL</span>
@@ -25,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="employee.emails[0]">
                 <div class="profile-item">
                     <span class="profile-label ">JABBER</span>
                     <div class="profile-data" ng-click="actionSendJabber(employee.emails[0])">
@@ -34,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="employee.phoneNumbers[0]">
                 <div class="profile-item">
                     <span class="profile-label ">DESK PHONE</span>
                     <div class="profile-data " ng-click="actionCallPhone(employee.phoneNumbers[0])">
@@ -43,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="employee.phoneNumbers[1]">
                 <div class="profile-item">
                     <span class="profile-label">MOBILE PHONE</span>
                     <div class="profile-data" ng-click="actionCallPhone(employee.phoneNumbers[1])">
@@ -52,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="employee.addresses[0]">
                 <div class="profile-item">
                     <span class="profile-label">OFFICE ADDRESS</span>
                     <div class="profile-data" ng-click="actionGetDirections(employee.addresses[0])">
@@ -63,13 +69,13 @@
             </div>
         </div>
         <div class="profile-section">
-            <div class="row">
+            <div class="row" ng-if="managers || hrmanagers || directReports">
                 <span class="profile-team-name" ng-bind="getTeam(employee.name)"></span>
             </div>
-            <div class="row">
+            <div class="row" ng-if="managers">
                 <span class="profile-team-role">REPORTS TO</span>
             </div>
-            <ion-list>
+            <ion-list ng-if="managers">
                 <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="manager in managers" type="item-text-wrap" href="{{getProfileURL(manager.id)}}">
                     <img ng-src="{{getPicture(manager.id)}}" onerror="this.src='img/default-user.jpg'" />
                     <div class="search-result">
@@ -80,10 +86,10 @@
                     <!-- <i class="icon ion-chevron-right"></i> -->
                 </ion-item>
             </ion-list>
-            <div class="row">
+            <div class="row" ng-if="hrmanagers">
                 <span class="profile-team-role">HR MANAGER</span>
             </div>
-            <ion-list>
+            <ion-list ng-if="hrmanagers">
                 <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="hrmanager in hrmanagers" type="item-text-wrap" href="{{getProfileURL(hrmanager.id)}}">
                     <img ng-src="{{getPicture(hrmanager.id)}}" onerror="this.src='img/default-user.jpg'" />
                     <div class="search-result">
@@ -94,10 +100,10 @@
                     <!-- <i class="icon ion-chevron-right"></i> -->
                 </ion-item>
             </ion-list>
-            <div class="row">
+            <div class="row" ng-if="directReports">
                 <span class="profile-team-role">DIRECT REPORTS</span>
             </div>
-            <ion-list>
+            <ion-list ng-if="directReports">
                 <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="directReport in directReports" type="item-text-wrap" href="{{getProfileURL(directReport.id)}}">
                     <img ng-src="{{getPicture(directReport.id)}}" onerror="this.src='img/default-user.jpg'" />
                     <div class="search-result">

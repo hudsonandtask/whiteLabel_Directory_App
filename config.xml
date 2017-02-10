@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.inbcu.corpsys.nbcunow.directory" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.inbcu.corpsys.nbcunow.directory" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Directory</name>
     <description>
         NBCUNow Directory
@@ -13,6 +13,8 @@
     <access launch-external="yes" origin="tel:*" />
     <access launch-external="yes" origin="mailto:*" />
     <access launch-external="yes" origin="ciscojabber:*" />
+    <access launch-external="yes" origin="maps:*"/>
+    <allow-navigation href="*" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="http://*:8080/*" />
@@ -21,7 +23,7 @@
     <allow-intent href="tel:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="ciscojabber:*" />
-    <allow-navigation href="*" />
+    <allow-intent href="maps:*" />
     <allow-intent href="*" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />

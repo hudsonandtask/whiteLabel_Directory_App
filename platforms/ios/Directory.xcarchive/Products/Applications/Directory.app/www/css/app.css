@@ -72,9 +72,39 @@ span.back-text {
     display: none !important;
 }
 
+.search-results-list {
+
+}
+
+.load-more-results {
+  background-color: #fafafa;
+  height: 80px;
+  text-align: center;
+}
+
 .bar-footer {
-    background: #000000;
-    color: #ffffff;
+  background: purple;
+  color: #ffffff;
+}
+
+.bar-footer .copyright {
+  color: #ffffff;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 10px;
+  right: 12px;
+  z-index: 1000000000;
+  height: 25px;
+  width: 50px;
+  color: black;
+}
+
+.fixed {
+ bottom: 50px;
+ right: 10px;
+ position: fixed;
 }
 
 .platform-android .filter-bar {
@@ -191,8 +221,8 @@ input:-ms-input-placeholder {
   bottom: 47px;
 }
 
-.search-list-row-odd > a.item-content {
-    background-color: #a7b6c0;
+.search-list-row-even > a.item-content {
+    background-color: #fafafa;
 }
 
 /*.has-header {

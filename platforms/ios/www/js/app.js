@@ -1,6 +1,6 @@
-angular.module('directory', ['ionic', 'directory.services.filterService', 'directory.controllers.filterController', 
-                                        'directory.services.searchService', 'directory.controllers.searchController', 
-                                        'directory.services.profileService', 'directory.controllers.profileController', 
+angular.module('directory', ['ionic', 'directory.services.filterService', 'directory.controllers.filterController',
+                                        'directory.services.searchService', 'directory.controllers.searchController',
+                                        'directory.services.profileService', 'directory.controllers.profileController',
                                         'directory.services.networkService', 'ngCordova'])
     .run(function ($ionicPlatform, $ionicPopup, networkService) {
         $ionicPlatform.ready(function () {
@@ -68,6 +68,6 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
     })
     .value("appData", {
         responseTimeout: 30000,
-        imagePath: "http://stage.nbcunow.com/sites/default/files/photo/",
-        imageExt: ".jpg"
+        imagePath: "http://www.nbcunow.com/sites/default/files/photo/",
+        imageExt: ".png"
     });

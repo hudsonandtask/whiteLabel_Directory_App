@@ -1,4 +1,4 @@
-angular.module('directory.controllers.profileController', [])
+angular.module('directory.controllers.profileController', ['ionic'])
     .controller('profileController', function ($scope, $state, $stateParams, $ionicLoading, appData, profileService, searchService) {
 
         var loadProfile = function () {
@@ -10,16 +10,15 @@ angular.module('directory.controllers.profileController', [])
                     searchService.searchById($scope.employee.manager.managerId).then(function (result) {
                         $scope.managers = result;
 
-                        // FIX THIS: IT FAILS
-                        // if (!($scope.employee.custom_hrmanager === undefined) || !($scope.employee.custom_hrmanager === null)) {
-                        //   searchService.searchById($scope.employee.custom_hrmanager.custom_hrmanagerid).then(function (result) {
-                        //       $scope.hrmanagers = result;
-                        //       $ionicLoading.hide();
-                        //   }, function (error) {
-                        //       $ionicLoading.hide();
-                        //       $scope.hrmanagers = [];
-                        //   });
-                        // }
+                        if (($scope.employee.custom_hrmanager) || ($scope.employee.custom_hrmanager)) {
+                          searchService.searchById($scope.employee.custom_hrmanager.custom_hrmanagerid).then(function (result) {
+                              $scope.hrmanagers = result;
+                              $ionicLoading.hide();
+                          }, function (error) {
+                              $ionicLoading.hide();
+                              $scope.hrmanagers = [];
+                          });
+                        }
                     }, function (error) {
                         $ionicLoading.hide();
                         $scope.managers = [];
@@ -62,13 +61,33 @@ angular.module('directory.controllers.profileController', [])
             return setAddress;
         };
 
+        $scope.getMapsAddress = function (address) {
+            var setAddress = "";
+            if (address != undefined) {
+                var zipCode = address.postalCode.split("-");
+                setAddress = address.streetAddress + "," + address.locality + "," + address.region;
+            }
+            return setAddress;
+        };
+
         $scope.getTitle = function (employee) {
             var setTitle = "";
             if (employee != undefined) {
                 setTitle = employee.title;
             }
+
+            console.log(JSON.stringify(employee));
+
             return setTitle;
         };
+
+        // $scope.getOrgSegment = function (org_segment) {
+        //     var setOrgSegment = "";
+        //     if (org_segment != undefined) {
+        //         setTitle = org_segment;
+        //     }
+        //     return setOrgSegment;
+        // };
 
         $scope.getLocation = function (address) {
             var setLocation = "";
@@ -175,7 +194,7 @@ angular.module('directory.controllers.profileController', [])
             if (email != undefined) {
                 if (email.type == "work") {
                     var splitEmail = email.value.split("@");
-                    window.open("ciscojabber://goim?screenname=" + splitEmail[0] + "&message=hi");
+                    window.open("xmpp://" + splitEmail[0], '_system');
                 }
             }
         };
@@ -183,7 +202,15 @@ angular.module('directory.controllers.profileController', [])
         $scope.actionGetDirections = function (address) {
             if (address != undefined) {
                 var destination = address.streetAddress + " " + address.locality + ", " + address.region + " " + address.postalCode;
-                window.open("http://maps.google.com/?q=" + destination);
+                // window.open("http://maps.google.com/?q=" + destination, "_system");
+                var isIOS = ionic.Platform.isIOS();
+                var isAndroid = ionic.Platform.isAndroid();
+
+                if (isIOS) {
+                  window.open('maps://?q=' + destination, '_system');
+                } else if (isAndroid) {
+                  window.open('geo://0,0?q=' + destination, '_system');
+                }
             }
         };
 
