@@ -386,3 +386,16 @@ input:-ms-input-placeholder {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+/* Start Style refactor -- mhudson */
+
+/* Mobile header */
+
+.nbcunow-mobile-logo {
+    background-image: url(../img/NBCUN-logo.svg);
+    width: 95px;
+    height: 20px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    background-size: contain;
+}
