@@ -1,6 +1,6 @@
 <ion-view>
 
-    <div class="bar bar-subheader search-bar">
+    <div class="search-bar">
         <form class="search-form" ng-submit="search()">
             <div class="item-input-wrapper search-wrapper">
                 <i class="icon white-icon icon-search"></i>
@@ -10,7 +10,7 @@
         </form>
     </div>
 
-    <div class='bar bar-subheader bar-light filter-bar'>
+    <div class="filter-bar">
         <!--<button class="button button-full bar-light" ng-click="gotoFilter">FILTER ></button>-->
         <a class="title bar-light" href="{{getFilterURL()}}" ng-click="cacheSearchKey()">FILTER <i class="icon-arrow-down"></i></a>
     </div>

@@ -64,31 +64,14 @@ body {
     padding-right: 5px;
 }
 
-.button.back-button {
-    background-color: white;
-}
-
 span.back-text {
     display: none !important;
-}
-
-.search-results-list {
-
 }
 
 .load-more-results {
   background-color: #fafafa;
   height: 80px;
   text-align: center;
-}
-
-.bar-footer {
-  background: purple;
-  color: #ffffff;
-}
-
-.bar-footer .copyright {
-  color: #ffffff;
 }
 
 .scroll-to-top {
@@ -107,34 +90,6 @@ span.back-text {
  position: fixed;
 }
 
-.platform-android .filter-bar {
-    top: 98px;
-    border-radius: 0px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.platform-ios .filter-bar {
-    margin-top: 44px;
-    border-radius: 0px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.bar.bar-subheader.bar-light.filter-bar {
-  background-color: #eef0f3;
-  height: 48px;
-}
-
-.bar.bar-subheader.bar-light.filter-bar a {
-  line-height: 52px;
-}
-
-.filter-bar > a {
-    text-decoration: none;
-}
 
 .search-bar {
     background-color: #00a8a7;
@@ -180,21 +135,21 @@ input[type="search"].search-control {
 .search-input::-moz-placeholder {
     font-size: 20px;
     font-family: rock-sans-normal;
-    color: #a7b6c0;
+    color: #b0e3dd;
     line-height: normal;
 }
 
 input::-webkit-input-placeholder {
     font-size: 20px;
     font-family: rock-sans-normal;
-    color: #a7b6c0;
+    color: #b0e3dd;
     line-height: normal;
 }
 
 input:-moz-placeholder {
     font-size: 20px;
     font-family: rock-sans-normal;
-    color: #a7b6c0;
+    color: #b0e3dd;
     line-height: normal;
 }
 
@@ -208,7 +163,7 @@ input::-moz-placeholder {
 input:-ms-input-placeholder {
     font-size: 20px;
     font-family: rock-sans-normal;
-    color: #a7b6c0;
+    color: #b0e3dd;
     line-height: normal;
 }
 
@@ -317,7 +272,7 @@ input:-ms-input-placeholder {
 .profile-name {
     font-family: rock-sans-bold;
     font-size: 24px;
-    color: #000000;
+    color: #3c3c42;
     padding-top: 12px;
     text-align: center;
     margin: auto;
@@ -325,7 +280,7 @@ input:-ms-input-placeholder {
 
 .profile-name-data {
     font-family: rock-sans-normal;
-    color: #000000;
+    color: #3c3c42;
     padding-top: 5px;
     font-size: 18px;
     text-align: center;
@@ -350,19 +305,19 @@ input:-ms-input-placeholder {
 }
 
 .profile-data {
-    color: #000000;
+    color: #3c3c42;
     font-family: rock-sans-normal;
     font-size: 18px;
 }
 
 .profile-address {
-    color: #000000;
+    color: #3c3c42;
     font-family: rock-sans-normal;
     font-size: 16px;
 }
 
 .profile-address-directions {
-    color: #000000;
+    color: #3c3c42;
     font-family: rock-sans-normal;
     font-size: 15px;
     float: right !important;
@@ -382,7 +337,7 @@ input:-ms-input-placeholder {
 .profile-team-role {
     font-family: rock-sans-normal;
     font-size: 18px;
-    color: #462d89;
+    color: #360279;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -396,6 +351,83 @@ input:-ms-input-placeholder {
     width: 95px;
     height: 20px;
     background-repeat: no-repeat;
-    margin: 0 auto;
     background-size: contain;
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.nav-bar-title {
+    color: #360279;
+}
+
+
+.button.back-button {
+  background-color: white;
+  color: #360279;
+}
+
+
+/* Mobile Filter Control */
+
+.platform-android .filter-bar {
+    top: 98px;
+    border-radius: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.platform-ios .filter-bar {
+    margin-top: 44px;
+    border-radius: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bar.bar-subheader.bar-light.filter-bar {
+  background-color: #eef0f3;
+  background-image: none;
+  height: 64px;
+}
+
+.bar.bar-subheader.bar-light.filter-bar a {
+  line-height: 64px;
+  color: #56558b;
+}
+
+.filter-bar a  i{
+  position: relative;
+  transform: rotate(270deg);
+  font-size: 8px;
+  font-weight: bold;
+  position: absolute;
+  margin-left: 15px;
+  margin-bottom: 0;
+  margin-top: -1px;
+}
+
+.filter-bar a  i::before{
+  font-weight: bold;
+}
+
+.filter-bar > a {
+    text-decoration: none;
+}
+
+/* Mobile Footer */
+.bar-footer {
+  background-color: #080d15;
+  color: #ffffff;
+  display: table;
+}
+
+.bar-footer .copyright {
+  font-size: 10px;
+  color: #fff;
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
 }
