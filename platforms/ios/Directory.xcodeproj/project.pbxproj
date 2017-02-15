@@ -366,7 +366,7 @@
 				INFOPLIST_FILE = "Directory/Directory-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbcu.corpsys.nbcunow.directory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nbcu.corpsys.nbcunow.directory;
 				PRODUCT_NAME = Directory;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -390,7 +390,7 @@
 				INFOPLIST_FILE = "Directory/Directory-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbcu.corpsys.nbcunow.directory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nbcu.corpsys.nbcunow.directory;
 				PRODUCT_NAME = Directory;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

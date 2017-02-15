@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.inbcu.corpsys.nbcunow.directory;
+package com.nbcu.corpsys.nbcunow.directory;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
