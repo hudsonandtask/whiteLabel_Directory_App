@@ -7,18 +7,18 @@
 		<key>ApplicationPath</key>
 		<string>Applications/Directory.app</string>
 		<key>CFBundleIdentifier</key>
-		<string>com.inbcu.corpsys.nbcunow.directory</string>
+		<string>com.nbcu.corpsys.nbcunow.directory</string>
 		<key>CFBundleShortVersionString</key>
 		<string>1.0.5</string>
 		<key>CFBundleVersion</key>
 		<string>1.0.5</string>
 		<key>SigningIdentity</key>
-		<string>iPhone Developer: Matt Galvin (8NY72Q3445)</string>
+		<string>iPhone Developer: Michael Hudson (ATNB5WL2HM)</string>
 	</dict>
 	<key>ArchiveVersion</key>
 	<integer>2</integer>
 	<key>CreationDate</key>
-	<date>2017-02-13T19:31:09Z</date>
+	<date>2017-02-16T19:30:49Z</date>
 	<key>Name</key>
 	<string>Directory</string>
 	<key>SchemeName</key>
