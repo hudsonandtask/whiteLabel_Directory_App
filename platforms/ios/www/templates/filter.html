@@ -9,38 +9,44 @@
     </ion-nav-bar>-->
 
     <ion-content class="has-header has-subheader has-footer filter-pane-content">
-        <div class="list dropdown-item">
-          <div class="input-label">
-              BY GROUP
-          </div>
-            <div class="item item-input item-select">
+        <div class="list">
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    BY GROUP
+                </div>
                 <select ng-model="filter.selectedGroup">
                     <option value="">- all -</option>
                     <option ng-repeat="group in groups" value="{{group.name}}">{{ group.name }}</option>
                 </select>
-            </div>
+            </label>
+
         </div>
-        <div class="list dropdown-item">
-          <div class="input-label">
-              BY COMPANY
-          </div>
-            <div class="item item-input item-select">
+        <div class="list">
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    BY COMPANY
+                </div>
                 <select ng-model="filter.selectedCompany">
                     <option value="">- all -</option>
                     <option ng-repeat="company in companies" value="{{company.name}}">{{ company.name }}</option>
                 </select>
-            </div>
+            </label>
+
         </div>
         <div class="list">
-            <div class="input-label">
-                BY LOCATION
-            </div>
+
             <label class="item item-input item-select">
+                <div class="input-label">
+                    BY LOCATION
+                </div>
                 <select ng-model="filter.selectedLocation">
                     <option value="">- all -</option>
                     <option ng-repeat="loc in locations" value="{{loc.machine_name}}">{{ loc.name }}</option>
                 </select>
             </label>
+
         </div>
         <ion-fab bottom >
             <ion-nav-button>
