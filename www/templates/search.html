@@ -20,7 +20,7 @@
         <ion-list>
           <!-- was ng-repeat -->
             <ion-item class="item-avatar item-icon-right"
-                      ng-class="$index%2 == 0 ? 'search-list-row-even' : ''"
+                      ng-class="$index%2 == 0 ? 'search-list-row-even' : 'search-list-row'"
                       collection-repeat="employee in employeeList| limitTo:pageSize" type="item-text-wrap" href="{{getProfileURL(employee.id)}}">
                 <img ng-src="{{getPicture(employee.id)}}" onerror="this.src='img/default-user.jpg'" />
                 <div class="search-result">

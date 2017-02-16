@@ -1,4 +1,4 @@
-<ion-view class="filter-pane">
+<ion-view class="filter-pane nbcun-app-filter">
 
     <!--<ion-nav-bar>
         <ion-nav-back-button class="icon ion-chevron-left">Back</ion-nav-back-button>
@@ -9,50 +9,46 @@
     </ion-nav-bar>-->
 
     <ion-content class="has-header has-subheader has-footer filter-pane-content">
-        <div class="list">
-
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    BY GROUP
-                </div>
+      <div class="nbcun-app-filter-content">
+        <div class="list dropdown-item nbcun-app-filter-item">
+          <div class="nbcun-app-filter-label">
+              BY GROUP
+          </div>
+            <div class="nbcun-app-filter-select">
                 <select ng-model="filter.selectedGroup">
                     <option value="">- all -</option>
                     <option ng-repeat="group in groups" value="{{group.name}}">{{ group.name }}</option>
                 </select>
-            </label>
-
+            </div>
         </div>
-        <div class="list">
-
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    BY COMPANY
-                </div>
+        <div class="list dropdown-item nbcun-app-filter-item">
+          <div class="nbcun-app-filter-label">
+              BY COMPANY
+          </div>
+            <div class="nbcun-app-filter-select">
                 <select ng-model="filter.selectedCompany">
                     <option value="">- all -</option>
                     <option ng-repeat="company in companies" value="{{company.name}}">{{ company.name }}</option>
                 </select>
-            </label>
-
+            </div>
         </div>
-        <div class="list">
-
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    BY LOCATION
-                </div>
+        <div class="list dropdown-item nbcun-app-filter-item">
+            <div class="nbcun-app-filter-label">
+                BY LOCATION
+            </div>
+            <div class="nbcun-app-filter-select">
                 <select ng-model="filter.selectedLocation">
                     <option value="">- all -</option>
                     <option ng-repeat="loc in locations" value="{{loc.machine_name}}">{{ loc.name }}</option>
                 </select>
-            </label>
-
+            </div>
         </div>
-        <ion-fab bottom >
+        <ion-fab bottom>
             <ion-nav-button>
                 <button class="button button-full bar-light" ng-click="applyFilter()">APPLY</button>
             </ion-nav-button>
         </ion-fab>
+      </div>
     </ion-content>
 
 </ion-view>
