@@ -142,22 +142,6 @@ input:-ms-input-placeholder {
     text-align: center;
 }
 
-.filter-pane .has-subheader.filter-pane-content.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer {
-    top: 75px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.filter-pane .has-subheader.filter-pane-content.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer .button.button-full.bar-light {
-    background-color: #a8e9f4;
-    color: #ffffff;
-    font-family: 'Rock-SansBold';
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-}
-
-
 .copyright {
     font-weight: normal;
 }
@@ -212,21 +196,32 @@ body.platform-android .search-bar{
 }
 
 body.platform-ios .bar-header {
-    top: 28px;
+    top: 0px;
 }
 
 body.platform-ios .search-bar{
-  margin-top: 74px;
+  margin-top: 64px;
 }
 
-/* Might need to change per device */
-.has-subheader.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer {
+/* Scollable Content  */
+/*.has-subheader.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer {
     top: 136px;
+}*/
+
+/* Main Search Results */
+.search-pane-content.has-subheader.scroll-content.ionic-scroll.has-header.has-footer {
+    top: 190px;
+    bottom: 46px;
 }
 
-.has-subheader.scroll-content.ionic-scroll.has-header.has-footer {
-    top: 197px;;
-    bottom: 47px;
+/* Filter Pane Positioning */
+.filter-pane-content.has-subheader.scroll-content.ionic-scroll.has-header.has-footer {
+    top: 120px;
+    bottom: 46px;
+}
+
+body.platform-ios .filter-pane-content{
+    padding: 0 20px;
 }
 
 .nbcunow-mobile-logo {
@@ -282,14 +277,15 @@ body.platform-ios .search-bar{
 
 .collection-repeat-after-container .more-results{
   font-family: rock-sans-bold;
-  font-size: 16px;
-  margin-top: 10px;
+  font-size: 14px;
+  padding-top: 10px;
   color: #5c5b94;
+  text-transform: capitalize;
 }
 
 .collection-repeat-after-container .results-count{
   font-family: rock-sans-bold;
-  font-size: 14px;
+  font-size: 16px;
   color: #5c5b94;
 }
 
@@ -350,6 +346,21 @@ body.platform-ios .search-bar{
     text-decoration: none;
 }
 
+.filter-pane .has-subheader.filter-pane-content.scroll-content.ionic-scroll.overflow-scroll.has-header.has-footer {
+    top: 75px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.filter-pane-content .button{
+  background-color: #a8e9f4;
+  color: #ffffff;
+  font-family: rock-sans-bold;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin-top: 30px;
+}
 
 /* Mobile Footer */
 
@@ -527,6 +538,20 @@ input[type="search"].search-control {
     color: #5c5b94;
     cursor: default;
     font-size: 14px;
+}
+
+.profile-data.profile-email span{
+    font-family: rock-sans-bold;
+    font-size: 14px;
+    color: #0395d5;
+    cursor: default;
+}
+
+.profile-data.profile-jabber span{
+    font-family: rock-sans-bold;
+    font-size: 14px;
+    color: #0395d5;
+    cursor: default;
 }
 
 .profile-team-name {
