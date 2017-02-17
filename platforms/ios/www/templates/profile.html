@@ -24,16 +24,16 @@
         <div class="profile-section profile-contact" ng-if="employee.emails[0]">
             <div class="row">
                 <div class="profile-item">
-                    <span class="profile-label ">EMAIL</span>
-                    <div class="profile-data" ng-click="actionSendEmail(employee.emails[0])">
+                    <span class="profile-label">EMAIL</span>
+                    <div class="profile-data profile-email" ng-click="actionSendEmail(employee.emails[0])">
                         <i class="icon purple-icon icon-email"></i>
                         <span ng-bind="getEmail(employee.emails[0])"></span>
                     </div>
                 </div>
             </div>
-            <div class="row" ng-if="employee.emails[0]">
+            <div class="row" ng-if="femployee.emails[0]">
                 <div class="profile-item">
-                    <span class="profile-label ">JABBER</span>
+                    <span class="profile-label profile-jabber">JABBER</span>
                     <div class="profile-data" ng-click="actionSendJabber(employee.emails[0])">
                         <i class="icon purple-icon icon-jabber"></i>
                         <span ng-bind="getJabber(employee.emails[0]) "></span>

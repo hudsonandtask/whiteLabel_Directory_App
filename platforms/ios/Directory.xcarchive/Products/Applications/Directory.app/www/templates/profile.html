@@ -24,16 +24,16 @@
         <div class="profile-section profile-contact" ng-if="employee.emails[0]">
             <div class="row">
                 <div class="profile-item">
-                    <span class="profile-label ">EMAIL</span>
-                    <div class="profile-data" ng-click="actionSendEmail(employee.emails[0])">
+                    <span class="profile-label">EMAIL</span>
+                    <div class="profile-data profile-email" ng-click="actionSendEmail(employee.emails[0])">
                         <i class="icon purple-icon icon-email"></i>
                         <span ng-bind="getEmail(employee.emails[0])"></span>
                     </div>
                 </div>
             </div>
-            <div class="row" ng-if="employee.emails[0]">
+            <div class="row" ng-if="femployee.emails[0]">
                 <div class="profile-item">
-                    <span class="profile-label ">JABBER</span>
+                    <span class="profile-label profile-jabber">JABBER</span>
                     <div class="profile-data" ng-click="actionSendJabber(employee.emails[0])">
                         <i class="icon purple-icon icon-jabber"></i>
                         <span ng-bind="getJabber(employee.emails[0]) "></span>
@@ -58,15 +58,16 @@
                     </div>
                 </div>
             </div>
-            <div class="row" ng-if="employee.addresses[0]">
-                <div class="profile-item">
-                    <span class="profile-label">OFFICE ADDRESS</span>
-                    <div class="profile-data" ng-click="actionGetDirections(employee.addresses[0])">
-                        <i class="icon purple-icon ion-map"></i>
-                        <span ng-bind="getAddress(employee.addresses[0])"></span>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div>
+          <div class="row" ng-if="employee.addresses[0]">
+              <div class="profile-item">
+                  <span class="profile-label">OFFICE ADDRESS</span>
+                  <div class="profile-data" ng-click="actionGetDirections(employee.addresses[0])">
+                      <span ng-bind="getAddress(employee.addresses[0])"></span>
+                  </div>
+              </div>
+          </div>
         </div>
         <div class="profile-section">
             <div class="row" ng-if="managers || hrmanagers || directReports">
@@ -78,7 +79,7 @@
             <ion-list ng-if="managers">
                 <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="manager in managers" type="item-text-wrap" href="{{getProfileURL(manager.id)}}">
                     <img ng-src="{{getPicture(manager.id)}}" onerror="this.src='img/default-user.jpg'" />
-                    <div class="search-result">
+                    <div class="search-result profile-team">
                         <div class="search-result-title" ng-bind-html="getTeamMemberName(manager)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberTitle(manager)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberLocation(manager)"></div>
@@ -92,7 +93,7 @@
             <ion-list ng-if="hrmanagers">
                 <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="hrmanager in hrmanagers" type="item-text-wrap" href="{{getProfileURL(hrmanager.id)}}">
                     <img ng-src="{{getPicture(hrmanager.id)}}" onerror="this.src='img/default-user.jpg'" />
-                    <div class="search-result">
+                    <div class="search-result profile-team">
                         <div class="search-result-title" ng-bind-html="getTeamMemberName(hrmanager)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberTitle(hrmanager)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberLocation(hrmanager)"></div>
@@ -106,7 +107,7 @@
             <ion-list ng-if="directReports">
                 <ion-item class="item-avatar item-icon-right item-borderless" ng-repeat="directReport in directReports" type="item-text-wrap" href="{{getProfileURL(directReport.id)}}">
                     <img ng-src="{{getPicture(directReport.id)}}" onerror="this.src='img/default-user.jpg'" />
-                    <div class="search-result">
+                    <div class="search-result profile-team">
                         <div class="search-result-title" ng-bind-html="getTeamMemberName(directReport)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberTitle(directReport)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberLocation(directReport)"></div>
