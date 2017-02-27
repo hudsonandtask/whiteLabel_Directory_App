@@ -73,7 +73,7 @@
             <div class="row" ng-if="managers || hrmanagers || directReports">
                 <span class="profile-team-name" ng-bind="getTeam(employee.name)"></span>
             </div>
-            <div class="row" ng-if="managers">
+            <div class="row" ng-if="managers > 0">
                 <span class="profile-team-role">REPORTS TO</span>
             </div>
             <ion-list ng-if="managers">
@@ -87,7 +87,7 @@
                     <!-- <i class="icon ion-chevron-right"></i> -->
                 </ion-item>
             </ion-list>
-            <div class="row" ng-if="hrmanagers">
+            <div class="row" ng-if="hrmanagers > 0">
                 <span class="profile-team-role">HR MANAGER</span>
             </div>
             <ion-list ng-if="hrmanagers">
@@ -101,7 +101,7 @@
                     <!-- <i class="icon ion-chevron-right"></i> -->
                 </ion-item>
             </ion-list>
-            <div class="row" ng-if="directReports">
+            <div class="row" ng-if="directReports > 0">
                 <span class="profile-team-role">DIRECT REPORTS</span>
             </div>
             <ion-list ng-if="directReports">
