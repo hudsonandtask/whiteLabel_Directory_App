@@ -106,7 +106,6 @@ angular.module('directory.controllers.searchController', [])
         };
 
         $scope.getName = function (employee) {
-            var setName = "&nbsp;";
             if (employee != undefined) {
                 if (employee.firstname != undefined && employee.lastname != undefined) {
                     setName = employee.firstname + ' ' + employee.lastname;
@@ -116,7 +115,6 @@ angular.module('directory.controllers.searchController', [])
         };
 
         $scope.getTitle = function (employee) {
-            var setTitle = "&nbsp;";
             if (employee != undefined) {
                 if (employee.designation != undefined) {
                     setTitle = employee.designation;
@@ -126,7 +124,6 @@ angular.module('directory.controllers.searchController', [])
         };
 
         $scope.getLocation = function (employee) {
-            var setLocation = "&nbsp;";
             if (employee != undefined) {
                 if (employee.workcity != undefined) {
                     setLocation = employee.workcity;
