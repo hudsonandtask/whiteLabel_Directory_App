@@ -1,5 +1,5 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($scope, $state, appData, $ionicLoading, $cordovaKeyboard, filterService, searchService, $ionicScrollDelegate) {
+    .controller('searchController', function ($scope, $state, appData, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, filterService, searchService) {
 
         var DEFAULT_PAGE_SIZE_STEP = 10;
 

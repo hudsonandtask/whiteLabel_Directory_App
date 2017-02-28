@@ -1,5 +1,5 @@
 angular.module('directory.controllers.filterController', [])
-       .controller('filterController', function ($scope, $state, $q, $ionicHistory, $ionicLoading, $cordovaKeyboard, filterService) {
+       .controller('filterController', function ($scope, $state, $q, $ionicLoading, $cordovaKeyboard, filterService) {
             // initializes variables
             $scope.filter = {};
             $scope.groups = [];
@@ -39,16 +39,9 @@ angular.module('directory.controllers.filterController', [])
             };
 
             $scope.applyFilter = function () {
-                console.log("applying filters");
                 filterService.setFilterCache($scope.filter);
 
-                $ionicHistory.nextViewOptions({
-                    historyRoot: true
-                });
-
-                console.log(JSON.stringify($scope.filter));
-
-                $state.go('search.filter', { filter: JSON.stringify($scope.filter) });
+                $state.go('searchFilter', { filter: JSON.stringify($scope.filter) });
             };
 
             $scope.getCompanies = function (list) {
