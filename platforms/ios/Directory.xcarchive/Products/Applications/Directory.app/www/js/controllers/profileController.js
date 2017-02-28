@@ -1,7 +1,11 @@
 angular.module('directory.controllers.profileController', ['ionic'])
     .controller('profileController', function ($scope, $state, $stateParams, $ionicLoading, appData, profileService, searchService) {
+        $scope.$on('$ionicView.loaded', function () {
+            $scope.loadProfile();
+            $ionicLoading.hide();
+        });
 
-        var loadProfile = function () {
+        $scope.loadProfile = function () {
             $ionicLoading.show();
             profileService.getProfile($stateParams.id).then(function (result) {
                 $scope.employee = result;
@@ -32,9 +36,6 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 $scope.employee = {};
             });
         };
-
-        loadProfile();
-        $ionicLoading.hide();
 
         $scope.getName = function (name) {
             var setName = "";
