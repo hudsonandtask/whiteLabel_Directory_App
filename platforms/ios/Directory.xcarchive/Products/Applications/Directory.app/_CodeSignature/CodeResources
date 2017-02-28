@@ -86,7 +86,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
+<<<<<<< HEAD
 		x+LwjJBW3GN7u+4Ova3oRKjQIqw=
+=======
+		dvnNuNCTvjYu+W/RCOUMAErBA0Q=
+>>>>>>> nbcun1381 -- mobile changes
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,7 +98,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
+<<<<<<< HEAD
 		GBWym0xw7qKdrEADtwHtoFeKsWw=
+=======
+		A+MFvSaa2+R+ltR76LihxdN+7f8=
+>>>>>>> nbcun1381 -- mobile changes
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -158,7 +166,11 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
+<<<<<<< HEAD
 		um5uXTrlQ1QoqnjgP+hOsRCAQu4=
+=======
+		mJBsw8bPsS4Ao5DjOPj+ChvDDfI=
+>>>>>>> nbcun1381 -- mobile changes
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -290,7 +302,11 @@
 		</data>
 		<key>www/js/app.js</key>
 		<data>
+<<<<<<< HEAD
 		LFgRp91OCdhNabOlFWXXwkylL5w=
+=======
+		y+nm3QTR5SDklFlM8ZS2536GLz4=
+>>>>>>> nbcun1381 -- mobile changes
 		</data>
 		<key>www/js/controllers/filterController.js</key>
 		<data>
@@ -298,7 +314,11 @@
 		</data>
 		<key>www/js/controllers/profileController.js</key>
 		<data>
+<<<<<<< HEAD
 		wNKlJ0+XWdc9qubjF0l5OSxVpzY=
+=======
+		HMOWxIwiDM+52qpgjIiOb++xAbw=
+>>>>>>> nbcun1381 -- mobile changes
 		</data>
 		<key>www/js/controllers/searchController.js</key>
 		<data>
@@ -874,7 +894,7 @@
 		</data>
 		<key>www/templates/profile.html</key>
 		<data>
-		WXoPhll+rUAvkFCXkx3EL75khgs=
+		t6frIf2lfXEe6Np2/eHGjFZVlss=
 		</data>
 		<key>www/templates/search.html</key>
 		<data>
@@ -1107,11 +1127,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			x+LwjJBW3GN7u+4Ova3oRKjQIqw=
 			</data>
 			<key>hash2</key>
 			<data>
 			yPGJcVF0XREjgMhry6KT1DAEGUE8EpOSmovczZgY9mY=
+=======
+			dvnNuNCTvjYu+W/RCOUMAErBA0Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			9WodefkgWDWODXrCw75xflAhI9Elyaup1aq7iEIiqHA=
+>>>>>>> nbcun1381 -- mobile changes
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1129,11 +1157,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			GBWym0xw7qKdrEADtwHtoFeKsWw=
 			</data>
 			<key>hash2</key>
 			<data>
 			B0LX+m7uhvmWNAvwJP+WH/eFK5RYcSJ16r6mu1Sh+J0=
+=======
+			A+MFvSaa2+R+ltR76LihxdN+7f8=
+			</data>
+			<key>hash2</key>
+			<data>
+			zODKbgWkK7kFGPnbMUdztcCMbA0/j/ezn2vuja15yqY=
+>>>>>>> nbcun1381 -- mobile changes
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1294,11 +1330,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			um5uXTrlQ1QoqnjgP+hOsRCAQu4=
 			</data>
 			<key>hash2</key>
 			<data>
 			FBDkmhDExBY4i6pHFxUZ7/ez17NEcS2lcyFaVQ23Rg0=
+=======
+			mJBsw8bPsS4Ao5DjOPj+ChvDDfI=
+			</data>
+			<key>hash2</key>
+			<data>
+			DCH1BhA9bCvCUAwpR583bz2YSdrzAS8miGzcLs4XtzY=
+>>>>>>> nbcun1381 -- mobile changes
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1646,11 +1690,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			LFgRp91OCdhNabOlFWXXwkylL5w=
 			</data>
 			<key>hash2</key>
 			<data>
 			7gxv0kvNR+OMSUMrt5MhLdIftCLrSbfC2yvFVi66nCs=
+=======
+			y+nm3QTR5SDklFlM8ZS2536GLz4=
+			</data>
+			<key>hash2</key>
+			<data>
+			pWE4/GvDjaOY7uxk218ER++j1lvCNfAi9JtZMizWZBU=
+>>>>>>> nbcun1381 -- mobile changes
 			</data>
 		</dict>
 		<key>www/js/controllers/filterController.js</key>
@@ -1668,11 +1720,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			wNKlJ0+XWdc9qubjF0l5OSxVpzY=
 			</data>
 			<key>hash2</key>
 			<data>
 			St/jQB8Cdq/sGMwH+DWi5PbYZpEXICvgBgs/JaKQtrY=
+=======
+			HMOWxIwiDM+52qpgjIiOb++xAbw=
+			</data>
+			<key>hash2</key>
+			<data>
+			T13ngZaKXOcWyVs+rCCOi3naVe4axrqmqRvN6PH3TWA=
+>>>>>>> nbcun1381 -- mobile changes
 			</data>
 		</dict>
 		<key>www/js/controllers/searchController.js</key>
@@ -3252,11 +3312,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WXoPhll+rUAvkFCXkx3EL75khgs=
+			t6frIf2lfXEe6Np2/eHGjFZVlss=
 			</data>
 			<key>hash2</key>
 			<data>
-			1HCLUwf1w8q3NDqEYSeHAKV1i35LqlI8l1/glO/iF5Y=
+			DuXz3KzPJphxrzhCtYy3/k/2Dwn21fZ9w3gH+TV9cPA=
 			</data>
 		</dict>
 		<key>www/templates/search.html</key>

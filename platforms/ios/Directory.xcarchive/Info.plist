@@ -18,7 +18,11 @@
 	<key>ArchiveVersion</key>
 	<integer>2</integer>
 	<key>CreationDate</key>
+<<<<<<< HEAD
 	<date>2017-02-28T07:17:13Z</date>
+=======
+	<date>2017-02-27T22:10:43Z</date>
+>>>>>>> nbcun1381 -- mobile changes
 	<key>Name</key>
 	<string>Directory</string>
 	<key>SchemeName</key>
