@@ -15,7 +15,7 @@
         <a class="title bar-light" href="{{getFilterURL()}}" ng-click="cacheSearchKey()">FILTER <i class="icon-arrow-down"></i></a>
     </div>
 
-    <ion-content class="has-header has-subheader has-footer search-pane-content" on-scroll="getScrollPosition()">
+    <ion-content class="has-header has-subheader has-footer search-pane-content" delegate-handle="searchResultScroll">
       <!--Page: {{currentPage}}  Total shown: {{pageSize}}-->
         <ion-list>
           <!-- was ng-repeat -->
@@ -32,14 +32,12 @@
             </ion-item>
         </ion-list>
 
-        <div ng-show="smrBlock" class="load-more-results" ng-click="loadNextPage()">
+        <div ng-show="smrBlock" class="load-more-results" ng-click="updatePage()">
             <div class="more-results">More</div>
-            <div class="results-count">[ {{pageSize}} / {{numberOfResults}} ]</div>
+            <div class="results-count">[ {{itemCount}} / {{employeeList.length}} ]</div>
         </div>
-        <ion-fixed ng-show="sttButton" class="scroll-to-top" ng-click="scrollToTop()">
-          <div ng-show="sttButton" ng-click="scrollToTop()">
+        <ion-fixed class="scroll-to-top" ng-click="scrollToTop()">
               Top <i class="ion-arrow-up-a"></i>
-          </div>
         </ion-fixed>
     </ion-content>
 </ion-view>
