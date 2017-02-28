@@ -111,7 +111,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                     var locations = JSON.parse(filteredLocation);
                     console.log(locations);
                     console.log(locations.join(" "));
-                    params += "&fq=locationid:(" + locations.join(" ") + ")";
+                    params += "&fq=workcity:(" + locations.join(" ") + ")";
                 }
 
                 // 1b. group

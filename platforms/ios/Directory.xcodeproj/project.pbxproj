@@ -249,7 +249,7 @@
 				LastUpgradeCheck = 820;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = 2A25GE77WB;
+						DevelopmentTeam = JYP9PMWRJA;
 					};
 				};
 			};
@@ -355,10 +355,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 2A25GE77WB;
+				DEVELOPMENT_TEAM = JYP9PMWRJA;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -368,9 +366,8 @@
 				INFOPLIST_FILE = "Directory/Directory-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nbcu.corpsys.nbcunow.directory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbcu.corpsys.nbcunow.directory;
 				PRODUCT_NAME = Directory;
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -384,10 +381,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = 2A25GE77WB;
+				DEVELOPMENT_TEAM = JYP9PMWRJA;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Directory/Directory-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -395,9 +390,8 @@
 				INFOPLIST_FILE = "Directory/Directory-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nbcu.corpsys.nbcunow.directory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbcu.corpsys.nbcunow.directory;
 				PRODUCT_NAME = Directory;
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
