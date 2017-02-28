@@ -68,7 +68,8 @@ angular.module('directory.services.profileService', [])
                 }).success(function (data, status, config) {
                     deferred.resolve(data);
                 }).error(function (data, status) {
-                    deferred.reject(status);
+                  alert("error getting profile data");
+                  deferred.reject(status);
                 });
                 return deferred.promise;
             }
