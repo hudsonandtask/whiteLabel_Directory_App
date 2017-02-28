@@ -69,5 +69,5 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
     .value("appData", {
         responseTimeout: 30000,
         imagePath: "http://www.nbcunow.com/sites/default/files/photo/",
-        imageExt: ".png"
+        imageExt: ".jpg"
     });
