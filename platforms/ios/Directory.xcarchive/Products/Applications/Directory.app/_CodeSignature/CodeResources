@@ -86,11 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-<<<<<<< HEAD
-		x+LwjJBW3GN7u+4Ova3oRKjQIqw=
-=======
-		dvnNuNCTvjYu+W/RCOUMAErBA0Q=
->>>>>>> nbcun1381 -- mobile changes
+		YFwcOC6EF8j/XWx0CXsa/qYgykg=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -98,15 +94,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-<<<<<<< HEAD
-		GBWym0xw7qKdrEADtwHtoFeKsWw=
-=======
-		A+MFvSaa2+R+ltR76LihxdN+7f8=
->>>>>>> nbcun1381 -- mobile changes
+		xh/BQPDGm4Nq6HNu1CTGUo95uFU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Uy7QgfMg3KnjnCzaLGMr9m7+7AY=
+		f3KsbfZ/bLPegtQx/6ErRKKBlgg=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -166,11 +158,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-<<<<<<< HEAD
-		um5uXTrlQ1QoqnjgP+hOsRCAQu4=
-=======
-		mJBsw8bPsS4Ao5DjOPj+ChvDDfI=
->>>>>>> nbcun1381 -- mobile changes
+		AytnJsmqgQEfBdQt3rfkVa7u0zU=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -186,7 +174,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		/z7n0LCK0EFjIoNoZISHFaoX2Go=
+		saPEP15BdX2WlDlIKfmaatOTmq8=
 		</data>
 		<key>www/cordova-js-src/exec.js</key>
 		<data>
@@ -302,11 +290,7 @@
 		</data>
 		<key>www/js/app.js</key>
 		<data>
-<<<<<<< HEAD
-		LFgRp91OCdhNabOlFWXXwkylL5w=
-=======
-		y+nm3QTR5SDklFlM8ZS2536GLz4=
->>>>>>> nbcun1381 -- mobile changes
+		amvwzsEeMMn3ZMliuQxThFcokjU=
 		</data>
 		<key>www/js/controllers/filterController.js</key>
 		<data>
@@ -314,11 +298,7 @@
 		</data>
 		<key>www/js/controllers/profileController.js</key>
 		<data>
-<<<<<<< HEAD
-		wNKlJ0+XWdc9qubjF0l5OSxVpzY=
-=======
-		HMOWxIwiDM+52qpgjIiOb++xAbw=
->>>>>>> nbcun1381 -- mobile changes
+		qxvU8XQb/mPnVA7eXA9aVayA3qo=
 		</data>
 		<key>www/js/controllers/searchController.js</key>
 		<data>
@@ -1127,19 +1107,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
-			x+LwjJBW3GN7u+4Ova3oRKjQIqw=
+			YFwcOC6EF8j/XWx0CXsa/qYgykg=
 			</data>
 			<key>hash2</key>
 			<data>
-			yPGJcVF0XREjgMhry6KT1DAEGUE8EpOSmovczZgY9mY=
-=======
-			dvnNuNCTvjYu+W/RCOUMAErBA0Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			9WodefkgWDWODXrCw75xflAhI9Elyaup1aq7iEIiqHA=
->>>>>>> nbcun1381 -- mobile changes
+			pxs/uFz+UkUGDI2aa/D3VI3lCQZMdxtLRIkBzjg7ZuA=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1157,19 +1129,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
-			GBWym0xw7qKdrEADtwHtoFeKsWw=
+			xh/BQPDGm4Nq6HNu1CTGUo95uFU=
 			</data>
 			<key>hash2</key>
 			<data>
-			B0LX+m7uhvmWNAvwJP+WH/eFK5RYcSJ16r6mu1Sh+J0=
-=======
-			A+MFvSaa2+R+ltR76LihxdN+7f8=
-			</data>
-			<key>hash2</key>
-			<data>
-			zODKbgWkK7kFGPnbMUdztcCMbA0/j/ezn2vuja15yqY=
->>>>>>> nbcun1381 -- mobile changes
+			V5vKE+ZTLnvDOaFJQKy3KYr2qrD34WY+R4RNh+yvYck=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1330,19 +1294,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
-			um5uXTrlQ1QoqnjgP+hOsRCAQu4=
+			AytnJsmqgQEfBdQt3rfkVa7u0zU=
 			</data>
 			<key>hash2</key>
 			<data>
-			FBDkmhDExBY4i6pHFxUZ7/ez17NEcS2lcyFaVQ23Rg0=
-=======
-			mJBsw8bPsS4Ao5DjOPj+ChvDDfI=
-			</data>
-			<key>hash2</key>
-			<data>
-			DCH1BhA9bCvCUAwpR583bz2YSdrzAS8miGzcLs4XtzY=
->>>>>>> nbcun1381 -- mobile changes
+			03rrCB9bfzLoXUBxL834WAL2ViPksX74f30NJ/+DYPY=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1371,11 +1327,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/z7n0LCK0EFjIoNoZISHFaoX2Go=
+			saPEP15BdX2WlDlIKfmaatOTmq8=
 			</data>
 			<key>hash2</key>
 			<data>
-			8o9JjcIynCLTGBXmrqs4A8KIOEDt4JpcEigpj0BnAl4=
+			MKyPTwGFIGsF5kyq2W0IySmO1b09j6hiORbw+GgMLoo=
 			</data>
 		</dict>
 		<key>www/cordova-js-src/exec.js</key>
@@ -1690,19 +1646,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
-			LFgRp91OCdhNabOlFWXXwkylL5w=
+			amvwzsEeMMn3ZMliuQxThFcokjU=
 			</data>
 			<key>hash2</key>
 			<data>
-			7gxv0kvNR+OMSUMrt5MhLdIftCLrSbfC2yvFVi66nCs=
-=======
-			y+nm3QTR5SDklFlM8ZS2536GLz4=
-			</data>
-			<key>hash2</key>
-			<data>
-			pWE4/GvDjaOY7uxk218ER++j1lvCNfAi9JtZMizWZBU=
->>>>>>> nbcun1381 -- mobile changes
+			HXl1jRNK+0InGxoKK+sGbY3TAzvqPJ/4TobgCaJCwew=
 			</data>
 		</dict>
 		<key>www/js/controllers/filterController.js</key>
@@ -1720,19 +1668,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
-			wNKlJ0+XWdc9qubjF0l5OSxVpzY=
+			qxvU8XQb/mPnVA7eXA9aVayA3qo=
 			</data>
 			<key>hash2</key>
 			<data>
-			St/jQB8Cdq/sGMwH+DWi5PbYZpEXICvgBgs/JaKQtrY=
-=======
-			HMOWxIwiDM+52qpgjIiOb++xAbw=
-			</data>
-			<key>hash2</key>
-			<data>
-			T13ngZaKXOcWyVs+rCCOi3naVe4axrqmqRvN6PH3TWA=
->>>>>>> nbcun1381 -- mobile changes
+			pqJpgsdRPqI/DHluSrLRm4USpCNVtWFUOxcVM7PRZIw=
 			</data>
 		</dict>
 		<key>www/js/controllers/searchController.js</key>
@@ -3349,11 +3289,6 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -3398,11 +3333,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
