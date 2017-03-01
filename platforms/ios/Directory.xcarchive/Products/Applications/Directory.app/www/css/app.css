@@ -262,15 +262,15 @@ body.platform-ios .filter-pane-content{
 .search-result-title {
     font-family: rock-sans-bold;
     color: #3c3c42;
-    font-size: 14px;
-    padding-bottom: 5px;
+    font-size: 15px;
+    line-height: 15px;
 }
 
 .search-result-data {
     font-family: rock-sans-normal;
     white-space: normal;
     color: #6f7680;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 /* Item Counter */

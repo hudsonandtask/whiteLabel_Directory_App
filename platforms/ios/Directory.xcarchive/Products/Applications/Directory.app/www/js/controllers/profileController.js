@@ -191,10 +191,14 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.actionSendJabber = function (email) {
+          console.log(email.value);
+          console.log("test");
             if (email != undefined) {
+              console.log("test2");
                 if (email.type == "work") {
-                    var splitEmail = email.value.split("@");
-                    window.open("xmpp://" + splitEmail[0], '_system');
+                  console.log("test3");
+                    // var splitEmail = email.value.split("@");
+                    window.open("xmpp://" + email.value);
                 }
             }
         };

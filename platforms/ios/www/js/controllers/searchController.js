@@ -1,5 +1,5 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($scope, $state, appData, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, filterService, searchService) {
+    .controller('searchController', function ($scope, $state, appData, $ionicHistory, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, filterService, searchService) {
 
         var DEFAULT_PAGE_SIZE_STEP = 10;
 
@@ -28,6 +28,14 @@ angular.module('directory.controllers.searchController', [])
                 $scope.search();
             }
         });
+
+        $scope.gotoHome = function() {
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+
+           $state.go('search');
+        }
 
         $scope.cacheSearchKey = function () {
             if ($scope.searchKey.length) {

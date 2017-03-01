@@ -263,7 +263,7 @@ body.platform-ios .filter-pane-content{
     font-family: rock-sans-bold;
     color: #3c3c42;
     font-size: 15px;
-    padding-bottom: 5px;
+    line-height: 15px;
 }
 
 .search-result-data {
