@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.nbcu.corpsys.nbcunow.directory" version="1.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.nbcu.corpsys.nbcunow.directory" version="1.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Keyboard">
         <param name="android-package" value="io.ionic.keyboard.IonicKeyboard" />
         <param name="onload" value="true" />
@@ -21,6 +21,7 @@
     <access launch-external="yes" origin="tel:*" />
     <access launch-external="yes" origin="mailto:*" />
     <access launch-external="yes" origin="ciscojabber:*" />
+    <access launch-external="yes" origin="xmpp:*" />
     <access launch-external="yes" origin="maps:*" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
@@ -30,6 +31,7 @@
     <allow-intent href="tel:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="ciscojabber:*" />
+    <allow-intent href="xmpp:*" />
     <allow-intent href="maps:*" />
     <allow-intent href="*" />
     <hook src="scripts/add_platform_class.js" type="after_prepare" />
