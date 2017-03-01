@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="profile-item">
                     <span class="profile-label">EMAIL</span>
-                    <div class="profile-data profile-email" ng-click="actionSendEmail(employee.emails[0])">
+                    <div class="profile-data-links profile-data profile-email" ng-click="actionSendEmail(employee.emails[0])">
                         <i class="icon purple-icon icon-email"></i>
                         <span ng-bind="getEmail(employee.emails[0])"></span>
                     </div>
@@ -34,7 +34,7 @@
             <div class="row" ng-if="employee.emails[0]">
                 <div class="profile-item">
                     <span class="profile-label profile-jabber">JABBER</span>
-                    <div class="profile-data" ng-click="actionSendJabber(employee.emails[0])">
+                    <div class="profile-data-links profile-data" ng-click="actionSendJabber(employee.emails[0])">
                         <i class="icon purple-icon icon-jabber"></i>
                         <span ng-bind="getJabber(employee.emails[0]) "></span>
                     </div>
@@ -43,7 +43,7 @@
             <div class="row" ng-if="employee.phoneNumbers[0]">
                 <div class="profile-item">
                     <span class="profile-label ">DESK PHONE</span>
-                    <div class="profile-data " ng-click="actionCallPhone(employee.phoneNumbers[0])">
+                    <div class="profile-data-links profile-data " ng-click="actionCallPhone(employee.phoneNumbers[0])">
                         <i class="icon purple-icon icon-phone"></i>
                         <span ng-bind="getOfficeNumber(employee.phoneNumbers[0]) "></span>
                     </div>
@@ -52,7 +52,7 @@
             <div class="row" ng-if="employee.phoneNumbers[1]">
                 <div class="profile-item">
                     <span class="profile-label">MOBILE PHONE</span>
-                    <div class="profile-data" ng-click="actionCallPhone(employee.phoneNumbers[1])">
+                    <div class="profile-data-links profile-data" ng-click="actionCallPhone(employee.phoneNumbers[1])">
                         <i class="icon purple-icon icon-mobile"></i>
                         <span ng-bind="getMobileNumber(employee.phoneNumbers[1])"></span>
                     </div>
