@@ -36,7 +36,7 @@
             <div class="more-results">More</div>
             <div class="results-count">[ {{itemCount}} / {{employeeList.length}} ]</div>
         </div>
-        <ion-fixed class="scroll-to-top" ng-click="scrollToTop()">
+        <ion-fixed class="scroll-to-top" ng-click="scrollToTop()" ng-if="employeeSearchExist">
               Top <i class="ion-arrow-up-a"></i>
         </ion-fixed>
     </ion-content>

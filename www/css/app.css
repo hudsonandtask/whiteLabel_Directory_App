@@ -433,6 +433,7 @@ input[type="search"].search-control {
     font-size: 20px !important;
     line-height: normal !important;
     vertical-align: middle !important;
+    overflow: hidden;
 }
 
 .search-input::-moz-placeholder {
