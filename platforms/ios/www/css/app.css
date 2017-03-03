@@ -176,7 +176,7 @@ body.platform-ios .search-bar{
 /* Main Search Results */
 .search-pane-content.has-subheader.scroll-content.ionic-scroll.has-header.has-footer {
     top: 190px;
-    bottom: 46px;
+    bottom: 45px;
 }
 
 /* Filter Pane Positioning */
@@ -433,6 +433,7 @@ input[type="search"].search-control {
     font-size: 20px !important;
     line-height: normal !important;
     vertical-align: middle !important;
+    overflow: hidden;
 }
 
 .search-input::-moz-placeholder {
