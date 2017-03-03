@@ -176,7 +176,7 @@ body.platform-ios .search-bar{
 /* Main Search Results */
 .search-pane-content.has-subheader.scroll-content.ionic-scroll.has-header.has-footer {
     top: 190px;
-    bottom: 46px;
+    bottom: 45px;
 }
 
 /* Filter Pane Positioning */
@@ -333,6 +333,7 @@ body.platform-ios .filter-pane-content{
     background-color: #080d15;
     color: #ffffff;
     display: table;
+    background-image: none;
 }
 
 .bar-footer .copyright {

@@ -333,6 +333,7 @@ body.platform-ios .filter-pane-content{
     background-color: #080d15;
     color: #ffffff;
     display: table;
+    background-image: none;
 }
 
 .bar-footer .copyright {
