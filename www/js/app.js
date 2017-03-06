@@ -40,6 +40,16 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
                 }
             }
 
+            // Hack for intercepting window events that trigger keyboard open
+            // In our app only the #searchControl should trigger keyboard open
+            window.addEventListener("native.keyboardshow", function (e) {
+
+              if(document.activeElement == document.getElementsByTagName("BODY")[0]){
+                window.cordova.plugins.Keyboard.close();
+              }
+
+            });
+
         })
     })
     .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {

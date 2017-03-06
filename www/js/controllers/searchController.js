@@ -14,6 +14,8 @@ angular.module('directory.controllers.searchController', [])
         $scope.filter = {};
 
         $scope.employeeSearchExist = false;
+        $scope.keyboardShow = true;
+
 
         $scope.$on('$ionicView.loaded', function () {
             var filter = $state.params.filter || {};
@@ -29,6 +31,7 @@ angular.module('directory.controllers.searchController', [])
             if ($scope.filter && $scope.searchKey.length) {
                 $scope.search();
             }
+
         });
 
         $scope.gotoHome = function() {
@@ -45,10 +48,12 @@ angular.module('directory.controllers.searchController', [])
             }
         };
 
-        $scope.clearSearch = function () {
+        $scope.clearSearch = function (event) {
+
             console.log("clearing search terms");
+
             $scope.searchKey = null;
-            $scope.filter = "";
+            $scope.filter = '';
             $scope.currentPage = 1;
             $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
             $scope.itemCount = $scope.pageSize;
@@ -59,7 +64,11 @@ angular.module('directory.controllers.searchController', [])
 
             searchService.removeSearchKeyCache();
             filterService.removeFilterCache();
-            $cordovaKeyboard.close();
+
+            // Bug fix for https://jira.inbcu.com/browse/NBCUN-1448
+            // need to force the input to rerender in the webview
+            // I do this by adding a class, and then adding a transparent styling
+            setTimeout(() => document.getElementById("searchForm").classList.add('cleared'), 100);
         };
 
         $scope.scrollToTop = function () {
