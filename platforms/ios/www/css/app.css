@@ -414,6 +414,7 @@ select {
     margin: 0px;
     line-height: normal;
     background-color: #00a8a7;
+    overflow: hidden;
 }
 
 .search-wrapper {
@@ -421,10 +422,11 @@ select {
     width: 100%;
     padding: 10px;
     margin: 0px;
+    overflow:hidden;
 }
 
 input[type="search"].search-control {
-    width: 100%;
+    width: 98%;
     background-color: #00a8a7;
     color: #ffffff;
     height: 40px;
@@ -434,6 +436,20 @@ input[type="search"].search-control {
     line-height: normal !important;
     vertical-align: middle !important;
     overflow: hidden;
+    padding-right: 0;
+}
+
+#searchForm.cleared form{
+  background: transparent;
+}
+
+#searchForm.cleared::after{
+  content:'';
+  display: block;
+}
+
+#searchForm.cleared input{
+  display: block;
 }
 
 .search-input::-moz-placeholder {
@@ -460,7 +476,7 @@ input:-moz-placeholder {
 input::-moz-placeholder {
     font-size: 20px;
     font-family: rock-sans-normal;
-    color: #a7b6c0;
+    color: #b0e3dd;
     line-height: normal;
 }
 
