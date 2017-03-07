@@ -1,11 +1,11 @@
 <ion-view hide-back-button="true">
 
-    <div class="search-bar">
+    <div id="searchForm" class="search-bar">
         <form class="search-form" ng-submit="search()">
             <div class="item-input-wrapper search-wrapper">
                 <i class="icon white-icon icon-search"></i>
-                <input type="search" placeholder="Search" ng-model="searchKey" class="search-control" />
-                <i ng-if="searchKey.length > 0" ng-click="clearSearch()" class="icon white-icon icon-cancel"></i>
+                <input id="searchControl" type="search" placeholder="Search" ng-model="searchKey" class="search-control" />
+                <i ng-if="searchKey" ng-click="$event.stopImmediatePropagation(); $event.preventDefault(); clearSearch();" class="icon white-icon icon-cancel"></i>
             </div>
         </form>
     </div>
@@ -36,7 +36,7 @@
             <div class="more-results">More</div>
             <div class="results-count">[ {{itemCount}} / {{employeeList.length}} ]</div>
         </div>
-        <ion-fixed class="scroll-to-top" ng-click="scrollToTop()">
+        <ion-fixed class="scroll-to-top" ng-click="scrollToTop()" ng-if="employeeSearchExist">
               Top <i class="ion-arrow-up-a"></i>
         </ion-fixed>
     </ion-content>

@@ -13,6 +13,10 @@ angular.module('directory.controllers.searchController', [])
         $scope.searchKey = "";
         $scope.filter = {};
 
+        $scope.employeeSearchExist = false;
+        $scope.keyboardShow = true;
+
+
         $scope.$on('$ionicView.loaded', function () {
             var filter = $state.params.filter || {};
             if (filter && filter.length) {
@@ -27,14 +31,13 @@ angular.module('directory.controllers.searchController', [])
             if ($scope.filter && $scope.searchKey.length) {
                 $scope.search();
             }
+
         });
 
         $scope.gotoHome = function() {
-            $ionicHistory.nextViewOptions({
-                disableBack: true
-            });
 
-           $state.go('search');
+           $state.go('searchReset', {searchreset:true}, {reload: true});
+
         }
 
         $scope.cacheSearchKey = function () {
@@ -43,19 +46,27 @@ angular.module('directory.controllers.searchController', [])
             }
         };
 
-        $scope.clearSearch = function () {
+        $scope.clearSearch = function (event) {
+
             console.log("clearing search terms");
-            $scope.searchKey = "";
-            $scope.filter = "";
+
+            $scope.searchKey = null;
+            $scope.filter = '';
             $scope.currentPage = 1;
             $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
             $scope.itemCount = $scope.pageSize;
             $scope.employeeList = null;
             $scope.sttButton=false;
             $scope.smrBlock=false;
+            $scope.employeeSearchExist = false;
 
             searchService.removeSearchKeyCache();
             filterService.removeFilterCache();
+
+            // Bug fix for https://jira.inbcu.com/browse/NBCUN-1448
+            // need to force the input to rerender in the webview
+            // I do this by adding a class, and then adding a transparent styling
+            setTimeout(() => document.getElementById("searchForm").classList.add('cleared'), 100);
         };
 
         $scope.scrollToTop = function () {
@@ -70,6 +81,8 @@ angular.module('directory.controllers.searchController', [])
             searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {
                 $scope.smrBlock = result.length > DEFAULT_PAGE_SIZE_STEP;
                 $scope.employeeList = result;
+
+                $scope.employeeSearchExist = true;
                 $ionicLoading.hide();
             }, function (error) {
                 console.log(error);
