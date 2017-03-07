@@ -14,9 +14,13 @@ angular.module('directory.controllers.filterController', [])
                     var biz = Object.keys(values[0]).map(function(k) { return values[0][k]; });
                     var loc = Object.keys(values[1]).map(function(k) { return values[1][k]; });
 
-                    $scope.companies = $scope.getCompanies(biz);
-                    $scope.groups = $scope.getGroups(biz);
-                    $scope.locations = $scope.getLocations(loc);
+                    var rawCompanies = $scope.getCompanies(biz);
+                    var rawGroups = $scope.getGroups(biz);
+                    var rawLocations = $scope.getLocations(loc);
+
+                    $scope.companies = rawCompanies.sort($scope.sortbyIndex);
+                    $scope.groups = rawGroups.sort($scope.sortbyIndex);
+                    $scope.locations = rawLocations.sort($scope.sortbyIndex);
 
                     $ionicLoading.hide();
                 }, function(reason) {
@@ -33,6 +37,14 @@ angular.module('directory.controllers.filterController', [])
             $scope.$on('$ionicView.enter', function () {
                 $scope.filter = filterService.getFilterCache();
             });
+
+            $scope.sortbyIndex = function (a, b){
+                  if (a.index < b.index)
+                    return -1;
+                  if (a.index > b.index)
+                    return 1;
+                  return 0;
+            };
 
             $scope.onChangeGroup = function () {
                 $scope.companies = $scope.getChildGroups(filter.selectedGroup);
@@ -65,7 +77,8 @@ angular.module('directory.controllers.filterController', [])
                     childItems.forEach(function(citem) {
                         childGroups.push({
                             tid: citem.tid,
-                            name: citem.name
+                            name: citem.name,
+                            index:citem.index
                         });
                     });
                 }
@@ -80,6 +93,7 @@ angular.module('directory.controllers.filterController', [])
                         return {
                             tid: item.tid,
                             name: item.name,
+                            index: item.index,
                             children: $scope.getChildGroups(item)
                         };
                     });
@@ -96,6 +110,7 @@ angular.module('directory.controllers.filterController', [])
                         return {
                             tid: item.tid,
                             name: item.name,
+                            index: item.index,
                             machine_name: item.machine_name
                         };
                     });

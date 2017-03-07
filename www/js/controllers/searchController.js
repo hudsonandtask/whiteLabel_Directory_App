@@ -35,11 +35,9 @@ angular.module('directory.controllers.searchController', [])
         });
 
         $scope.gotoHome = function() {
-            $ionicHistory.nextViewOptions({
-                disableBack: true
-            });
 
-           $state.go('search');
+           $state.go('searchReset', {searchreset:true}, {reload: true});
+
         }
 
         $scope.cacheSearchKey = function () {

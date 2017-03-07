@@ -111,6 +111,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getMobileNumber = function (number) {
+            var setMobile = null;
             if (number != undefined) {
                 if (number.type == "mobile") {
                     setMobile = number.value;

@@ -35,11 +35,9 @@ angular.module('directory.controllers.searchController', [])
         });
 
         $scope.gotoHome = function() {
-            $ionicHistory.nextViewOptions({
-                disableBack: true
-            });
 
-           $state.go('search');
+           $state.go('searchReset', {searchreset:true}, {reload: true});
+
         }
 
         $scope.cacheSearchKey = function () {
@@ -65,6 +63,9 @@ angular.module('directory.controllers.searchController', [])
             searchService.removeSearchKeyCache();
             filterService.removeFilterCache();
 
+            // Bug fix for https://jira.inbcu.com/browse/NBCUN-1448
+            // need to force the input to rerender in the webview
+            // I do this by adding a class, and then adding a transparent styling
             setTimeout(() => document.getElementById("searchForm").classList.add('cleared'), 100);
         };
 
