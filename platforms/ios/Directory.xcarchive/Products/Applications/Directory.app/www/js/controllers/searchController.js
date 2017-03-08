@@ -34,11 +34,20 @@ angular.module('directory.controllers.searchController', [])
 
         });
 
+        $scope.$on('$ionicView.beforeEnter', function () {
+          var searchResetState = $state.params.searchreset || false;
+
+          if(searchResetState){
+            $scope.clearSearch();
+            $state.params.searchreset = false;
+          }
+        });
+
         $scope.gotoHome = function() {
 
-           $state.go('searchReset', {searchreset:true}, {reload: true});
+          $state.go('searchReset', {searchreset:true}, {reload: true});
 
-        }
+        };
 
         $scope.cacheSearchKey = function () {
             if ($scope.searchKey.length) {
@@ -46,7 +55,7 @@ angular.module('directory.controllers.searchController', [])
             }
         };
 
-        $scope.clearSearch = function (event) {
+        $scope.clearSearch = function () {
 
             console.log("clearing search terms");
 
