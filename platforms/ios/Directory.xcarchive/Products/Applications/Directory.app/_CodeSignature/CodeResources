@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		Js7xu50qY11168182Fp/mwX+DS0=
+		kFDEKF03QfaXty1mNgB3IjrWGoY=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		0OoRobI2qoCoDMoI3tkiSB++7XY=
+		gJtIlSMUS0Wya+PwGe2Tt/dm0ns=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		LA820rlfPpJINJOX7YNZbcsK9zo=
+		8/JqvuBWoqzOvQxd1STjASo+ExY=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -302,7 +302,7 @@
 		</data>
 		<key>www/js/controllers/searchController.js</key>
 		<data>
-		hql4wNpOyjHy2XhQI2y0loqu7jc=
+		BYx3Ec+7HjKJJWYI3B01ygkMvFI=
 		</data>
 		<key>www/js/services/filterService.js</key>
 		<data>
@@ -1107,11 +1107,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Js7xu50qY11168182Fp/mwX+DS0=
+			kFDEKF03QfaXty1mNgB3IjrWGoY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Kfdiye3f0CknWjK/T2faHZoVrl3CsbC4RlXsWc+4fcw=
+			RubC2xUKxkv9xULY6vbo0vj2MY6F5ZbKHZIcyS8wzhY=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1129,11 +1129,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0OoRobI2qoCoDMoI3tkiSB++7XY=
+			gJtIlSMUS0Wya+PwGe2Tt/dm0ns=
 			</data>
 			<key>hash2</key>
 			<data>
-			9p3fQdnLYnkYbq5ovjCyRMs5UXoiDDD+jhlHnxK+myw=
+			ww5noZSCTqBMuQT2HD7AXrCxWfvUXqpxNLjDdkpP6Hg=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1294,11 +1294,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LA820rlfPpJINJOX7YNZbcsK9zo=
+			8/JqvuBWoqzOvQxd1STjASo+ExY=
 			</data>
 			<key>hash2</key>
 			<data>
-			7KQuxnh8fIjQt3aGrjRo8ktE9SLRfdqNB8LDVJ8q0n8=
+			2T2Hk8RmMeZALX++DePEeFVJEyDAkW4kFPLInV71Apk=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1679,11 +1679,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hql4wNpOyjHy2XhQI2y0loqu7jc=
+			BYx3Ec+7HjKJJWYI3B01ygkMvFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			agvc3YkQF89VAVmQu6almn26WzX++mr84nH2LbAL0jM=
+			+xbversV1JcdW8k1/To1Ri8UwssXHZLrddJlU6sbNko=
 			</data>
 		</dict>
 		<key>www/js/services/filterService.js</key>
