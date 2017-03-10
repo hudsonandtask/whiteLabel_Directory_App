@@ -238,6 +238,16 @@ body.platform-ios .filter-pane-content{
     font-size: 13px;
 }
 
+.search-no-result{
+    font-family: rock-sans-normal;
+    padding: 30px 0;
+    text-align: center;
+    color: #333333;
+    border: 4px dashed #ebebeb;
+    margin: 60px 0;
+    border-radius: 6px;
+}
+
 /* Item Counter */
 
 .collection-repeat-after-container .more-results{
