@@ -97,6 +97,8 @@ angular.module('directory.controllers.searchController', [])
 
                 if($scope.employeeList.length < 1){
                   $scope.noEmployeeFound = true;
+                }else{
+                  $scope.noEmployeeFound = false;
                 }
                 $ionicLoading.hide();
             }, function (error) {
