@@ -16,6 +16,7 @@ angular.module('directory.controllers.searchController', [])
         $scope.employeeSearchExist = false;
         $scope.keyboardShow = true;
 
+        $scope.noEmployeeFound = false;
 
         $scope.$on('$ionicView.loaded', function () {
             var filter = $state.params.filter || {};
@@ -65,6 +66,7 @@ angular.module('directory.controllers.searchController', [])
             $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
             $scope.itemCount = $scope.pageSize;
             $scope.employeeList = null;
+            $scope.noEmployeeFound = false;
             $scope.sttButton=false;
             $scope.smrBlock=false;
             $scope.employeeSearchExist = false;
@@ -92,6 +94,10 @@ angular.module('directory.controllers.searchController', [])
                 $scope.employeeList = result;
 
                 $scope.employeeSearchExist = true;
+
+                if($scope.employeeList.length < 1){
+                  $scope.noEmployeeFound = true;
+                }
                 $ionicLoading.hide();
             }, function (error) {
                 console.log(error);

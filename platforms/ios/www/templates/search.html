@@ -19,6 +19,9 @@
       <!--Page: {{currentPage}}  Total shown: {{pageSize}}-->
         <ion-list>
           <!-- was ng-repeat -->
+          <div ng-if="noEmployeeFound" class="search-result search-no-result">
+            We cannot find any employee profiles that match this search criteria.
+          </div>
             <ion-item class="item-avatar item-icon-right"
                       ng-class="$index%2 == 0 ? 'search-list-row-even' : 'search-list-row'"
                       collection-repeat="employee in employeeList| limitTo:pageSize" type="item-text-wrap" href="{{getProfileURL(employee.id)}}">
@@ -28,6 +31,7 @@
                     <div class="search-result-data" ng-bind-html="getTitle(employee)"></div>
                     <div class="search-result-data" ng-bind-html="getLocation(employee)"></div>
                 </div>
+
                 <!--<i class="icon ion-chevron-right"></i>-->
             </ion-item>
         </ion-list>
@@ -36,7 +40,7 @@
             <div class="more-results">More</div>
             <div class="results-count">[ {{itemCount}} / {{employeeList.length}} ]</div>
         </div>
-        <ion-fixed class="scroll-to-top" ng-click="scrollToTop()" ng-if="employeeSearchExist">
+        <ion-fixed class="scroll-to-top" ng-click="scrollToTop()" ng-if="employeeSearchExist && !noEmployeeFound">
               Top <i class="ion-arrow-up-a"></i>
         </ion-fixed>
     </ion-content>
