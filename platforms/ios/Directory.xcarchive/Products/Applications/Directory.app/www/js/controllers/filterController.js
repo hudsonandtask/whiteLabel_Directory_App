@@ -1,5 +1,5 @@
 angular.module('directory.controllers.filterController', [])
-       .controller('filterController', function ($scope, $state, $q, $ionicLoading, $cordovaKeyboard, filterService) {
+       .controller('filterController', function ($scope, $state, $q, $ionicLoading, filterService) {
             // initializes variables
             $scope.filter = {};
             $scope.groups = [];

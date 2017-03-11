@@ -1,6 +1,7 @@
 angular.module('directory', ['ionic', 'directory.services.filterService', 'directory.controllers.filterController',
                                         'directory.services.searchService', 'directory.controllers.searchController',
                                         'directory.services.profileService', 'directory.controllers.profileController',
+                                        'directory.controllers.logoController',
                                         'directory.services.networkService', 'ngCordova'])
     .run(function ($ionicPlatform, $ionicPopup, networkService) {
         $ionicPlatform.ready(function () {
