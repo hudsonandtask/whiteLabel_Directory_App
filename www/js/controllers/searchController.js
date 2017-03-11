@@ -29,7 +29,7 @@ angular.module('directory.controllers.searchController', [])
                     $scope.searchKey = cachedSearchKey;
                 }
             }
-            if ($scope.filter && $scope.searchKey.length) {
+            if ($scope.filter) {
                 $scope.search();
             }
         });
