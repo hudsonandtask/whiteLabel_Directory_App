@@ -93,7 +93,7 @@ angular.module('directory.controllers.searchController', [])
 
             searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {
                 $scope.smrBlock = result.length > DEFAULT_PAGE_SIZE_STEP;
-                $scope.employeeList = result;
+                $scope.employeeList = $scope.transform(result);
 
                 $scope.employeeSearchExist = true;
 
@@ -113,39 +113,16 @@ angular.module('directory.controllers.searchController', [])
             return $state.href("filter");
         };
 
-        $scope.getPicture = function (id) {
-            return appData.imagePath + id + appData.imageExt;
-        };
-
-        $scope.getProfileURL = function (id) {
-            return "#/profile/" + id;
-        };
-
-        $scope.getName = function (employee) {
-            if (employee != undefined) {
-                if (employee.firstname != undefined && employee.lastname != undefined) {
-                    setName = employee.firstname + ' ' + employee.lastname;
-                }
-            }
-            return setName;
-        };
-
-        $scope.getTitle = function (employee) {
-            if (employee != undefined) {
-                if (employee.designation != undefined) {
-                    setTitle = employee.designation;
-                }
-            }
-            return setTitle;
-        };
-
-        $scope.getLocation = function (employee) {
-            if (employee != undefined) {
-                if (employee.workcity != undefined) {
-                    setLocation = employee.workcity;
-                }
-            }
-            return setLocation;
+        $scope.transform = function (employeeList) {
+            return employeeList.map(function(employee) {
+                return {
+                    title: employee.designation || '',
+                    name: (employee.firstname && employee.lastname)? employee.firstname.concat(' ', employee.lastname) : '',
+                    location: employee.workcity || '',
+                    picture: appData.imagePath.concat(employee.id, appData.imageExt),
+                    profileUrl: '#' + employee.url
+                };
+            });
         };
 
         $scope.updatePage = function () {
