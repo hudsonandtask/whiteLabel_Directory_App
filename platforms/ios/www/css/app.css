@@ -595,7 +595,7 @@ input:-ms-input-placeholder {
     color: #adb9ca;
 }
 
-.profile-data span{
+.profile-data span.bold-purple{
     font-family: rock-sans-bold;
     color: #5c5b94;
     cursor: default;
@@ -635,6 +635,14 @@ input:-ms-input-placeholder {
     padding-bottom: 5px;
 }
 
+.search-result-data i{
+  color: #adb9ca;
+  position: relative;
+  top: 1px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
 /* Mobile Team section */
 
 .item-content {
@@ -667,6 +675,10 @@ input:-ms-input-placeholder {
     color: #6f7680;
     font-size: 13px;
     line-height: 16px;
+}
+
+.profile-team-row .item-content{
+  padding-right: 16px !important;
 }
 
 /* Reports to and HR Manager item*/

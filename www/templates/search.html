@@ -30,7 +30,7 @@
                     <div class="search-result-title">{{ employee.name }}</div>
                     <div class="search-result-data">{{ employee.title }}</div>
                     <div class="search-result-data">{{ employee.businesssegment }}</div>
-                    <div ng-if="employee.email.length"  ng-click="actionSendEmail(employee.email)" class="search-result-data search-result-email"><i class="icon-email"></i>{{ employee.email }}</div>
+                    <div ng-if="employee.email.length" class="search-result-data search-result-email"><i class="icon-email"></i>{{ employee.email }}</div>
                     <div ng-if="employee.businessphone.length" class="search-result-data search-result-phone"><i class="icon-phone"></i>{{ employee.businessphone }}</div>
                 </div>
                 <!--<i class="icon ion-chevron-right"></i>-->
