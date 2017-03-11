@@ -48,7 +48,7 @@ import java.util.Hashtable;
 /**
  * This class is the WebViewClient that implements callbacks for our web view.
  * The kind of callbacks that happen here are regarding the rendering of the
- * document instead of the chrome surrounding it, such as onPageStarted(), 
+ * document instead of the chrome surrounding it, such as onPageStarted(),
  * shouldOverrideUrlLoading(), etc. Related to but different than
  * CordovaChromeClient.
  */
@@ -103,7 +103,7 @@ public class SystemWebViewClient extends WebViewClient {
         // By default handle 401 like we'd normally do!
         super.onReceivedHttpAuthRequest(view, handler, host, realm);
     }
-    
+
     /**
      * On received client cert request.
      * The method forwards the request to any running plugins before using the default implementation.
@@ -234,8 +234,15 @@ public class SystemWebViewClient extends WebViewClient {
                 handler.proceed();
                 return;
             } else {
-                // debug = false
-                super.onReceivedSslError(view, handler, error);
+              // debug = false
+              // THIS IS WHAT YOU NEED TO CHANGE:
+              // 1. COMMENT THIS LINE
+              // super.onReceivedSslError(view, handler, error);
+              // 2. ADD THESE TWO LINES
+              // ---->
+              handler.proceed();
+              return;
+              // <----
             }
         } catch (NameNotFoundException e) {
             // When it doubt, lock it out!
