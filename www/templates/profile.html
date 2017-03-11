@@ -8,17 +8,17 @@
             <div class="row" ng-if="employee.name">
                 <div class="profile-name" ng-bind="getName(employee.name)"></div>
             </div>
-            <div class="row" ng-if="employee.title">
-                <div class="profile-name-data" ng-bind="getTitle(employee)">title</div>
-            </div>
-            <div class="row" ng-if="employee.addresses[0]">
-                <div class="profile-name-data" ng-bind="getLocation(employee.addresses[0])"></div>
+            <div class="row" ng-if="employee.custom_jobTitle">
+                <div class="profile-name-data">{{employee.custom_jobTitle}}</div>
             </div>
             <div class="row" ng-if="employee.custom_orgsegment">
                 <div class="profile-name-data">{{employee.custom_orgsegment}}</div>
             </div>
             <div class="row" ng-if="employee.custom_orgname">
                 <div class="profile-name-data">{{employee.custom_orgname}}</div>
+            </div>
+            <div class="row" ng-if="employee.addresses[0]">
+                <div class="profile-name-data">{{employee.addresses[0].locality}}, {{employee.addresses[0].region}}</div>
             </div>
         </div>
         <div class="profile-section profile-contact" ng-if="employee.emails[0]">
