@@ -258,6 +258,10 @@ body.platform-ios .filter-pane-content{
   text-transform: capitalize;
 }
 
+.collection-repeat-after-container .more-results.gray{
+    color: #c0c0c0;
+}
+
 .collection-repeat-after-container .results-count{
   font-family: rock-sans-bold;
   font-size: 16px;
