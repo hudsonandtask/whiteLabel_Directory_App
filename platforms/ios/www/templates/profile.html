@@ -8,17 +8,17 @@
             <div class="row" ng-if="employee.name">
                 <div class="profile-name" ng-bind="getName(employee.name)"></div>
             </div>
-            <div class="row" ng-if="employee.title">
-                <div class="profile-name-data" ng-bind="getTitle(employee)">title</div>
-            </div>
-            <div class="row" ng-if="employee.addresses[0]">
-                <div class="profile-name-data" ng-bind="getLocation(employee.addresses[0])"></div>
+            <div class="row" ng-if="employee.custom_jobTitle">
+                <div class="profile-name-data">{{employee.custom_jobTitle}}</div>
             </div>
             <div class="row" ng-if="employee.custom_orgsegment">
                 <div class="profile-name-data">{{employee.custom_orgsegment}}</div>
             </div>
             <div class="row" ng-if="employee.custom_orgname">
                 <div class="profile-name-data">{{employee.custom_orgname}}</div>
+            </div>
+            <div class="row" ng-if="employee.addresses[0]">
+                <div class="profile-name-data">{{employee.addresses[0].locality}}, {{employee.addresses[0].region}}</div>
             </div>
         </div>
         <div class="profile-section profile-contact" ng-if="employee.emails[0]">
@@ -82,6 +82,12 @@
                     <div class="search-result profile-team">
                         <div class="search-result-title" ng-bind-html="getTeamMemberName(manager)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberTitle(manager)"></div>
+                        <div class="search-result-data profile-email" ng-click="actionSendEmail(manager.email)">
+                            <span class="profile-email">{{manager.email}}</span>
+                        </div>
+                        <div class="search-result-data profile-data-links profile-data" ng-click="actionCallPhone(manager.businessphone)">
+                            <span>{{manager.businessphone}}</span>
+                        </div>
                     </div>
                     <!-- <i class="icon ion-chevron-right"></i> -->
                 </ion-item>
@@ -95,6 +101,12 @@
                     <div class="search-result profile-team">
                         <div class="search-result-title" ng-bind-html="getTeamMemberName(hrmanager)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberTitle(hrmanager)"></div>
+                        <div class="search-result-data profile-email" ng-click="actionSendEmail(hrmanager.email)">
+                            <span class="profile-email">{{hrmanager.email}}</span>
+                        </div>
+                        <div class="search-result-data profile-data-links profile-data" ng-click="actionCallPhone(hrmanager.businessphone)">
+                            <span>{{hrmanager.businessphone}}</span>
+                        </div>
                     </div>
                     <!-- <i class="icon ion-chevron-right"></i> -->
                 </ion-item>
@@ -108,6 +120,12 @@
                     <div class="search-result profile-team">
                         <div class="search-result-title" ng-bind-html="getTeamMemberName(directReport)"></div>
                         <div class="search-result-data" ng-bind-html="getTeamMemberTitle(directReport)"></div>
+                        <div class="search-result-data profile-email" ng-click="actionSendEmail(directReport.email)">
+                            <span class="profile-email">{{directReport.email}}</span>
+                        </div>
+                        <div class="search-result-data profile-data-links profile-data" ng-click="actionCallPhone(directReport.businessphone)">
+                            <span>{{directReport.businessphone}}</span>
+                        </div>
                     </div>
                     <!-- <i class="icon ion-chevron-right"></i> -->
                 </ion-item>

@@ -65,6 +65,7 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
                 controller: 'searchController'
             })
             .state('searchReset', {
+                cache: false,
                 url: '/search/:searchreset',
                 templateUrl: 'templates/search.html',
                 controller: 'searchController'

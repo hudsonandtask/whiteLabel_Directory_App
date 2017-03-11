@@ -67,8 +67,11 @@ angular.module('directory.services.profileService', [])
                     timeout: 30000
                 }).success(function (data, status, config) {
                     deferred.resolve(data);
+                    console.log("Got IDM data:");
+                    console.log(data);
                 }).error(function (data, status) {
-                  alert("error getting profile data");
+                  alert("Error retrieving profile data.\nPlease go back and try again.");
+                  // Return to search results page?
                   deferred.reject(status);
                 });
                 return deferred.promise;

@@ -19,6 +19,10 @@ angular.module('directory.controllers.searchController', [])
         $scope.noEmployeeFound = false;
 
         $scope.$on('$ionicView.loaded', function () {
+            // if ($scope.reset()) {
+            //     return;
+            // }
+
             var filter = $state.params.filter || {};
             if (filter && filter.length) {
                 $scope.filter = JSON.parse(filter);
@@ -32,22 +36,22 @@ angular.module('directory.controllers.searchController', [])
             if ($scope.filter && $scope.searchKey.length) {
                 $scope.search();
             }
-
         });
 
-        $scope.$on('$ionicView.beforeEnter', function () {
-          var searchResetState = $state.params.searchreset || false;
+        $scope.reset = function () {
+            var searchResetState = $state.params.searchreset || false;
 
-          if(searchResetState){
-            $scope.clearSearch();
-            $state.params.searchreset = false;
-          }
-        });
+            if(searchResetState){
+                $scope.clearSearch();
+            }
+
+            return searchResetState;
+        };
 
         $scope.gotoHome = function() {
-
-          $state.go('searchReset', {searchreset:true}, {reload: true});
-
+            if ($state.current.name.indexOf('search') < 0) {
+                $state.go('searchReset', {searchreset: true}, {reload: true});
+            }
         };
 
         $scope.cacheSearchKey = function () {
@@ -93,7 +97,10 @@ angular.module('directory.controllers.searchController', [])
 
             searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {
                 $scope.smrBlock = result.length > DEFAULT_PAGE_SIZE_STEP;
-                $scope.employeeList = result;
+                $scope.employeeList = $scope.transform(result);
+
+                console.log("employee list");
+                console.log($scope.employeeList);
 
                 $scope.employeeSearchExist = true;
 
@@ -113,44 +120,34 @@ angular.module('directory.controllers.searchController', [])
             return $state.href("filter");
         };
 
-        $scope.getPicture = function (id) {
-            return appData.imagePath + id + appData.imageExt;
-        };
-
-        $scope.getProfileURL = function (id) {
-            return "#/profile/" + id;
-        };
-
-        $scope.getName = function (employee) {
-            if (employee != undefined) {
-                if (employee.firstname != undefined && employee.lastname != undefined) {
-                    setName = employee.firstname + ' ' + employee.lastname;
-                }
-            }
-            return setName;
-        };
-
-        $scope.getTitle = function (employee) {
-            if (employee != undefined) {
-                if (employee.designation != undefined) {
-                    setTitle = employee.designation;
-                }
-            }
-            return setTitle;
-        };
-
-        $scope.getLocation = function (employee) {
-            if (employee != undefined) {
-                if (employee.workcity != undefined) {
-                    setLocation = employee.workcity;
-                }
-            }
-            return setLocation;
+        $scope.transform = function (employeeList) {
+            console.log("theRealEmployeeList");
+            console.log(employeeList);
+            return employeeList.map(function(employee) {
+                return {
+                    title: employee.designation || '',
+                    name: (employee.firstname && employee.lastname)? employee.firstname.concat(' ', employee.lastname) : '',
+                    location: employee.workcity || '',
+                    picture: appData.imagePath.concat(employee.id, appData.imageExt),
+                    profileUrl: '#' + employee.url,
+                    businessphone: employee.businessphone,
+                    email: employee.email,
+                    businesssegment: employee.businesssegment
+                };
+            });
         };
 
         $scope.updatePage = function () {
-            $scope.currentPage++;
-            $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+            if ($scope.pageSize == $scope.employeeList.length) {
+                return;
+            }
+            else if ((($scope.currentPage + 1) * DEFAULT_PAGE_SIZE_STEP) > $scope.employeeList.length) {
+                $scope.pageSize = $scope.employeeList.length;
+            }
+            else {
+                $scope.currentPage++;
+                $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+            }
 
             setTimeout(function () {
                 $scope.$apply(function () {

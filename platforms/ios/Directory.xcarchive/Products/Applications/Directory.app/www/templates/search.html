@@ -22,20 +22,23 @@
           <div ng-if="noEmployeeFound" class="search-result search-no-result">
             We cannot find any employee profiles that match this search criteria.
           </div>
-            <ion-item class="item-avatar item-icon-right"
-                      ng-class="$index%2 == 0 ? 'search-list-row-even' : 'search-list-row'"
-                      collection-repeat="employee in employeeList| limitTo:pageSize" type="item-text-wrap" href="{{getProfileURL(employee.id)}}">
-                <img ng-src="{{getPicture(employee.id)}}" onerror="this.src='img/default-user.jpg'" />
+            <ion-item class="item-avatar item-icon-right search-list-row"
+                      ng-class="$index%2 == 0 ? 'search-list-row-even' : ''"
+                      collection-repeat="employee in employeeList| limitTo:pageSize" type="item-text-wrap" href="{{ employee.profileUrl }}">
+                <img ng-src="{{ employee.picture }}" onerror="this.src='img/default-user.jpg'" />
                 <div class="search-result">
-                    <div class="search-result-title" ng-bind-html="getName(employee)"></div>
-                    <div class="search-result-data" ng-bind-html="getTitle(employee)"></div>
+                    <div class="search-result-title">{{ employee.name }}</div>
+                    <div class="search-result-data">{{ employee.title }}</div>
+                    <div class="search-result-data">{{ employee.businesssegment }}</div>
+                    <div ng-if="employee.email.length" class="search-result-data search-result-email"><i class="icon-email"></i>{{ employee.email }}</div>
+                    <div ng-if="employee.businessphone.length" class="search-result-data search-result-phone"><i class="icon-phone"></i>{{ employee.businessphone }}</div>
                 </div>
                 <!--<i class="icon ion-chevron-right"></i>-->
             </ion-item>
         </ion-list>
 
         <div ng-show="smrBlock" class="load-more-results" ng-click="updatePage()">
-            <div class="more-results">More</div>
+            <div class="more-results" ng-class="(itemCount >= employeeList.length)? 'gray': ''">More</div>
             <div class="results-count">[ {{itemCount}} / {{employeeList.length}} ]</div>
         </div>
         <ion-fixed class="scroll-to-top" ng-click="scrollToTop()" ng-if="employeeSearchExist && !noEmployeeFound">
