@@ -214,15 +214,30 @@ body.platform-ios .filter-pane-content{
 }
 
 /* Search Items */
+
 .search-list-row.item{
   border-bottom: 1px solid #ebebeb;
 }
 
-.search-list-row-even>a.item-content {
+.search-list-row .item-content{
+  padding-right:16px !important;
+}
+
+.search-list-row-even {
   background-color: #fafafa;
 }
 
-.search-result {}
+.search-list-row-even .item-content{
+  background: transparent;
+}
+
+.search-list-row i{
+  color: #adb9ca;
+  position: relative;
+  top: 1px;
+  margin-right: 6px;
+  font-size: 14px;
+}
 
 .search-result-title {
     font-family: rock-sans-bold;
@@ -236,6 +251,22 @@ body.platform-ios .filter-pane-content{
     white-space: normal;
     color: #6f7680;
     font-size: 13px;
+}
+
+.search-result-email{
+    font-family: rock-sans-normal;
+    white-space: normal;
+    color: #29a5db;
+    font-size: 12px;
+    word-wrap: break-word;
+    line-height: 14px;
+    display: block;
+}
+
+.search-result-phone{
+  color: #6463a0;
+  font-family: rock-sans-normal;
+  font-size: 12px;
 }
 
 .search-no-result{
@@ -256,6 +287,10 @@ body.platform-ios .filter-pane-content{
   padding-top: 10px;
   color: #5c5b94;
   text-transform: capitalize;
+}
+
+.collection-repeat-after-container .more-results.gray{
+    color: #c0c0c0;
 }
 
 .collection-repeat-after-container .results-count{

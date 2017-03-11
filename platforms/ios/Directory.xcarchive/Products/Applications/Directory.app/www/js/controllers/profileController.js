@@ -6,17 +6,27 @@ angular.module('directory.controllers.profileController', ['ionic'])
         });
 
         $scope.loadProfile = function () {
+            console.log("showing profile data");
             $ionicLoading.show();
             profileService.getProfile($stateParams.id).then(function (result) {
                 $scope.employee = result;
+                console.log("Employee");
+                console.log($scope.employee);
                 searchService.searchBySupervisor($stateParams.id).then(function (result) {
                     $scope.directReports = result;
+                    console.log("Direct Reports");
+                    console.log($scope.directReports);
                     searchService.searchById($scope.employee.manager.managerId).then(function (result) {
                         $scope.managers = result;
+                        console.log("Managers");
+                        console.log($scope.managers);
 
                         if (($scope.employee.custom_hrmanager) || ($scope.employee.custom_hrmanager)) {
                           searchService.searchById($scope.employee.custom_hrmanager.custom_hrmanagerid).then(function (result) {
                               $scope.hrmanagers = result;
+                              console.log("HR Managers");
+                              console.log($scope.hrmanagers);
+                              
                               $ionicLoading.hide();
                           }, function (error) {
                               $ionicLoading.hide();

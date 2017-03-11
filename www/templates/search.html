@@ -22,16 +22,16 @@
           <div ng-if="noEmployeeFound" class="search-result search-no-result">
             We cannot find any employee profiles that match this search criteria.
           </div>
-            <ion-item class="item-avatar item-icon-right"
-                      ng-class="$index%2 == 0 ? 'search-list-row-even' : 'search-list-row'"
+            <ion-item class="item-avatar item-icon-right search-list-row"
+                      ng-class="$index%2 == 0 ? 'search-list-row-even' : ''"
                       collection-repeat="employee in employeeList| limitTo:pageSize" type="item-text-wrap" href="{{ employee.profileUrl }}">
                 <img ng-src="{{ employee.picture }}" onerror="this.src='img/default-user.jpg'" />
                 <div class="search-result">
                     <div class="search-result-title">{{ employee.name }}</div>
                     <div class="search-result-data">{{ employee.title }}</div>
                     <div class="search-result-data">{{ employee.businesssegment }}</div>
-                    <div class="search-result-data">{{ employee.email }}</div>
-                    <div class="search-result-data">{{ employee.businessphone }}</div>
+                    <div ng-if="employee.email.length"  ng-click="actionSendEmail(employee.email)" class="search-result-data search-result-email"><i class="icon-email"></i>{{ employee.email }}</div>
+                    <div ng-if="employee.businessphone.length" class="search-result-data search-result-phone"><i class="icon-phone"></i>{{ employee.businessphone }}</div>
                 </div>
                 <!--<i class="icon ion-chevron-right"></i>-->
             </ion-item>

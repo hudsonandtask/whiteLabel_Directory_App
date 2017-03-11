@@ -94,17 +94,20 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 console.log(filteredLocation);
 
                 if (regexCharStr.test(trimSearchText)) {
-                    params = "select?q=category:worker%20AND%20title:%22" + trimSearchText + "%22";
+                    params = "select?q=title:%22" + trimSearchText + "%22%20OR%20firstname:%22" + trimSearchText + "%22" + "%22%20OR%20lastname:%22" + trimSearchText + "%22" + "%22%20OR%20businessphone:%22" + trimSearchText + "%22";
+                    console.log(params);
                 } else if (regexCharSpaceStr.test(trimSearchText)) {
-                    params = "select?q=category:worker%20AND%20title:%22" + trimSearchText.replace(/[\s,]+/g, '%20')  + "%22";
+                    params = "select?q=title:%22" + trimSearchText.replace(/[\s,]+/g, '%20')  + "%22";
                 } else {
                     if (trimSearchText.indexOf(",") != -1) {
                         var getCommaStr = trimSearchText.split(",");
-                        params = "select?q=category:worker%20AND%20title:%22" + getCommaStr[1] + "%20" + getCommaStr[0]  + "%22";
+                        params = "select?q=title:%22" + getCommaStr[1] + "%20" + getCommaStr[0]  + "%22";
                     } else {
-                        params = "select?q=category:worker%20AND%20title:" + trimSearchText  + "%22";
+                        params = "select?q=title:" + trimSearchText  + "%22";
                     }
                 }
+
+                params += '&fq=category:worker';
 
                 // 1a. location
                 if (filteredLocation) {
@@ -125,6 +128,10 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                   // $search_query .= '&fq=subbusinesssegment:' . $query['subgroup'];
                   params += "&fq=subbusinesssegment:" + filteredCompany;
                 }
+
+                // NBCUN-1495: Filter out Comcast employees
+                // exclude business segment of "Comcast Cable" or "Comcast Spectacor"
+                params += '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")';
 
                 //     // category: worker
                 // $search_query .= 'fq=category:worker';
@@ -178,7 +185,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 }
                 /** END TESTING **/
 
-                var URL = SOLR_URL + "select?q=category:worker%20AND%20id:" + id + "&wt=json&rows=25";
+                var URL = SOLR_URL + "select?q=category:worker%20AND%20id:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' + "&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=25";
                 dataRequest = JSON.parse(angular.toJson(""));
                 $http({
                     method: 'GET',
@@ -204,7 +211,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 }
                 /** END TESTING **/
 
-                var URL = SOLR_URL + "select?q=category:worker%20AND%20supervisorid:" + id + "%20AND%20(usertype:Employee%20OR%20usertype:Contractor)&wt=json&rows=25";
+                var URL = SOLR_URL + "select?q=category:worker%20AND%20supervisorid:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' +  "%20AND%20(usertype:Employee%20OR%20usertype:Contractor%20OR%20usertype:Hire%20OR%20usertype:Expat%20OR%20usertype:Hourly)&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=25";
                 dataRequest = JSON.parse(angular.toJson(""));
                 $http({
                     method: 'GET',
