@@ -95,6 +95,9 @@ angular.module('directory.controllers.searchController', [])
                 $scope.smrBlock = result.length > DEFAULT_PAGE_SIZE_STEP;
                 $scope.employeeList = $scope.transform(result);
 
+                console.log("employee list");
+                console.log($scope.employeeList);
+
                 $scope.employeeSearchExist = true;
 
                 if($scope.employeeList.length < 1){
@@ -114,13 +117,18 @@ angular.module('directory.controllers.searchController', [])
         };
 
         $scope.transform = function (employeeList) {
+            console.log("theRealEmployeeList");
+            console.log(employeeList);
             return employeeList.map(function(employee) {
                 return {
                     title: employee.designation || '',
                     name: (employee.firstname && employee.lastname)? employee.firstname.concat(' ', employee.lastname) : '',
                     location: employee.workcity || '',
                     picture: appData.imagePath.concat(employee.id, appData.imageExt),
-                    profileUrl: '#' + employee.url
+                    profileUrl: '#' + employee.url,
+                    businessphone: employee.businessphone,
+                    email: employee.email,
+                    businesssegment: employee.businesssegment
                 };
             });
         };
