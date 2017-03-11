@@ -24,11 +24,11 @@
           </div>
             <ion-item class="item-avatar item-icon-right"
                       ng-class="$index%2 == 0 ? 'search-list-row-even' : 'search-list-row'"
-                      collection-repeat="employee in employeeList| limitTo:pageSize" type="item-text-wrap" href="{{getProfileURL(employee.id)}}">
-                <img ng-src="{{getPicture(employee.id)}}" onerror="this.src='img/default-user.jpg'" />
+                      collection-repeat="employee in employeeList| limitTo:pageSize" type="item-text-wrap" href="{{ employee.profileUrl }}">
+                <img ng-src="{{ employee.picture }}" onerror="this.src='img/default-user.jpg'" />
                 <div class="search-result">
-                    <div class="search-result-title" ng-bind-html="getName(employee)"></div>
-                    <div class="search-result-data" ng-bind-html="getTitle(employee)"></div>
+                    <div class="search-result-title">{{ employee.name }}</div>
+                    <div class="search-result-data">{{ employee.title }}</div>
                 </div>
                 <!--<i class="icon ion-chevron-right"></i>-->
             </ion-item>
