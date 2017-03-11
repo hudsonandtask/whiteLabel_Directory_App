@@ -126,8 +126,16 @@ angular.module('directory.controllers.searchController', [])
         };
 
         $scope.updatePage = function () {
-            $scope.currentPage++;
-            $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+            if ($scope.pageSize == $scope.employeeList.length) {
+                return;
+            }
+            else if ((($scope.currentPage + 1) * DEFAULT_PAGE_SIZE_STEP) > $scope.employeeList.length) {
+                $scope.pageSize = $scope.employeeList.length;
+            }
+            else {
+                $scope.currentPage++;
+                $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+            }
 
             setTimeout(function () {
                 $scope.$apply(function () {
