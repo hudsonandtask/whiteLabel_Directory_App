@@ -94,17 +94,20 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 console.log(filteredLocation);
 
                 if (regexCharStr.test(trimSearchText)) {
-                    params = "select?q=category:worker%20AND%20title:%22" + trimSearchText + "%22";
+                    params = "select?q=title:%22" + trimSearchText + "%22%20OR%20firstname:%22" + trimSearchText + "%22" + "%22%20OR%20lastname:%22" + trimSearchText + "%22" + "%22%20OR%20businessphone:%22" + trimSearchText + "%22";
+                    console.log(params);
                 } else if (regexCharSpaceStr.test(trimSearchText)) {
-                    params = "select?q=category:worker%20AND%20title:%22" + trimSearchText.replace(/[\s,]+/g, '%20')  + "%22";
+                    params = "select?q=title:%22" + trimSearchText.replace(/[\s,]+/g, '%20')  + "%22";
                 } else {
                     if (trimSearchText.indexOf(",") != -1) {
                         var getCommaStr = trimSearchText.split(",");
-                        params = "select?q=category:worker%20AND%20title:%22" + getCommaStr[1] + "%20" + getCommaStr[0]  + "%22";
+                        params = "select?q=title:%22" + getCommaStr[1] + "%20" + getCommaStr[0]  + "%22";
                     } else {
-                        params = "select?q=category:worker%20AND%20title:" + trimSearchText  + "%22";
+                        params = "select?q=title:" + trimSearchText  + "%22";
                     }
                 }
+
+                params += '&fq=category:worker';
 
                 // 1a. location
                 if (filteredLocation) {
