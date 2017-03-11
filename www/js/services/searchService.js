@@ -126,6 +126,10 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                   params += "&fq=subbusinesssegment:" + filteredCompany;
                 }
 
+                // NBCUN-1495: Filter out Comcast employees
+                // exclude business segment of "Comcast Cable" or "Comcast Spectacor"
+                params += '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")';
+
                 //     // category: worker
                 // $search_query .= 'fq=category:worker';
                 // // Only include requested user types (exclude Function and Partner usertypes)
