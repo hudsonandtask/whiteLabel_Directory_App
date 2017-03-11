@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		5TUzkYgw1wywHRhZilvGmWWPrgw=
+		2bf/V3J7uVM9CRz9rN53BGiqAko=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		SnTLokZGpsuUWrBjXHPKZlpJhJw=
+		DAj5Z+VxOGKV+2zeP7Imusu4UXE=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		9vYhvy2uxhyn/mNsrjWk8XfeZn4=
+		ntvPMymNPpGfRsv/3+Mp/PztMNw=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -294,7 +294,7 @@
 		</data>
 		<key>www/js/controllers/filterController.js</key>
 		<data>
-		mmFFlZc/m+4S01C47bRljwPyek8=
+		mVni81wXySUaD0hVFWdxL7Ja6PY=
 		</data>
 		<key>www/js/controllers/logoController.js</key>
 		<data>
@@ -306,7 +306,7 @@
 		</data>
 		<key>www/js/controllers/searchController.js</key>
 		<data>
-		QgmJeXsq56avzuelbtPGPAulJDA=
+		2CwKbDgUqyQQT+lo/TWfh5fC81M=
 		</data>
 		<key>www/js/services/filterService.js</key>
 		<data>
@@ -1111,11 +1111,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5TUzkYgw1wywHRhZilvGmWWPrgw=
+			2bf/V3J7uVM9CRz9rN53BGiqAko=
 			</data>
 			<key>hash2</key>
 			<data>
-			Xawzyg9czMgEvlTTP/1wePfIsGM0Uo6GR0YLSnqPEOs=
+			BAXwDPvaKBmZq89yB25qxHRFbojNFZ8OmwkX7mQo9eE=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1133,11 +1133,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SnTLokZGpsuUWrBjXHPKZlpJhJw=
+			DAj5Z+VxOGKV+2zeP7Imusu4UXE=
 			</data>
 			<key>hash2</key>
 			<data>
-			IsxR0ZWe1s7mxdwOcelLthjP6F2TuMLEZU8wb5l2+Ko=
+			o091SXzwqE+0qrxMQIX0vAOp8+5kkE1+IrlOpfHVoZk=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1298,11 +1298,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9vYhvy2uxhyn/mNsrjWk8XfeZn4=
+			ntvPMymNPpGfRsv/3+Mp/PztMNw=
 			</data>
 			<key>hash2</key>
 			<data>
-			/KPEdk1DYyi1Yvmwl4h9vcfmacATTXsGmVaPRxdsUkc=
+			Ng/X1Btgja+p9ivxx2pjXh8CyiIxJ3fUZ0EAqWK1hnU=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1661,11 +1661,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mmFFlZc/m+4S01C47bRljwPyek8=
+			mVni81wXySUaD0hVFWdxL7Ja6PY=
 			</data>
 			<key>hash2</key>
 			<data>
-			WBpc8v6WSmXXlbFjsBg8JA0XfTHwfSB+UQBPbk12syM=
+			93Po4tSINrp9mI79YGCMKrK3UWNAZv4UmOUoRw9/Pn8=
 			</data>
 		</dict>
 		<key>www/js/controllers/logoController.js</key>
@@ -1694,11 +1694,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QgmJeXsq56avzuelbtPGPAulJDA=
+			2CwKbDgUqyQQT+lo/TWfh5fC81M=
 			</data>
 			<key>hash2</key>
 			<data>
-			hEv5XpC+TQn5kSUqr5Lqx11n5w43twgvBG1ck9BxQVc=
+			obyqRpxKfHWQiIwFelgJUFydUXH0ZXBBtjLLDdmykhA=
 			</data>
 		</dict>
 		<key>www/js/services/filterService.js</key>
