@@ -85,6 +85,8 @@ angular.module('directory.controllers.searchController', [])
                 $cordovaKeyboard.close();
             }
 
+            document.getElementById("searchForm").classList.remove('cleared');
+
             $ionicLoading.show();
 
             searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {

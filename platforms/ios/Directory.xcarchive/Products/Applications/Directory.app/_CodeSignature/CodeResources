@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		dWyZuWfcDa9s+gicO98jG1G0duQ=
+		5TUzkYgw1wywHRhZilvGmWWPrgw=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		az+dMq8JbZKBC0dMJE7/mxIXwME=
+		SnTLokZGpsuUWrBjXHPKZlpJhJw=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		TLLyqQLojVn1+3QNXuDrAw/LjBI=
+		9vYhvy2uxhyn/mNsrjWk8XfeZn4=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -286,15 +286,19 @@
 		</data>
 		<key>www/index.html</key>
 		<data>
-		d4UL/whkiWVNMbIVNwG4zK+nHFo=
+		DsfRaTFbMbB2VwWJ9K4TleICg8g=
 		</data>
 		<key>www/js/app.js</key>
 		<data>
-		U609zo/Sd6iPu80Aj3T4dRi6g64=
+		dh6Uh43iNIGR4/64qUpypA7sjsw=
 		</data>
 		<key>www/js/controllers/filterController.js</key>
 		<data>
 		mmFFlZc/m+4S01C47bRljwPyek8=
+		</data>
+		<key>www/js/controllers/logoController.js</key>
+		<data>
+		6OqEQgk06IapJnWlJwx+kE45WtU=
 		</data>
 		<key>www/js/controllers/profileController.js</key>
 		<data>
@@ -302,7 +306,7 @@
 		</data>
 		<key>www/js/controllers/searchController.js</key>
 		<data>
-		WP0uOc9EKcJzfHl35bgdMtWLsEc=
+		QgmJeXsq56avzuelbtPGPAulJDA=
 		</data>
 		<key>www/js/services/filterService.js</key>
 		<data>
@@ -1107,11 +1111,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dWyZuWfcDa9s+gicO98jG1G0duQ=
+			5TUzkYgw1wywHRhZilvGmWWPrgw=
 			</data>
 			<key>hash2</key>
 			<data>
-			dmawcoKi2AaJjFxNk7cOFzOvc3u+BYrSEUG2fZW3PIw=
+			Xawzyg9czMgEvlTTP/1wePfIsGM0Uo6GR0YLSnqPEOs=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1129,11 +1133,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			az+dMq8JbZKBC0dMJE7/mxIXwME=
+			SnTLokZGpsuUWrBjXHPKZlpJhJw=
 			</data>
 			<key>hash2</key>
 			<data>
-			EKZdj7C/DzDLz7ye8nEw5Oo/XTw9Z4cwBZXKbpU6fVE=
+			IsxR0ZWe1s7mxdwOcelLthjP6F2TuMLEZU8wb5l2+Ko=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1294,11 +1298,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TLLyqQLojVn1+3QNXuDrAw/LjBI=
+			9vYhvy2uxhyn/mNsrjWk8XfeZn4=
 			</data>
 			<key>hash2</key>
 			<data>
-			tmWB/hF03pbWrfGTRqQTaHNZuADrngx7trKpa+6gjlM=
+			/KPEdk1DYyi1Yvmwl4h9vcfmacATTXsGmVaPRxdsUkc=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1635,22 +1639,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			d4UL/whkiWVNMbIVNwG4zK+nHFo=
+			DsfRaTFbMbB2VwWJ9K4TleICg8g=
 			</data>
 			<key>hash2</key>
 			<data>
-			LVIf0R+bjX+Y+2qNvvbxKps60+C5KPtD3CcKyXQKJP8=
+			2iWDXUSGUUQKpHUbZrSk++oHtMuGFlZ9xtQqLP433Dc=
 			</data>
 		</dict>
 		<key>www/js/app.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			U609zo/Sd6iPu80Aj3T4dRi6g64=
+			dh6Uh43iNIGR4/64qUpypA7sjsw=
 			</data>
 			<key>hash2</key>
 			<data>
-			FegnJn+TI/SQh8sKJgX2lNAQrFQaM7LBd5wxzTJs+Wg=
+			9RnUONCAEgw6knLt3nYXjWk4bobBuuWCoLxHzqkWywo=
 			</data>
 		</dict>
 		<key>www/js/controllers/filterController.js</key>
@@ -1662,6 +1666,17 @@
 			<key>hash2</key>
 			<data>
 			WBpc8v6WSmXXlbFjsBg8JA0XfTHwfSB+UQBPbk12syM=
+			</data>
+		</dict>
+		<key>www/js/controllers/logoController.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6OqEQgk06IapJnWlJwx+kE45WtU=
+			</data>
+			<key>hash2</key>
+			<data>
+			T9g69mAj7ckFQzALvJ3H/4Xqa8BhKg3iROF1YA6UI3s=
 			</data>
 		</dict>
 		<key>www/js/controllers/profileController.js</key>
@@ -1679,11 +1694,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WP0uOc9EKcJzfHl35bgdMtWLsEc=
+			QgmJeXsq56avzuelbtPGPAulJDA=
 			</data>
 			<key>hash2</key>
 			<data>
-			HdnaxtzcTrII3HZeMaAFHQbSZ0RWnta3V1aaKMcpKVs=
+			hEv5XpC+TQn5kSUqr5Lqx11n5w43twgvBG1ck9BxQVc=
 			</data>
 		</dict>
 		<key>www/js/services/filterService.js</key>
