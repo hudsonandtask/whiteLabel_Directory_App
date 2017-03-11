@@ -19,6 +19,10 @@ angular.module('directory.controllers.searchController', [])
         $scope.noEmployeeFound = false;
 
         $scope.$on('$ionicView.loaded', function () {
+            // if ($scope.reset()) {
+            //     return;
+            // }
+
             var filter = $state.params.filter || {};
             if (filter && filter.length) {
                 $scope.filter = JSON.parse(filter);
@@ -32,22 +36,22 @@ angular.module('directory.controllers.searchController', [])
             if ($scope.filter && $scope.searchKey.length) {
                 $scope.search();
             }
-
         });
 
-        $scope.$on('$ionicView.beforeEnter', function () {
-          var searchResetState = $state.params.searchreset || false;
+        $scope.reset = function () {
+            var searchResetState = $state.params.searchreset || false;
 
-          if(searchResetState){
-            $scope.clearSearch();
-            $state.params.searchreset = false;
-          }
-        });
+            if(searchResetState){
+                $scope.clearSearch();
+            }
+
+            return searchResetState;
+        };
 
         $scope.gotoHome = function() {
-
-          $state.go('searchReset', {searchreset:true}, {reload: true});
-
+            if ($state.current.name.indexOf('search') < 0) {
+                $state.go('searchReset', {searchreset: true}, {reload: true});
+            }
         };
 
         $scope.cacheSearchKey = function () {
