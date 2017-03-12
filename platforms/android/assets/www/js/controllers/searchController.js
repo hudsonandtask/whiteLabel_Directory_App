@@ -1,5 +1,5 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($scope, $state, appData, $ionicHistory, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, filterService, searchService) {
+    .controller('searchController', function ($scope, $state, appData, $ionicHistory, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, $window, filterService, searchService) {
 
         var DEFAULT_PAGE_SIZE_STEP = 10;
 
@@ -16,6 +16,7 @@ angular.module('directory.controllers.searchController', [])
         $scope.employeeSearchExist = false;
         $scope.keyboardShow = true;
 
+        $scope.noEmployeeFound = false;
 
         $scope.$on('$ionicView.loaded', function () {
             var filter = $state.params.filter || {};
@@ -28,17 +29,10 @@ angular.module('directory.controllers.searchController', [])
                     $scope.searchKey = cachedSearchKey;
                 }
             }
-            if ($scope.filter && $scope.searchKey.length) {
+            if (filter.length) {
                 $scope.search();
             }
-
         });
-
-        $scope.gotoHome = function() {
-
-           $state.go('searchReset', {searchreset:true}, {reload: true});
-
-        }
 
         $scope.cacheSearchKey = function () {
             if ($scope.searchKey.length) {
@@ -46,7 +40,7 @@ angular.module('directory.controllers.searchController', [])
             }
         };
 
-        $scope.clearSearch = function (event) {
+        $scope.clearSearch = function () {
 
             console.log("clearing search terms");
 
@@ -56,6 +50,7 @@ angular.module('directory.controllers.searchController', [])
             $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
             $scope.itemCount = $scope.pageSize;
             $scope.employeeList = null;
+            $scope.noEmployeeFound = false;
             $scope.sttButton=false;
             $scope.smrBlock=false;
             $scope.employeeSearchExist = false;
@@ -66,7 +61,9 @@ angular.module('directory.controllers.searchController', [])
             // Bug fix for https://jira.inbcu.com/browse/NBCUN-1448
             // need to force the input to rerender in the webview
             // I do this by adding a class, and then adding a transparent styling
-            setTimeout(() => document.getElementById("searchForm").classList.add('cleared'), 100);
+            setTimeout(function() {
+                document.getElementById("searchForm").classList.add('cleared');
+            }, 100);
         };
 
         $scope.scrollToTop = function () {
@@ -75,14 +72,37 @@ angular.module('directory.controllers.searchController', [])
         };
 
         $scope.search = function () {
-            $cordovaKeyboard.close();
+            if ($state.current.name == 'searchReset') {
+                $ionicHistory.nextViewOptions({
+                    disableAnimate: true,
+                    historyRoot: true
+                });
+
+                $state.go('search');
+            }
+
+            if ($window.cordova && $window.cordova.plugins) {
+                $cordovaKeyboard.close();
+            }
+
+            document.getElementById("searchForm").classList.remove('cleared');
+
             $ionicLoading.show();
 
             searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {
                 $scope.smrBlock = result.length > DEFAULT_PAGE_SIZE_STEP;
-                $scope.employeeList = result;
+                $scope.employeeList = $scope.transform(result);
+
+                console.log("employee list");
+                console.log($scope.employeeList);
 
                 $scope.employeeSearchExist = true;
+
+                if($scope.employeeList.length < 1){
+                  $scope.noEmployeeFound = true;
+                }else{
+                  $scope.noEmployeeFound = false;
+                }
                 $ionicLoading.hide();
             }, function (error) {
                 console.log(error);
@@ -94,44 +114,34 @@ angular.module('directory.controllers.searchController', [])
             return $state.href("filter");
         };
 
-        $scope.getPicture = function (id) {
-            return appData.imagePath + id + appData.imageExt;
-        };
-
-        $scope.getProfileURL = function (id) {
-            return "#/profile/" + id;
-        };
-
-        $scope.getName = function (employee) {
-            if (employee != undefined) {
-                if (employee.firstname != undefined && employee.lastname != undefined) {
-                    setName = employee.firstname + ' ' + employee.lastname;
-                }
-            }
-            return setName;
-        };
-
-        $scope.getTitle = function (employee) {
-            if (employee != undefined) {
-                if (employee.designation != undefined) {
-                    setTitle = employee.designation;
-                }
-            }
-            return setTitle;
-        };
-
-        $scope.getLocation = function (employee) {
-            if (employee != undefined) {
-                if (employee.workcity != undefined) {
-                    setLocation = employee.workcity;
-                }
-            }
-            return setLocation;
+        $scope.transform = function (employeeList) {
+            console.log("theRealEmployeeList");
+            console.log(employeeList);
+            return employeeList.map(function(employee) {
+                return {
+                    title: employee.designation || '',
+                    name: (employee.firstname && employee.lastname)? employee.firstname.concat(' ', employee.lastname) : '',
+                    location: employee.workcity || '',
+                    picture: appData.imagePath.concat(employee.id, appData.imageExt),
+                    profileUrl: '#' + employee.url,
+                    businessphone: employee.businessphone,
+                    email: employee.email,
+                    businesssegment: employee.businesssegment
+                };
+            });
         };
 
         $scope.updatePage = function () {
-            $scope.currentPage++;
-            $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+            if ($scope.pageSize == $scope.employeeList.length) {
+                return;
+            }
+            else if ((($scope.currentPage + 1) * DEFAULT_PAGE_SIZE_STEP) > $scope.employeeList.length) {
+                $scope.pageSize = $scope.employeeList.length;
+            }
+            else {
+                $scope.currentPage++;
+                $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
+            }
 
             setTimeout(function () {
                 $scope.$apply(function () {

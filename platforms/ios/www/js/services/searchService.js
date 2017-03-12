@@ -70,6 +70,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
             searchByName: function (searchText, filter) {
                 var deferred = $q.defer();
                 var params = "";
+                var trimSearchText = '';
 
                 /** TESTING **/
                 if (searchText == "test") {
@@ -79,7 +80,9 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 /** END TESTING **/
 
                 //Trim leading & trailing spaces
-                var trimSearchText = searchText.replace(/\s+$/, '');
+                if(searchText) {
+                  trimSearchText = searchText.replace(/\s+$/, '');
+                }
                 var regexCharStr = /^[a-zA-Z]*$/;
                 var regexCharSpaceStr = /^[a-zA-Z ]*$/;
 
@@ -88,22 +91,35 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 var filteredCompany = filter.selectedCompany;
                 var filteredLocation = filter.selectedLocation;
 
-                console.log(trimSearchText);
-                console.log(filteredGroup);
-                console.log(filteredCompany);
-                console.log(filteredLocation);
+                console.log("search text: " + trimSearchText);
+                console.log("search group: " + filteredGroup);
+                console.log("search company: " + filteredCompany);
+                console.log("search location: " + filteredLocation);
 
                 if (regexCharStr.test(trimSearchText)) {
-                    params = "select?q=title:%22" + trimSearchText + "%22%20OR%20firstname:%22" + trimSearchText + "%22" + "%22%20OR%20lastname:%22" + trimSearchText + "%22" + "%22%20OR%20businessphone:%22" + trimSearchText + "%22";
+                    if(trimSearchText) {
+                      console.log("has data: " + trimSearchText);
+                      params = "select?q=title:%22" + trimSearchText + "%22%20OR%20firstname:%22" + trimSearchText + "%22" + "%20OR%20lastname:%22" + trimSearchText + "%22" + "%20OR%20businessphone:%22" + trimSearchText + "%22";
+                    } else {
+                      console.log("blank data: " + trimSearchText);
+                      params = "select?q=*:*";
+                    }
+                    console.log("search 1");
                     console.log(params);
                 } else if (regexCharSpaceStr.test(trimSearchText)) {
                     params = "select?q=title:%22" + trimSearchText.replace(/[\s,]+/g, '%20')  + "%22";
+                    console.log("search 2");
+                    console.log(params);
                 } else {
                     if (trimSearchText.indexOf(",") != -1) {
                         var getCommaStr = trimSearchText.split(",");
                         params = "select?q=title:%22" + getCommaStr[1] + "%20" + getCommaStr[0]  + "%22";
+                        console.log("search 3");
+                        console.log(params);
                     } else {
                         params = "select?q=title:" + trimSearchText  + "%22";
+                        console.log("search 4");
+                        console.log(params);
                     }
                 }
 
@@ -131,7 +147,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
 
                 // NBCUN-1495: Filter out Comcast employees
                 // exclude business segment of "Comcast Cable" or "Comcast Spectacor"
-                params += '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")';
+                params += '&fq=-businesssegment:("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")';
 
                 //     // category: worker
                 // $search_query .= 'fq=category:worker';
