@@ -47,7 +47,13 @@ angular.module('directory.controllers.filterController', [])
             };
 
             $scope.onChangeGroup = function () {
-                $scope.companies = $scope.getChildGroups(filter.selectedGroup);
+              var selectValue = $scope.filter.selectedGroup;
+              if(selectValue){
+                var rawChildren = $scope.groups.find( (bizFilters) => bizFilters.name == selectValue).children;
+                $scope.companies = rawChildren.sort($scope.sortbyIndex);
+              }else{
+                $scope.companies = $scope.groups.sort($scope.sortbyIndex);
+              }
             };
 
             $scope.applyFilter = function () {
