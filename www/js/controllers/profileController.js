@@ -70,6 +70,8 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 middleName: (typeof result.name.middleName !== 'undefined') ? result.name.middleName : null,
                 formatted: (typeof result.name.formatted !== 'undefined') ? result.name.formatted : null
             }
+            employee.emails = (typeof result.emails !== 'undefined') ? result.emails : null;
+
             employee.title = prepareTitle(result);
             employee.organization = {
                 segment: (typeof result.custom_orgsegment !== 'undefined') ? result.custom_orgsegment : null,
