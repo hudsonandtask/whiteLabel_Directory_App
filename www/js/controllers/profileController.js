@@ -23,7 +23,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
                               $scope.hrmanagers = result;
                               console.log("HR Managers");
                               console.log($scope.hrmanagers);
-                              
+
                               $ionicLoading.hide();
                           }, function (error) {
                               $ionicLoading.hide();
@@ -80,7 +80,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
             employee.phoneNumbers = (typeof result.phoneNumbers !== 'undefined') ? preparePhones(result.phoneNumbers) : null;
 
             /**
-               
+
                @TODO
 
              */
@@ -211,7 +211,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getTeamMemberName = function (employee) {
-            var setName = "&nbsp;";
+            var setName = null;
             if (employee != undefined) {
                 if (employee.firstname != undefined && employee.lastname != undefined) {
                     setName = employee.firstname + ' ' + employee.lastname;
@@ -221,7 +221,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getTeamMemberTitle = function (employee) {
-            var setTitle = "&nbsp;";
+            var setTitle = null;
             if (employee != undefined) {
                 if (employee.designation != undefined) {
                     setTitle = employee.designation;
@@ -231,7 +231,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getTeamMemberLocation = function (employee) {
-            var setLocation = "&nbsp;";
+            var setLocation = null;
             if (employee != undefined) {
                 if (employee.workcity != undefined) {
                     setLocation = employee.workcity;
@@ -374,7 +374,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         function prepareAddresses(addresses) {
             if (typeof addresses === 'object' && Array.isArray(addresses)) {
                 for (var i = 0; i < addresses.length; i++) {
-                    if (typeof addresses[i].streetAddress !== 'undefined' 
+                    if (typeof addresses[i].streetAddress !== 'undefined'
                         || typeof addresses[i].locality !== 'undefined'
                         || typeof addresses[i].region !== 'undefined'
                         || typeof addresses[i].postalCode !== 'undefined'
@@ -428,7 +428,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
                             }
 
                             /**
-                             
+
                              @TODO
                                 Source data is gross. Which do these apply to?
 
