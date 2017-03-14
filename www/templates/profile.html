@@ -60,7 +60,7 @@
             </div>
         </div>
         <div>
-          <div class="row" ng-if="employee.addresses[0]">
+          <div class="row" ng-if="employee.addresses[0].hasStreetAddress">
               <div class="profile-item">
                   <span class="profile-label">OFFICE ADDRESS</span>
                   <div class="profile-data" ng-click="actionGetDirections(employee.addresses[0])">

@@ -370,6 +370,20 @@ angular.module('directory.controllers.profileController', ['ionic'])
          *   Array of addresses.
          */
         function prepareAddresses(addresses) {
+            if (typeof addresses === 'object' && Array.isArray(addresses)) {
+                for (var i = 0; i < addresses.length; i++) {
+                    if (typeof addresses[i].streetAddress !== 'undefined' 
+                        || typeof addresses[i].locality !== 'undefined'
+                        || typeof addresses[i].region !== 'undefined'
+                        || typeof addresses[i].postalCode !== 'undefined'
+                    ) {
+                        addresses[i].hasStreetAddress = true;
+                    }
+                    else {
+                        addresses[i].hasStreetAddress = false;
+                    }
+                }
+            }
             return addresses;
         }
 
