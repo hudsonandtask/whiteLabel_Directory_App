@@ -201,7 +201,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 }
                 /** END TESTING **/
 
-                var URL = SOLR_URL + "select?q=category:worker%20AND%20id:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' + "&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=25";
+                var URL = SOLR_URL + "select?q=category:worker%20AND%20id:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' + "&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=1000";
                 dataRequest = JSON.parse(angular.toJson(""));
                 $http({
                     method: 'GET',
@@ -227,7 +227,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 }
                 /** END TESTING **/
 
-                var URL = SOLR_URL + "select?q=category:worker%20AND%20supervisorid:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' +  "%20AND%20(usertype:Employee%20OR%20usertype:Contractor%20OR%20usertype:Hire%20OR%20usertype:Expat%20OR%20usertype:Hourly)&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=25";
+                var URL = SOLR_URL + "select?q=category:worker%20AND%20supervisorid:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' +  "%20AND%20(usertype:Employee%20OR%20usertype:Contractor%20OR%20usertype:Hire%20OR%20usertype:Expat%20OR%20usertype:Hourly)&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=1000";
                 dataRequest = JSON.parse(angular.toJson(""));
                 $http({
                     method: 'GET',
