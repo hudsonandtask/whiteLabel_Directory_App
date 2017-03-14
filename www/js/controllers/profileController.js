@@ -44,35 +44,45 @@ angular.module('directory.controllers.profileController', ['ionic'])
             });
         };
 
+
+        /**
+         * Prepare incoming data as an employee object.
+         *
+         * @param  {object} result
+         *   The data passed from an employee ajax lookup response.
+         *
+         * @return {object}
+         *   A cleaner, more predictable employee object.
+         */
         $scope.transform = function transform(result) {
 
             console.log('Raw employee:', result);
 
             var employee = {};
-            employee.username = result.userName;
-            employee.usertype = result.userType;
-            employee.id = result.id;
-            employee.manager = result.manager;
+            employee.username = (typeof result.userName !== 'undefined') ? result.userName : null;
+            employee.usertype = (typeof result.userType !== 'undefined') ? result.userType : null;
+            employee.id = (typeof result.id !== 'undefined') ? result.id : null;
+            employee.manager = (typeof result.manager !== 'undefined') ? result.manager : null;
             employee.name = {
-                full: $scope.getName(result.name),
-                familyName: result.name.familyName,
-                givenName: result.name.givenName,
-                middleName: result.name.middleName,
-                formatted: result.name.formatted
+                full: (typeof result.name !== 'undefined') ? $scope.getName(result.name) : null,
+                familyName: (typeof result.name.familyName !== 'undefined') ? result.name.familyName : null,
+                givenName: (typeof result.name.givenName !== 'undefined') ? result.name.givenName : null,
+                middleName: (typeof result.name.middleName !== 'undefined') ? result.name.middleName : null,
+                formatted: (typeof result.name.formatted !== 'undefined') ? result.name.formatted : null
             }
-            employee.title = $scope.getTitle(result);
+            employee.title = prepareTitle(result);
             employee.organization = {
-                segment: result.custom_orgsegment,
-                name: result.custom_orgname
+                segment: (typeof result.custom_orgsegment !== 'undefined') ? result.custom_orgsegment : null,
+                name: (typeof result.custom_orgname !== 'undefined') ? result.custom_orgname : null
             };
+            employee.phoneNumbers = (typeof result.phoneNumbers !== 'undefined') ? preparePhones(result.phoneNumbers) : null;
 
             /**
                
                @TODO
 
              */
-            employee.addresses = result.addresses;
-            employee.phoneNumbers = preparePhones(result.phoneNumbers);
+            employee.addresses = (typeof result.addresses !== 'undefined') ? prepareAddresses(result.addresses) : null;
 
             return employee;
         }
@@ -93,28 +103,6 @@ angular.module('directory.controllers.profileController', ['ionic'])
             return "#/profile/" + id;
         };
 
-        /**
-         * Get an employee's job title.
-         *
-         * @param  {object} employee
-         *   The entire employee object.
-         *
-         * @return {string|null}
-         */
-        $scope.getTitle = function (employee) {
-            var title = null;
-            if (typeof employee !== 'object' || employee === null) {
-                console.warn('getJobTitle', 'Employee object not set.');
-            }
-            else if (employee.title) {
-                title = employee.title;
-            }
-            else if (employee.custom_jobTitle) {
-                title = employee.custom_jobTitle;
-            }
-
-            return title;
-        }
 
         $scope.getAddress = function (address) {
             return assembleAddress(address);
@@ -345,6 +333,44 @@ angular.module('directory.controllers.profileController', ['ionic'])
             }
 
             return setAddress;
+        }
+
+
+        /**
+         * Prepare an employee's job title.
+         *
+         * @param  {object} employee
+         *   The entire employee object.
+         *
+         * @return {string|null}
+         */
+        function prepareTitle(employee) {
+            var title = null;
+            if (typeof employee !== 'object' || employee === null) {
+                console.warn('getJobTitle', 'Employee object not set.');
+            }
+            else if (employee.title) {
+                title = employee.title;
+            }
+            else if (employee.custom_jobTitle) {
+                title = employee.custom_jobTitle;
+            }
+
+            return title;
+        }
+
+
+        /**
+         * Clean up, and properly assemble all incoming addresses.
+         *
+         * @param  {object} addresses
+         *   Incoming address data from a raw employee result.
+         *
+         * @return {array}
+         *   Array of addresses.
+         */
+        function prepareAddresses(addresses) {
+            return addresses;
         }
 
         /**
