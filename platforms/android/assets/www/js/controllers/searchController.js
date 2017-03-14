@@ -19,16 +19,26 @@ angular.module('directory.controllers.searchController', [])
         $scope.noEmployeeFound = false;
 
         $scope.$on('$ionicView.loaded', function () {
+            if ($state.is('searchReset')) {
+                $state.transitionTo('search', null, {
+                    reload: true, inherit: false, notify: false
+                });
+
+                return $scope.clearSearch();
+            }
+
             var filter = $state.params.filter || {};
             if (filter && filter.length) {
                 $scope.filter = JSON.parse(filter);
             }
+
             if (!$scope.searchKey.length) {
                 var cachedSearchKey = searchService.getSearchKeyCache();
                 if (cachedSearchKey) {
                     $scope.searchKey = cachedSearchKey;
                 }
             }
+
             if (filter.length) {
                 $scope.search();
             }
@@ -72,15 +82,6 @@ angular.module('directory.controllers.searchController', [])
         };
 
         $scope.search = function () {
-            if ($state.current.name == 'searchReset') {
-                $ionicHistory.nextViewOptions({
-                    disableAnimate: true,
-                    historyRoot: true
-                });
-
-                $state.go('search');
-            }
-
             if ($window.cordova && $window.cordova.plugins) {
                 $cordovaKeyboard.close();
             }

@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		2bf/V3J7uVM9CRz9rN53BGiqAko=
+		dVoNqpZeW+OnJ8m1jG4WK0ry8uo=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,11 +94,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		DAj5Z+VxOGKV+2zeP7Imusu4UXE=
+		tyDoIiIPQhlyJdkgDiCnQgnlteQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gcjWPpFTlfMccH0Qvv3PZaDMZFk=
+		9s9pSkUFP0eszis5VgS4jifSu54=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		ntvPMymNPpGfRsv/3+Mp/PztMNw=
+		dzNM80/gW6ZAPgeHIHaEfvVylVc=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -170,11 +170,11 @@
 		</data>
 		<key>config.xml</key>
 		<data>
-		L5yRq9DqJ3Z0TkdjIceQ42l3UUM=
+		dDVGKaBpdfl1LMuY0YaF/eyR1U0=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		saPEP15BdX2WlDlIKfmaatOTmq8=
+		mzYhEVvECOsdPgbCyQQ9wdKyAPw=
 		</data>
 		<key>www/cordova-js-src/exec.js</key>
 		<data>
@@ -194,7 +194,7 @@
 		</data>
 		<key>www/css/app.css</key>
 		<data>
-		pXtlbPHYdPrbcP3XB+ys4LSbXjM=
+		lDQDQLPVNCdPM3IIypzf+u540ig=
 		</data>
 		<key>www/css/fonts.css</key>
 		<data>
@@ -294,7 +294,7 @@
 		</data>
 		<key>www/js/controllers/filterController.js</key>
 		<data>
-		mVni81wXySUaD0hVFWdxL7Ja6PY=
+		yl71e23DXMX0C4oYFUqkTDaeVcM=
 		</data>
 		<key>www/js/controllers/logoController.js</key>
 		<data>
@@ -302,11 +302,11 @@
 		</data>
 		<key>www/js/controllers/profileController.js</key>
 		<data>
-		CE93IOP6dBhezf7viVsgDFKe5Ig=
+		jb4VfMLiPomrhE1vjKHYtdVih1A=
 		</data>
 		<key>www/js/controllers/searchController.js</key>
 		<data>
-		2CwKbDgUqyQQT+lo/TWfh5fC81M=
+		YAxftIT6+Che411nx52fZpGQAXk=
 		</data>
 		<key>www/js/services/filterService.js</key>
 		<data>
@@ -322,7 +322,7 @@
 		</data>
 		<key>www/js/services/searchService.js</key>
 		<data>
-		7n/fzuNSiBbRLBYCJ0mQzBIw+sA=
+		dMFgzZVi3/pTOiSffe7xXM50XK4=
 		</data>
 		<key>www/lib/angular-animate/README.md</key>
 		<data>
@@ -874,11 +874,11 @@
 		</data>
 		<key>www/templates/filter.html</key>
 		<data>
-		+AJ0qZdXE/S2Ob3luNilGdqjads=
+		2fQL43fFbptj29uM8xb3cgOxyNE=
 		</data>
 		<key>www/templates/profile.html</key>
 		<data>
-		m7xakeiO58wzLFYtaPdN328IIv4=
+		3opjyCenntEYejtR817lGoHsl0o=
 		</data>
 		<key>www/templates/search.html</key>
 		<data>
@@ -1111,11 +1111,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2bf/V3J7uVM9CRz9rN53BGiqAko=
+			dVoNqpZeW+OnJ8m1jG4WK0ry8uo=
 			</data>
 			<key>hash2</key>
 			<data>
-			BAXwDPvaKBmZq89yB25qxHRFbojNFZ8OmwkX7mQo9eE=
+			Szgs80ehUK6uZwlS5PX+7GsDuRSpaMpzRKKRanD/9Fk=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1133,11 +1133,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DAj5Z+VxOGKV+2zeP7Imusu4UXE=
+			tyDoIiIPQhlyJdkgDiCnQgnlteQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			o091SXzwqE+0qrxMQIX0vAOp8+5kkE1+IrlOpfHVoZk=
+			Yvt/poeiMrlU5/CEtU8RCV+gRV+Db776KW1MRl0lG6Q=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1298,11 +1298,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ntvPMymNPpGfRsv/3+Mp/PztMNw=
+			dzNM80/gW6ZAPgeHIHaEfvVylVc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ng/X1Btgja+p9ivxx2pjXh8CyiIxJ3fUZ0EAqWK1hnU=
+			LocTBGDIEWLuIddlPFcsgmQ4gbRoT0aLNTE/8vOkcRU=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1320,22 +1320,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			L5yRq9DqJ3Z0TkdjIceQ42l3UUM=
+			dDVGKaBpdfl1LMuY0YaF/eyR1U0=
 			</data>
 			<key>hash2</key>
 			<data>
-			SQmETxajVw+gdTYqlsfNtF8T40TFFn3VA6XKQBkbY6A=
+			hzH2nCLb528FLNpUZZVHe4hYza7dfpeFhjelCCJCFfI=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			saPEP15BdX2WlDlIKfmaatOTmq8=
+			mzYhEVvECOsdPgbCyQQ9wdKyAPw=
 			</data>
 			<key>hash2</key>
 			<data>
-			MKyPTwGFIGsF5kyq2W0IySmO1b09j6hiORbw+GgMLoo=
+			tFrtCvIJC4b55oCP+VWJljHVVynfsyz2WHqEMzYOZh8=
 			</data>
 		</dict>
 		<key>www/cordova-js-src/exec.js</key>
@@ -1386,11 +1386,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pXtlbPHYdPrbcP3XB+ys4LSbXjM=
+			lDQDQLPVNCdPM3IIypzf+u540ig=
 			</data>
 			<key>hash2</key>
 			<data>
-			5cSSJfMezEOHXdfgyRhAQp4FbU9ZWCImjlp5SMSQLlg=
+			9lCY+JJ8mDqQwujXk2mKtOzSwuX9U+gq4AsCJN7cVus=
 			</data>
 		</dict>
 		<key>www/css/fonts.css</key>
@@ -1661,11 +1661,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mVni81wXySUaD0hVFWdxL7Ja6PY=
+			yl71e23DXMX0C4oYFUqkTDaeVcM=
 			</data>
 			<key>hash2</key>
 			<data>
-			93Po4tSINrp9mI79YGCMKrK3UWNAZv4UmOUoRw9/Pn8=
+			e5nuDo8id6usGI9BcnB0cQfiJSKZQDP7xiVb1AJWTXY=
 			</data>
 		</dict>
 		<key>www/js/controllers/logoController.js</key>
@@ -1683,22 +1683,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CE93IOP6dBhezf7viVsgDFKe5Ig=
+			jb4VfMLiPomrhE1vjKHYtdVih1A=
 			</data>
 			<key>hash2</key>
 			<data>
-			IhKtYWEwI3CwpL74IXSLh+dqiJ6PBuWw1NWojxjeXdY=
+			/u5HVZHMxWSArIrALUWn5oHkN1RiRVP/K0Q18+ESVDI=
 			</data>
 		</dict>
 		<key>www/js/controllers/searchController.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2CwKbDgUqyQQT+lo/TWfh5fC81M=
+			YAxftIT6+Che411nx52fZpGQAXk=
 			</data>
 			<key>hash2</key>
 			<data>
-			obyqRpxKfHWQiIwFelgJUFydUXH0ZXBBtjLLDdmykhA=
+			gLAkbTtmxh1j7/dplKC+5lr47ITt3x93OsONC8YIMvg=
 			</data>
 		</dict>
 		<key>www/js/services/filterService.js</key>
@@ -1738,11 +1738,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7n/fzuNSiBbRLBYCJ0mQzBIw+sA=
+			dMFgzZVi3/pTOiSffe7xXM50XK4=
 			</data>
 			<key>hash2</key>
 			<data>
-			fkSPgbbFpOu1ax9xGef+dE5AEYGzXUDI47tSfr+gtcI=
+			c/srlYxaSSnrDkZ7TVqGjnoe4XZO9wDToMtZjxKJTxg=
 			</data>
 		</dict>
 		<key>www/lib/angular-animate/README.md</key>
@@ -3256,22 +3256,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+AJ0qZdXE/S2Ob3luNilGdqjads=
+			2fQL43fFbptj29uM8xb3cgOxyNE=
 			</data>
 			<key>hash2</key>
 			<data>
-			Go6bhmSA4GC6Z/41fLUYqdZ47A/7uGBdWx3SDm3NJps=
+			XB2DRdzRSogO8FVZ6bkwdnEVcUDE8qiHNXPW30g17zk=
 			</data>
 		</dict>
 		<key>www/templates/profile.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m7xakeiO58wzLFYtaPdN328IIv4=
+			3opjyCenntEYejtR817lGoHsl0o=
 			</data>
 			<key>hash2</key>
 			<data>
-			dDctK1ipODHJ/bABnOhEoW6dgfcdc+WIgl4NsA24ak0=
+			xgo4so+D8jnWBsvthSLFPCtFNSAuGRuzMMoIqXhhAj8=
 			</data>
 		</dict>
 		<key>www/templates/search.html</key>
@@ -3303,6 +3303,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -3348,6 +3353,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

@@ -15,7 +15,7 @@
               BY GROUP
           </div>
             <div class="nbcun-app-filter-select">
-                <select ng-model="filter.selectedGroup">
+                <select ng-change="onChangeGroup()" ng-model="filter.selectedGroup">
                     <option value="">- all -</option>
                     <option ng-repeat="group in groups" value="{{group.name}}">{{ group.name }}</option>
                 </select>

@@ -5,24 +5,24 @@
             <div class="row">
                 <img class="profile-pic" ng-src="{{getPicture(employee.id)}}" onerror="this.src='img/default-user.jpg'" />
             </div>
-            <div class="row" ng-if="employee.name">
-                <div class="profile-name" ng-bind="getName(employee.name)"></div>
+            <div class="row" ng-if="employee.name.full">
+                <div class="profile-name">{{employee.name.full}}</div>
             </div>
-            <div class="row" ng-if="employee.custom_jobTitle">
-                <div class="profile-name-data">{{employee.custom_jobTitle}}</div>
+            <div class="row" ng-if="employee.title">
+                <div class="profile-name-data">{{employee.title}}</div>
             </div>
-            <div class="row" ng-if="employee.custom_orgsegment">
-                <div class="profile-name-data">{{employee.custom_orgsegment}}</div>
+            <div class="row" ng-if="employee.organization.segment">
+                <div class="profile-name-data">{{employee.organization.segment}}</div>
             </div>
-            <div class="row" ng-if="employee.custom_orgname">
-                <div class="profile-name-data">{{employee.custom_orgname}}</div>
+            <div class="row" ng-if="employee.organization.name">
+                <div class="profile-name-data">{{employee.organization.name}}</div>
             </div>
             <div class="row" ng-if="employee.addresses[0]">
-                <div class="profile-name-data">{{employee.addresses[0].locality}}, {{employee.addresses[0].region}}</div>
+                <div class="profile-name-data" ng-bind="getAddressLocalityRegion(employee.addresses[0])"></div>
             </div>
         </div>
-        <div class="profile-section profile-contact" ng-if="employee.emails[0]">
-            <div class="row">
+        <div class="profile-section profile-contact">
+            <div class="row" ng-if="employee.emails[0]">
                 <div class="profile-item">
                     <span class="profile-label">EMAIL</span>
                     <div class="profile-data-links profile-data profile-email" ng-click="actionSendEmail(employee.emails[0])">
@@ -40,27 +40,27 @@
                     </div>
                 </div>
             </div>
-            <div class="row" ng-if="employee.phoneNumbers[0].value">
+            <div class="row" ng-if="employee.phoneNumbers.work">
                 <div class="profile-item">
                     <span class="profile-label ">DESK PHONE</span>
-                    <div class="profile-data-links profile-data " ng-click="actionCallPhone(employee.phoneNumbers[0])">
+                    <div class="profile-data-links profile-data " ng-click="actionCallPhone(employee.phoneNumbers.work[0])">
                         <i class="icon purple-icon icon-phone"></i>
-                        <span class="bold-purple">{{employee.phoneNumbers[0].value}}</span>
+                        <span class="bold-purple">{{employee.phoneNumbers.work[0]}}</span>
                     </div>
                 </div>
             </div>
-            <div class="row" ng-if="employee.phoneNumbers[1].value">
+            <div class="row" ng-if="employee.phoneNumbers.mobile">
                 <div class="profile-item">
                     <span class="profile-label">MOBILE PHONE</span>
-                    <div class="profile-data-links profile-data" ng-click="actionCallPhone(employee.phoneNumbers[1])">
+                    <div class="profile-data-links profile-data" ng-click="actionCallPhone(employee.phoneNumbers.mobile[0])">
                         <i class="icon purple-icon icon-mobile"></i>
-                        <span class="bold-purple">{{employee.phoneNumbers[1].value}}</span>
+                        <span class="bold-purple">{{employee.phoneNumbers.mobile[0]}}</span>
                     </div>
                 </div>
             </div>
         </div>
         <div>
-          <div class="row" ng-if="employee.addresses[0]">
+          <div class="row" ng-if="employee.addresses[0].hasStreetAddress">
               <div class="profile-item">
                   <span class="profile-label">OFFICE ADDRESS</span>
                   <div class="profile-data" ng-click="actionGetDirections(employee.addresses[0])">

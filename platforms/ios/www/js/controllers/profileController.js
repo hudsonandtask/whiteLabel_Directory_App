@@ -9,24 +9,21 @@ angular.module('directory.controllers.profileController', ['ionic'])
             console.log("showing profile data");
             $ionicLoading.show();
             profileService.getProfile($stateParams.id).then(function (result) {
-                $scope.employee = result;
-                console.log("Employee");
-                console.log($scope.employee);
+                $scope.employee = $scope.transform(result);
+                console.log("Employee", $scope.employee);
                 searchService.searchBySupervisor($stateParams.id).then(function (result) {
                     $scope.directReports = result;
-                    console.log("Direct Reports");
-                    console.log($scope.directReports);
+                    console.log("Direct Reports", $scope.directReports);
                     searchService.searchById($scope.employee.manager.managerId).then(function (result) {
                         $scope.managers = result;
-                        console.log("Managers");
-                        console.log($scope.managers);
+                        console.log("Managers",$scope.managers);
 
                         if (($scope.employee.custom_hrmanager) || ($scope.employee.custom_hrmanager)) {
                           searchService.searchById($scope.employee.custom_hrmanager.custom_hrmanagerid).then(function (result) {
                               $scope.hrmanagers = result;
                               console.log("HR Managers");
                               console.log($scope.hrmanagers);
-                              
+
                               $ionicLoading.hide();
                           }, function (error) {
                               $ionicLoading.hide();
@@ -47,6 +44,51 @@ angular.module('directory.controllers.profileController', ['ionic'])
             });
         };
 
+
+        /**
+         * Prepare incoming data as an employee object.
+         *
+         * @param  {object} result
+         *   The data passed from an employee ajax lookup response.
+         *
+         * @return {object}
+         *   A cleaner, more predictable employee object.
+         */
+        $scope.transform = function transform(result) {
+
+            console.log('Raw employee:', result);
+
+            var employee = {};
+            employee.username = (typeof result.userName !== 'undefined') ? result.userName : null;
+            employee.usertype = (typeof result.userType !== 'undefined') ? result.userType : null;
+            employee.id = (typeof result.id !== 'undefined') ? result.id : null;
+            employee.manager = (typeof result.manager !== 'undefined') ? result.manager : null;
+            employee.name = {
+                full: (typeof result.name !== 'undefined') ? $scope.getName(result.name) : null,
+                familyName: (typeof result.name.familyName !== 'undefined') ? result.name.familyName : null,
+                givenName: (typeof result.name.givenName !== 'undefined') ? result.name.givenName : null,
+                middleName: (typeof result.name.middleName !== 'undefined') ? result.name.middleName : null,
+                formatted: (typeof result.name.formatted !== 'undefined') ? result.name.formatted : null
+            }
+            employee.emails = (typeof result.emails !== 'undefined') ? result.emails : null;
+
+            employee.title = prepareTitle(result);
+            employee.organization = {
+                segment: (typeof result.custom_orgsegment !== 'undefined') ? result.custom_orgsegment : null,
+                name: (typeof result.custom_orgname !== 'undefined') ? result.custom_orgname : null
+            };
+            employee.phoneNumbers = (typeof result.phoneNumbers !== 'undefined') ? preparePhones(result.phoneNumbers) : null;
+
+            /**
+
+               @TODO
+
+             */
+            employee.addresses = (typeof result.addresses !== 'undefined') ? prepareAddresses(result.addresses) : null;
+
+            return employee;
+        }
+
         $scope.getName = function (name) {
             var setName = "";
             if (name != undefined) {
@@ -63,23 +105,28 @@ angular.module('directory.controllers.profileController', ['ionic'])
             return "#/profile/" + id;
         };
 
+
         $scope.getAddress = function (address) {
-            var setAddress = "";
-            if (address != undefined) {
-                var zipCode = address.postalCode.split("-");
-                setAddress = address.streetAddress + " " + address.locality + ", " + address.region;
-            }
-            return setAddress;
+            return assembleAddress(address);
         };
 
         $scope.getMapsAddress = function (address) {
-            var setAddress = "";
-            if (address != undefined) {
-                var zipCode = address.postalCode.split("-");
-                setAddress = address.streetAddress + "," + address.locality + "," + address.region;
-            }
-            return setAddress;
+            return assembleAddress(address, true);
         };
+
+        /**
+         * Public wrapper for assembleAddressLocalityRegion().
+         *
+         * @param  {object} address
+         *   An address where this data lives.
+         *
+         * @return {String}
+         *   A formatted string, if set. Otherwise, blank.
+         */
+        $scope.getAddressLocalityRegion = function (address) {
+            return assembleAddressLocalityRegion(address);
+        }
+
 
         $scope.getTitle = function (employee) {
             var setTitle = "";
@@ -164,7 +211,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getTeamMemberName = function (employee) {
-            var setName = "&nbsp;";
+            var setName = null;
             if (employee != undefined) {
                 if (employee.firstname != undefined && employee.lastname != undefined) {
                     setName = employee.firstname + ' ' + employee.lastname;
@@ -174,7 +221,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getTeamMemberTitle = function (employee) {
-            var setTitle = "&nbsp;";
+            var setTitle = null;
             if (employee != undefined) {
                 if (employee.designation != undefined) {
                     setTitle = employee.designation;
@@ -184,7 +231,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getTeamMemberLocation = function (employee) {
-            var setLocation = "&nbsp;";
+            var setLocation = null;
             if (employee != undefined) {
                 if (employee.workcity != undefined) {
                     setLocation = employee.workcity;
@@ -234,5 +281,172 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 window.open("tel:" + number.value);
             }
         };
+
+
+
+
+        /**
+         * Prepare/format a city/state line of an address.
+         *
+         * @param  {object} address
+         *   An address where this data lives.
+         *
+         * @return {String}
+         *   A formatted string, if set. Otherwise, blank.
+         */
+        function assembleAddressLocalityRegion(address) {
+            var setAddress = '';
+
+            if (typeof address === 'undefined' || address === null) {
+                return setAddress;
+            }
+
+            setAddress += (address.locality) ? address.locality : '';
+            setAddress += (address.locality && address.region) ? ', ' : '';
+            setAddress += (address.region) ? address.region : '';
+
+            return setAddress.trim();
+        }
+
+
+        /**
+         * Assemble an address with proper checking for missing data.
+         *
+         * @param  {object} address
+         *   An address where this data lives.
+         * @param  {boolean} search
+         *   Should we process this for a map address query?
+         *
+         * @return {string}
+         *   Formattedd adress, with whatever information was available.
+         */
+        function assembleAddress(address, search) {
+            var setAddress = "";
+
+            if (typeof address !== 'undefined') {
+                var zipCode = (typeof address.zip === 'string') ? address.zip.split("-") : '';
+                setAddress = (typeof address.streetAddress === 'string') ? address.streetAddress : '';
+
+                if (typeof address.locality !== 'undefined' || typeof address.region !== 'undefined') {
+                    setAddress += (search === true) ? "," : " ";
+                    setAddress += assembleAddressLocalityRegion(address);
+                    setAddress = setAddress.trim();
+                }
+            }
+
+            return setAddress;
+        }
+
+
+        /**
+         * Prepare an employee's job title.
+         *
+         * @param  {object} employee
+         *   The entire employee object.
+         *
+         * @return {string|null}
+         */
+        function prepareTitle(employee) {
+            var title = null;
+            if (typeof employee !== 'object' || employee === null) {
+                console.warn('getJobTitle', 'Employee object not set.');
+            }
+            else if (employee.title) {
+                title = employee.title;
+            }
+            else if (employee.custom_jobTitle) {
+                title = employee.custom_jobTitle;
+            }
+
+            return title;
+        }
+
+
+        /**
+         * Clean up, and properly assemble all incoming addresses.
+         *
+         * @param  {object} addresses
+         *   Incoming address data from a raw employee result.
+         *
+         * @return {array}
+         *   Array of addresses.
+         */
+        function prepareAddresses(addresses) {
+            if (typeof addresses === 'object' && Array.isArray(addresses)) {
+                for (var i = 0; i < addresses.length; i++) {
+                    if (typeof addresses[i].streetAddress !== 'undefined'
+                        || typeof addresses[i].locality !== 'undefined'
+                        || typeof addresses[i].region !== 'undefined'
+                        || typeof addresses[i].postalCode !== 'undefined'
+                    ) {
+                        addresses[i].hasStreetAddress = true;
+                    }
+                    else {
+                        addresses[i].hasStreetAddress = false;
+                    }
+                }
+            }
+            return addresses;
+        }
+
+        /**
+         * Clean up, and properly index all incoming phone numbers.
+         *
+         * @param  {object} phones
+         *   Incoming phone data from a raw employee result.
+         *
+         * @return {object}
+         *   Object of phone numbers, keyed by type. Each type will have
+         *   an array of zero or more phone strings.
+         */
+        function preparePhones(phones) {
+            var results = {};
+            if (typeof phones === 'object' && Array.isArray(phones)) {
+
+                for (var i = 0; i < phones.length; i++) {
+                    if (typeof phones[i].value === 'undefined') {
+                        console.warn('Malformed phone data');
+                        continue;
+                    }
+                    if (typeof results[phones[i].type] === 'undefined') {
+                        results[phones[i].type] = [];
+                    }
+
+                    if (typeof phones[i].value === 'string' ) {
+                        results[phones[i].type].push(phones[i].value);
+                    }
+                    else if (typeof phones[i].value === 'object' && Array.isArray(phones[i].value)) {
+                        for (var j = 0; j < phones[i].value.length; j++) {
+                            if (typeof phones[i].value[j] === 'string') {
+                                results[phones[i].type].push(phones[i].value[j]);
+                            }
+                            else if (typeof phones[i].value[j].value === 'string') {
+                                results[phones[i].type].push(phones[i].value[j].value);
+                            }
+                            else {
+                                console.warn('Encountered invalid phone data format.');
+                            }
+
+                            /**
+
+                             @TODO
+                                Source data is gross. Which do these apply to?
+
+                             authphone:
+                             fax:
+                             personalMobile:
+                             mobile:
+                             work:
+                             */
+                        }
+                    }
+                    else {
+                        console.warn('Encountered invalid phone data format.');
+                    }
+                }
+            }
+
+            return results;
+        }
 
     });

@@ -587,12 +587,26 @@ input:-ms-input-placeholder {
 .profile-data-links{
     float:left;
     clear:left;
+    width: 100%;
+}
+
+.profile-data-links .icon-jabber:before,
+.profile-data-links .icon-phone:before,
+.profile-data-links .icon-mobile:before{
+  top:5px;
+  position: relative;
+}
+
+.profile-data-links.search-result-data .icon-phone:before{
+  top:2px;
+  position: relative;
 }
 
 .profile-data .purple-icon {
     font-size: 15px;
     margin-right: 10px;
     color: #adb9ca;
+    float: left;
 }
 
 .profile-data span.bold-purple{
@@ -607,6 +621,10 @@ input:-ms-input-placeholder {
     font-size: 14px;
     color: #0395d5;
     cursor: default;
+    word-wrap: break-word;
+    display: block;
+    float: left;
+    width: 90%;
 }
 
 .profile-data.profile-jabber span{
@@ -668,6 +686,8 @@ input:-ms-input-placeholder {
     line-height: 15px;
     padding-bottom: 5px;
     text-decoration: underline;
+    white-space: normal;
+    word-wrap: normal;
 }
 
 .profile-team .search-result-data {
