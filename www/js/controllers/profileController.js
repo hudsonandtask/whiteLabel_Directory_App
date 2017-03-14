@@ -63,22 +63,102 @@ angular.module('directory.controllers.profileController', ['ionic'])
             return "#/profile/" + id;
         };
 
-        $scope.getAddress = function (address) {
-            var setAddress = "";
-            if (address != undefined) {
-                var zipCode = address.postalCode.split("-");
-                setAddress = address.streetAddress + " " + address.locality + ", " + address.region;
+        /**
+         * Get an employee's job title.
+         *
+         * @param  {object} employee
+         *   The entire employee object.
+         *
+         * @return {string|null}
+         */
+        $scope.getEmployeeJobTitle = function (employee) {
+            var title = null;
+            if (typeof employee !== 'object' || employee === null) {
+                console.warn('getJobTitle', 'Employee object not set.');
             }
-            return setAddress;
+            else if (employee.custom_jobTitle) {
+                title = employee.custom_jobTitle;
+            }
+            else if (employee.title) {
+                title = employee.title;
+            }
+
+            return title;
+        }
+
+        $scope.getAddress = function (address) {
+            return assembleAddress(address);
         };
 
-        $scope.getMapsAddress = function (address) {
-            var setAddress = "";
-            if (address != undefined) {
-                var zipCode = address.postalCode.split("-");
-                setAddress = address.streetAddress + "," + address.locality + "," + address.region;
+
+        /**
+         * Public wrapper for assembleAddressLocalityRegion().
+         *
+         * @param  {object} address
+         *   An address where this data lives.
+         *
+         * @return {String}
+         *   A formatted string, if set. Otherwise, blank.
+         */
+        $scope.getAddressLocalityRegion = function (address) {
+            return assembleAddressLocalityRegion(address);
+        }
+
+
+        /**
+         * Prepare/format a city/state line of an address.
+         *
+         * @param  {object} address
+         *   An address where this data lives.
+         *
+         * @return {String}
+         *   A formatted string, if set. Otherwise, blank.
+         */
+        function assembleAddressLocalityRegion(address) {
+            var setAddress = '';
+
+            if (typeof address === 'undefined' || address === null) {
+                return setAddress;
             }
+
+            setAddress += (address.locality) ? address.locality : '';
+            setAddress += (address.locality && address.region) ? ', ' : '';
+            setAddress += (address.region) ? address.region : '';
+
+            return setAddress.trim();
+        }
+
+
+        /**
+         * Assemble an address with proper checking for missing data.
+         *
+         * @param  {object} address
+         *   An address where this data lives.
+         * @param  {boolean} search
+         *   Should we process this for a map address query?
+         *
+         * @return {string}
+         *   Formattedd adress, with whatever information was available.
+         */
+        function assembleAddress(address, search) {
+            var setAddress = "";
+
+            if (typeof address !== 'undefined') {
+                var zipCode = (typeof address.zip === 'string') ? address.zip.split("-") : '';
+                setAddress = (typeof address.streetAddress === 'string') ? address.streetAddress : '';
+
+                if (typeof address.locality !== 'undefined' || typeof address.region !== 'undefined') {
+                    setAddress += (search === true) ? "," : " ";
+                    setAddress += assembleAddressLocalityRegion(address);
+                    setAddress = setAddress.trim();
+                }
+            }
+
             return setAddress;
+        }
+
+        $scope.getMapsAddress = function (address) {
+            return assembleAddress(address, true);
         };
 
         $scope.getTitle = function (employee) {
