@@ -8,8 +8,8 @@
             <div class="row" ng-if="employee.name">
                 <div class="profile-name" ng-bind="getName(employee.name)"></div>
             </div>
-            <div class="row" ng-if="employee.custom_jobTitle">
-                <div class="profile-name-data">{{employee.custom_jobTitle}}</div>
+            <div class="row" ng-if="employee">
+                <div class="profile-name-data" ng-bind="getEmployeeJobTitle(employee)"></div>
             </div>
             <div class="row" ng-if="employee.custom_orgsegment">
                 <div class="profile-name-data">{{employee.custom_orgsegment}}</div>

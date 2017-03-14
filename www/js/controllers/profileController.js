@@ -63,6 +63,29 @@ angular.module('directory.controllers.profileController', ['ionic'])
             return "#/profile/" + id;
         };
 
+        /**
+         * Get an employee's job title.
+         *
+         * @param  {object} employee
+         *   The entire employee object.
+         *
+         * @return {string|null}
+         */
+        $scope.getEmployeeJobTitle = function (employee) {
+            var title = null;
+            if (typeof employee !== 'object' || employee === null) {
+                console.warn('getJobTitle', 'Employee object not set.');
+            }
+            else if (employee.custom_jobTitle) {
+                title = employee.custom_jobTitle;
+            }
+            else if (employee.title) {
+                title = employee.title;
+            }
+
+            return title;
+        }
+
         $scope.getAddress = function (address) {
             return assembleAddress(address);
         };
