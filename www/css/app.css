@@ -240,10 +240,12 @@ body.platform-ios .filter-pane-content{
 }
 
 .search-result-title {
-    font-family: rock-sans-bold;
-    color: #3c3c42;
-    font-size: 15px;
-    line-height: 15px;
+  font-family: rock-sans-bold;
+  color: #3c3c42;
+  font-size: 15px;
+  line-height: 15px;
+  word-wrap: normal;
+  white-space: normal;
 }
 
 .search-result-data {
