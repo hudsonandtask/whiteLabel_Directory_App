@@ -277,8 +277,9 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.actionCallPhone = function (number) {
+            console.log(number);
             if (number != undefined) {
-                window.open("tel:" + number.value);
+                window.open("tel:" + number);
             }
         };
 
