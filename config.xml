@@ -13,7 +13,11 @@
     <access launch-external="yes" origin="tel:*" />
     <access launch-external="yes" origin="mailto:*" />
     <access launch-external="yes" origin="ciscojabber:*" />
+    <access launch-external="yes" origin="ciscojabber://*" />
+    <access launch-external="yes" origin="ciscochat:*" />
+    <access launch-external="yes" origin="ciscochat://*" />
     <access launch-external="yes" origin="xmpp:*" />
+    <access launch-external="yes" origin="xmpp://*" />
     <access launch-external="yes" origin="maps:*"/>
     <allow-navigation href="*" />
     <allow-navigation href="*" />
