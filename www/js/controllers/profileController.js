@@ -325,14 +325,23 @@ angular.module('directory.controllers.profileController', ['ionic'])
             var setAddress = "";
 
             if (typeof address !== 'undefined') {
-                var zipCode = (typeof address.zip === 'string') ? address.zip.split("-") : '';
+                var zip_code = (typeof address.postalCode === 'string') ? address.postalCode.split("-") : '';
                 setAddress = (typeof address.streetAddress === 'string') ? address.streetAddress : '';
 
+                // City / State
                 if (typeof address.locality !== 'undefined' || typeof address.region !== 'undefined') {
                     setAddress += (search === true) ? "," : " ";
                     setAddress += assembleAddressLocalityRegion(address);
-                    setAddress = setAddress.trim();
                 }
+
+                // Zip code
+                if (typeof zip_code[0] !== 'undefined') {
+                    setAddress += (setAddress.length > 0) ? ', ' : '';
+                    setAddress += zip_code[0];
+                }
+
+                // Cleanup any wrapping whitespace.
+                setAddress = setAddress.trim();
             }
 
             return setAddress;
