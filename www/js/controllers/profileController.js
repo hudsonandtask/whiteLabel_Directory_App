@@ -2,11 +2,12 @@ angular.module('directory.controllers.profileController', ['ionic'])
     .controller('profileController', function ($scope, $state, $stateParams, $ionicLoading, appData, profileService, searchService) {
         $scope.$on('$ionicView.loaded', function () {
             $scope.loadProfile();
+            console.log('Hiding IonicLoad.');
             $ionicLoading.hide();
         });
 
         $scope.loadProfile = function () {
-            console.log("showing profile data");
+            console.log("Show Ionic loading for profile");
             $ionicLoading.show();
             profileService.getProfile($stateParams.id).then(function (result) {
                 $scope.employee = $scope.transform(result);
@@ -18,8 +19,8 @@ angular.module('directory.controllers.profileController', ['ionic'])
                         $scope.managers = result;
                         console.log("Managers",$scope.managers);
 
-                        if (($scope.employee.custom_hrmanager) || ($scope.employee.custom_hrmanager)) {
-                          searchService.searchById($scope.employee.custom_hrmanager.custom_hrmanagerid).then(function (result) {
+                        if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
+                          searchService.searchById($scope.employee.hrmanager.hrmanagerid).then(function (result) {
                               $scope.hrmanagers = result;
                               console.log("HR Managers");
                               console.log($scope.hrmanagers);
@@ -63,6 +64,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
             employee.usertype = (typeof result.userType !== 'undefined') ? result.userType : null;
             employee.id = (typeof result.id !== 'undefined') ? result.id : null;
             employee.manager = (typeof result.manager !== 'undefined') ? result.manager : null;
+            employee.hrmanager = (typeof result.custom_hrmanager !== 'undefuned') ? result.custom_hrmanager : null;
             employee.name = {
                 full: (typeof result.name !== 'undefined') ? $scope.getName(result.name) : null,
                 familyName: (typeof result.name.familyName !== 'undefined') ? result.name.familyName : null,
@@ -325,14 +327,23 @@ angular.module('directory.controllers.profileController', ['ionic'])
             var setAddress = "";
 
             if (typeof address !== 'undefined') {
-                var zipCode = (typeof address.zip === 'string') ? address.zip.split("-") : '';
+                var zip_code = (typeof address.postalCode === 'string') ? address.postalCode.split("-") : '';
                 setAddress = (typeof address.streetAddress === 'string') ? address.streetAddress : '';
 
+                // City / State
                 if (typeof address.locality !== 'undefined' || typeof address.region !== 'undefined') {
                     setAddress += (search === true) ? "," : " ";
                     setAddress += assembleAddressLocalityRegion(address);
-                    setAddress = setAddress.trim();
                 }
+
+                // Zip code
+                if (typeof zip_code[0] !== 'undefined') {
+                    setAddress += (setAddress.length > 0) ? ', ' : '';
+                    setAddress += zip_code[0];
+                }
+
+                // Cleanup any wrapping whitespace.
+                setAddress = setAddress.trim();
             }
 
             return setAddress;
