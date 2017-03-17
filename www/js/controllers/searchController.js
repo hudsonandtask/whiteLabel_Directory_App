@@ -9,6 +9,7 @@ angular.module('directory.controllers.searchController', [])
         $scope.currentPage = 1;
         $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
         $scope.itemCount = $scope.pageSize;
+        $scope.itemTotal = $scope.itemCount;
 
         $scope.searchKey = '';
         $scope.filter = {};
@@ -54,6 +55,7 @@ angular.module('directory.controllers.searchController', [])
             $scope.currentPage = 1;
             $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
             $scope.itemCount = $scope.pageSize;
+            $scope.itemTotal = $scope.itemCount;
             $scope.employeeList = null;
             $scope.noEmployeeFound = false;
             $scope.sttButton=false;
@@ -84,8 +86,8 @@ angular.module('directory.controllers.searchController', [])
         };
 
         $scope.scrollToTop = function () {
-          $ionicScrollDelegate.$getByHandle('searchResultScroll').scrollTop(true);
-          $scope.sttButton=false;  //hide the button when reached top
+            $ionicScrollDelegate.$getByHandle('searchResultScroll').scrollTop(true);
+            $scope.sttButton=false;  //hide the button when reached top
         };
 
         $scope.search = function () {
@@ -99,10 +101,19 @@ angular.module('directory.controllers.searchController', [])
 
             searchService.searchByName($scope.searchKey, $scope.filter).then(function (result) {
                 $scope.smrBlock = result.length > DEFAULT_PAGE_SIZE_STEP;
-                $scope.employeeList = $scope.transform(result);
+                if ($scope.smrBlock) {
+                    setTimeout(function () {
+                        $scope.$apply(function () {
+                            $scope.itemTotal = result.length;
 
-                console.log("employee list");
-                console.log($scope.employeeList);
+                            if ($scope.itemCount > $scope.itemTotal) {
+                                $scope.itemCount = $scope.itemTotal;
+                            }
+                        });
+                    }, 500);
+                }
+
+                $scope.employeeList = $scope.transform(result);
 
                 $scope.employeeSearchExist = true;
 
@@ -111,6 +122,7 @@ angular.module('directory.controllers.searchController', [])
                 }else{
                   $scope.noEmployeeFound = false;
                 }
+
                 $ionicLoading.hide();
             }, function (error) {
                 console.log(error);
@@ -151,7 +163,7 @@ angular.module('directory.controllers.searchController', [])
                 $scope.$apply(function () {
                     $scope.itemCount = $scope.pageSize;
                 });
-            }, 1000);
+            }, 500);
         };
 
     });
