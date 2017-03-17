@@ -39,7 +39,7 @@
 
         <div ng-show="smrBlock" class="load-more-results" ng-click="updatePage()">
             <div class="more-results" ng-class="(itemCount >= employeeList.length)? 'gray': ''">More</div>
-            <div class="results-count">[ {{itemCount}} / {{employeeList.length}} ]</div>
+            <div class="results-count">[ {{itemCount}} / {{itemTotal}} ]</div>
         </div>
         <ion-fixed class="scroll-to-top" ng-click="scrollToTop()" ng-if="employeeSearchExist && !noEmployeeFound">
               Top <i class="ion-arrow-up-a"></i>
