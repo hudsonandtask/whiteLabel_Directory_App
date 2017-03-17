@@ -249,7 +249,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
 
             setSearchKeyCache: function (searchKey) {
                 if (!searchKeyCache) {
-                    searchKeyCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
+                    searchKeyCache = CacheFactory(cacheKey, { storageMode: "localStorage", maxAge: 720000, deleteOnExpire: "aggressive" });
                 }
 
                 searchKeyCache.put(cacheKey, searchKey);

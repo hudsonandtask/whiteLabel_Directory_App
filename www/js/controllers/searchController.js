@@ -1,5 +1,5 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($scope, $state, appData, $ionicHistory, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, $window, filterService, searchService) {
+    .controller('searchController', function ($rootScope, $scope, $state, $stateParams, appData, $ionicHistory, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, $window, filterService, searchService) {
 
         var DEFAULT_PAGE_SIZE_STEP = 10;
 
@@ -10,7 +10,7 @@ angular.module('directory.controllers.searchController', [])
         $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
         $scope.itemCount = $scope.pageSize;
 
-        $scope.searchKey = "";
+        $scope.searchKey = '';
         $scope.filter = {};
 
         $scope.employeeSearchExist = false;
@@ -18,44 +18,39 @@ angular.module('directory.controllers.searchController', [])
 
         $scope.noEmployeeFound = false;
 
-        $scope.$on('$ionicView.loaded', function () {
-            if ($state.is('searchReset')) {
-                $state.transitionTo('search', null, {
-                    reload: true, inherit: false, notify: false
-                });
-
-                return $scope.clearSearch();
+        $scope.$on('$ionicView.beforeEnter', function () {
+            if ($ionicHistory.forwardView() !== null) {
+                return; // if there is a cached view, pull that in.
             }
 
-            var filter = $state.params.filter || {};
-            if (filter && filter.length) {
-                $scope.filter = JSON.parse(filter);
+            if (!!$stateParams.reset) {
+                $scope.clearSearch();
             }
+            else if (!!$stateParams.filter) {
+                $scope.searchKey = searchService.getSearchKeyCache();
+                $scope.filter = filterService.getFilterCache();
 
-            if (!$scope.searchKey.length) {
-                var cachedSearchKey = searchService.getSearchKeyCache();
-                if (cachedSearchKey) {
-                    $scope.searchKey = cachedSearchKey;
-                }
-            }
-
-            if (filter.length) {
                 $scope.search();
             }
         });
 
+        $scope.$on('$ionicView.beforeLeave', function () {
+            $scope.cacheSearchKey();
+        });
+
         $scope.cacheSearchKey = function () {
-            if ($scope.searchKey.length) {
+            if ($scope.searchKey && $scope.searchKey.length) {
                 searchService.setSearchKeyCache($scope.searchKey);
+            }
+
+            if ($scope.filter) {
+                filterService.setFilterCache($scope.filter);
             }
         };
 
         $scope.clearSearch = function () {
-
-            console.log("clearing search terms");
-
-            $scope.searchKey = null;
-            $scope.filter = '';
+            $scope.searchKey = '';
+            $scope.filter = {};
             $scope.currentPage = 1;
             $scope.pageSize = $scope.currentPage * DEFAULT_PAGE_SIZE_STEP;
             $scope.itemCount = $scope.pageSize;
@@ -66,7 +61,7 @@ angular.module('directory.controllers.searchController', [])
             $scope.employeeSearchExist = false;
 
             searchService.removeSearchKeyCache();
-            filterService.removeFilterCache();
+            filterService.resetFilterCache();
 
             // Bug fix for https://jira.inbcu.com/browse/NBCUN-1448
             // need to force the input to rerender in the webview
@@ -74,6 +69,18 @@ angular.module('directory.controllers.searchController', [])
             setTimeout(function() {
                 document.getElementById("searchForm").classList.add('cleared');
             }, 100);
+        };
+
+        $scope.goToFilter = function () {
+            $state.go('home.filter');
+        };
+
+        $scope.isEmpty = function (obj) {
+            for(var key in obj) {
+                if(obj.hasOwnProperty(key))
+                    return false;
+            }
+            return true;
         };
 
         $scope.scrollToTop = function () {
@@ -111,10 +118,6 @@ angular.module('directory.controllers.searchController', [])
             });
         };
 
-        $scope.getFilterURL = function () {
-            return $state.href("filter");
-        };
-
         $scope.transform = function (employeeList) {
             console.log("theRealEmployeeList");
             console.log(employeeList);
@@ -124,7 +127,7 @@ angular.module('directory.controllers.searchController', [])
                     name: (employee.firstname && employee.lastname)? employee.firstname.concat(' ', employee.lastname) : '',
                     location: employee.workcity || '',
                     picture: appData.imagePath.concat(employee.id, appData.imageExt),
-                    profileUrl: '#' + employee.url,
+                    profileUrl: $state.href('home.profile') + employee.id,
                     businessphone: employee.businessphone,
                     email: employee.email,
                     businesssegment: employee.businesssegment

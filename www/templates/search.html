@@ -1,4 +1,4 @@
-<ion-view hide-back-button="true">
+<ion-view hide-back-button="true" ng-controller="searchController">
 
     <div id="searchForm" class="search-bar">
         <form class="search-form" ng-submit="search()">
@@ -12,7 +12,7 @@
 
     <div class="filter-bar">
         <!--<button class="button button-full bar-light" ng-click="gotoFilter">FILTER ></button>-->
-        <a class="title bar-light" href="{{getFilterURL()}}" ng-click="cacheSearchKey()">FILTER <i class="icon-arrow-down"></i></a>
+        <a class="title bar-light" href="javascript:void(0)" ng-click="goToFilter()">FILTER <i class="icon-arrow-down"></i></a>
     </div>
 
     <ion-content class="has-header has-subheader has-footer search-pane-content" delegate-handle="searchResultScroll">

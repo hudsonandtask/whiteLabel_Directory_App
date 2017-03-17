@@ -1,6 +1,6 @@
 angular.module('directory.controllers.profileController', ['ionic'])
     .controller('profileController', function ($scope, $state, $stateParams, $ionicLoading, $q, appData, profileService, searchService) {
-        $scope.$on('$ionicView.loaded', function () {
+        $scope.$on('$ionicView.beforeEnter', function () {
             // Show loading screen.
             $ionicLoading.show();
 
@@ -164,7 +164,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getProfileURL = function (id) {
-            return "#/profile/" + id;
+            return "#/home/profile/" + id;
         };
 
 
