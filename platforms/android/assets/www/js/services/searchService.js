@@ -117,7 +117,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                         console.log("search 3");
                         console.log(params);
                     } else {
-                        params = "select?q=title:" + trimSearchText  + "%22";
+                        params = "select?q=title:%22" + trimSearchText  + "%22";
                         console.log("search 4");
                         console.log(params);
                     }
@@ -249,7 +249,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
 
             setSearchKeyCache: function (searchKey) {
                 if (!searchKeyCache) {
-                    searchKeyCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
+                    searchKeyCache = CacheFactory(cacheKey, { storageMode: "localStorage", maxAge: 720000, deleteOnExpire: "aggressive" });
                 }
 
                 searchKeyCache.put(cacheKey, searchKey);

@@ -71,14 +71,12 @@ angular.module('directory.services.filterService', [ 'angular-cache' ])
             },
             setFilterCache: function (filter) {
                 if (!filterCache) {
-                    filterCache = CacheFactory(cacheKey, { storageMode: 'sessionStorage' });
+                    filterCache = CacheFactory(cacheKey, { storageMode: "localStorage", maxAge: 720000, deleteOnExpire: "aggressive" });
                 }
 
-                console.log("Set: " + JSON.stringify(filter));
-
-                filterCache.put(cacheKey, filter);
+                filterCache.put(cacheKey, filter || {});
             },
-            removeFilterCache: function () {
+            resetFilterCache: function () {
                 if (filterCache) {
                     filterCache.put(cacheKey, {});
                 }

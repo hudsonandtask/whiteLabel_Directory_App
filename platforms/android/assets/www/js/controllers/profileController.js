@@ -1,47 +1,108 @@
 angular.module('directory.controllers.profileController', ['ionic'])
-    .controller('profileController', function ($scope, $state, $stateParams, $ionicLoading, appData, profileService, searchService) {
-        $scope.$on('$ionicView.loaded', function () {
-            $scope.loadProfile();
-            $ionicLoading.hide();
+    .controller('profileController', function ($scope, $state, $stateParams, $ionicLoading, $q, appData, profileService, searchService) {
+        $scope.$on('$ionicView.beforeEnter', function () {
+            // Show loading screen.
+            $ionicLoading.show();
+
+            // Load employee and related data.
+            $scope.loadProfile()
+            .then(function() {
+                console.log('LoadProfile completed.');
+            })
+            .catch(function(err) {
+                console.warn(err);
+            })
+            .finally(function() {
+                // Hide loading screen when loaded.
+                $ionicLoading.hide();
+            });
         });
 
+        /**
+         * Load all data for the user's profile.
+         *
+         * @return {Promise}
+         *   A promise for all loading functions.
+         */
         $scope.loadProfile = function () {
-            console.log("showing profile data");
-            $ionicLoading.show();
-            profileService.getProfile($stateParams.id).then(function (result) {
+
+            // Promise for our loadProfile.
+            var promiseEmployee = $q.defer();
+
+            // Defaults in case any loaders fail.
+            $scope.directReports = [];
+            $scope.managers = [];
+            $scope.hrmanagers = [];
+            $scope.employee = {};
+
+            // Get Employee
+            profileService.getProfile($stateParams.id)
+            .then(function (result) {
+
+                // Promises for each subtask.
+                var promiseDR = $q.defer(),
+                    promiseHR = $q.defer(),
+                    promiseMgr = $q.defer();
+
+                // Transform to a predictable state.
                 $scope.employee = $scope.transform(result);
                 console.log("Employee", $scope.employee);
-                searchService.searchBySupervisor($stateParams.id).then(function (result) {
+
+                // Direct Reports
+                searchService.searchBySupervisor($stateParams.id)
+                .then(function (result) {
                     $scope.directReports = result;
                     console.log("Direct Reports", $scope.directReports);
-                    searchService.searchById($scope.employee.manager.managerId).then(function (result) {
-                        $scope.managers = result;
-                        console.log("Managers",$scope.managers);
-
-                        if (($scope.employee.custom_hrmanager) || ($scope.employee.custom_hrmanager)) {
-                          searchService.searchById($scope.employee.custom_hrmanager.custom_hrmanagerid).then(function (result) {
-                              $scope.hrmanagers = result;
-                              console.log("HR Managers");
-                              console.log($scope.hrmanagers);
-
-                              $ionicLoading.hide();
-                          }, function (error) {
-                              $ionicLoading.hide();
-                              $scope.hrmanagers = [];
-                          });
-                        }
-                    }, function (error) {
-                        $ionicLoading.hide();
-                        $scope.managers = [];
-                    });
-                }, function (error) {
-                    $ionicLoading.hide();
-                    $scope.directReports = [];
+                    promiseDR.resolve();
+                })
+                .catch(function (error) {
+                    promiseDR.reject(error);
                 });
-            }, function (error) {
-                $ionicLoading.hide();
-                $scope.employee = {};
+
+                // Managers
+                searchService.searchById($scope.employee.manager.managerId)
+                .then(function (result) {
+                    $scope.managers = result;
+                    console.log("Managers",$scope.managers);
+                    promiseMgr.resolve();
+                })
+                .catch(function (error) {
+                    promiseMgr.reject(error);
+                });
+
+                // HR Managers
+                if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
+                    searchService.searchById($scope.employee.hrmanager.hrmanagerid)
+                    .then(function (result) {
+                        $scope.hrmanagers = result;
+                        console.log("HR Managers", $scope.hrmanagers);
+                        promiseHR.resolve();
+                    })
+                    .catch(function (error) {
+                        promiseHR.reject(error);
+                    });
+                }
+                else {
+                    // If none to resolve, make sure to resolve,
+                    // so Promise.all will fire.
+                    promiseHR.resolve();
+                }
+
+                // Only resolve once all operations have completed.
+                $q.all([promiseDR, promiseHR, promiseMgr])
+                .then(function allLoadThen() {
+                    promiseEmployee.resolve();
+                })
+                .catch(function allLoadCatch(err) {
+                    promiseEmployee.reject(err);
+                });
+
+            })
+            .catch(function employeeCatch(error) {
+                promiseEmployee.reject(error);
             });
+
+            return promiseEmployee.promise;
         };
 
 
@@ -63,6 +124,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
             employee.usertype = (typeof result.userType !== 'undefined') ? result.userType : null;
             employee.id = (typeof result.id !== 'undefined') ? result.id : null;
             employee.manager = (typeof result.manager !== 'undefined') ? result.manager : null;
+            employee.hrmanager = (typeof result.custom_hrmanager !== 'undefuned') ? result.custom_hrmanager : null;
             employee.name = {
                 full: (typeof result.name !== 'undefined') ? $scope.getName(result.name) : null,
                 familyName: (typeof result.name.familyName !== 'undefined') ? result.name.familyName : null,
@@ -102,7 +164,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
         };
 
         $scope.getProfileURL = function (id) {
-            return "#/profile/" + id;
+            return "#/home/profile/" + id;
         };
 
 
@@ -325,14 +387,23 @@ angular.module('directory.controllers.profileController', ['ionic'])
             var setAddress = "";
 
             if (typeof address !== 'undefined') {
-                var zipCode = (typeof address.zip === 'string') ? address.zip.split("-") : '';
+                var zip_code = (typeof address.postalCode === 'string') ? address.postalCode.split("-") : '';
                 setAddress = (typeof address.streetAddress === 'string') ? address.streetAddress : '';
 
+                // City / State
                 if (typeof address.locality !== 'undefined' || typeof address.region !== 'undefined') {
                     setAddress += (search === true) ? "," : " ";
                     setAddress += assembleAddressLocalityRegion(address);
-                    setAddress = setAddress.trim();
                 }
+
+                // Zip code
+                if (typeof zip_code[0] !== 'undefined') {
+                    setAddress += (setAddress.length > 0) ? ', ' : '';
+                    setAddress += zip_code[0];
+                }
+
+                // Cleanup any wrapping whitespace.
+                setAddress = setAddress.trim();
             }
 
             return setAddress;

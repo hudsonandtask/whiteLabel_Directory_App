@@ -1,12 +1,12 @@
 angular.module('directory.controllers.filterController', [])
-       .controller('filterController', function ($scope, $state, $q, $ionicLoading, filterService) {
+       .controller('filterController', function ($scope, $state, $q, $ionicHistory, $ionicLoading, filterService) {
             // initializes variables
             $scope.filter = {};
             $scope.groups = [];
             $scope.companies = [];
             $scope.locations = [];
 
-            $scope.$on('$ionicView.loaded', function () {
+            $scope.$on('$ionicView.beforeEnter', function () {
                 $ionicLoading.show();
 
                 var promises = [ filterService.getAllBusiness(), filterService.getAllLocations() ];
@@ -49,7 +49,9 @@ angular.module('directory.controllers.filterController', [])
             $scope.onChangeGroup = function () {
               var selectValue = $scope.filter.selectedGroup;
               if(selectValue){
-                var rawChildren = $scope.groups.find( (bizFilters) => bizFilters.name == selectValue).children;
+                var rawChildren = $scope.groups.find(function(bizFilters){
+                                      return bizFilters.name == selectValue;
+                                  }).children;
                 $scope.companies = rawChildren.sort($scope.sortbyIndex);
               }else{
                 $scope.companies = $scope.groups.sort($scope.sortbyIndex);
@@ -59,7 +61,13 @@ angular.module('directory.controllers.filterController', [])
             $scope.applyFilter = function () {
                 filterService.setFilterCache($scope.filter);
 
-                $state.go('searchFilter', { filter: JSON.stringify($scope.filter) });
+                $ionicHistory.clearHistory();
+                $ionicHistory.clearCache();
+                $ionicHistory.nextViewOptions({
+                    historyRoot: true
+                });
+
+                $state.go('home.search', { filter: true });
             };
 
             $scope.getCompanies = function (list) {
