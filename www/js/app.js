@@ -1,7 +1,7 @@
 angular.module('directory', ['ionic', 'directory.services.filterService', 'directory.controllers.filterController',
                                         'directory.services.searchService', 'directory.controllers.searchController',
                                         'directory.services.profileService', 'directory.controllers.profileController',
-                                        'directory.controllers.logoController',
+                                        'directory.controllers.logoController', 'directory.controllers.searchResetController',
                                         'directory.services.networkService', 'ngCordova'])
     .run(function ($ionicPlatform, $ionicPopup, networkService) {
         $ionicPlatform.ready(function () {
@@ -68,6 +68,15 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
                     }
                 },
                 controller: 'searchController'
+            })
+            .state('home.searchreset', {
+                url: '/searchreset',
+                views: {
+                    "main": {
+                        templateUrl: "templates/searchReset.html"
+                    }
+                },
+                controller: 'searchResetController'
             })
             .state('home.filter', {
                 url: '/filter',
