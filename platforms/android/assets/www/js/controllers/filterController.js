@@ -67,7 +67,7 @@ angular.module('directory.controllers.filterController', [])
                     historyRoot: true
                 });
 
-                $state.go('home.search', { filter: true });
+                $state.go('home.search', { filter: true }, { reload: true });
             };
 
             $scope.getCompanies = function (list) {

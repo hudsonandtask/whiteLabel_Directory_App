@@ -1,5 +1,5 @@
 angular.module('directory.controllers.searchController', [])
-    .controller('searchController', function ($rootScope, $scope, $state, $stateParams, appData, $ionicHistory, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, $window, filterService, searchService) {
+    .controller('searchController', function ($scope, $state, $stateParams, appData, $ionicHistory, $ionicLoading, $ionicScrollDelegate, $cordovaKeyboard, $window, filterService, searchService) {
 
         var DEFAULT_PAGE_SIZE_STEP = 10;
 
@@ -40,7 +40,7 @@ angular.module('directory.controllers.searchController', [])
         });
 
         $scope.cacheSearchKey = function () {
-            if ($scope.searchKey && $scope.searchKey.length) {
+            if ($scope.searchKey) {
                 searchService.setSearchKeyCache($scope.searchKey);
             }
 
@@ -75,14 +75,6 @@ angular.module('directory.controllers.searchController', [])
 
         $scope.goToFilter = function () {
             $state.go('home.filter');
-        };
-
-        $scope.isEmpty = function (obj) {
-            for(var key in obj) {
-                if(obj.hasOwnProperty(key))
-                    return false;
-            }
-            return true;
         };
 
         $scope.scrollToTop = function () {
