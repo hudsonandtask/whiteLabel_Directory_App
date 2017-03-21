@@ -72,7 +72,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
 
                 // HR Managers
                 if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
-                    searchService.searchById($scope.employee.hrmanager.hrmanagerid)
+                    searchService.searchById($scope.employee.hrmanager.custom_hrmanagerid)
                     .then(function (result) {
                         $scope.hrmanagers = result;
                         console.log("HR Managers", $scope.hrmanagers);
