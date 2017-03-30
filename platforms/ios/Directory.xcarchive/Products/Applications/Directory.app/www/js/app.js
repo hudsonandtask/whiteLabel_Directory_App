@@ -1,7 +1,7 @@
 angular.module('directory', ['ionic', 'directory.services.filterService', 'directory.controllers.filterController',
                                         'directory.services.searchService', 'directory.controllers.searchController',
                                         'directory.services.profileService', 'directory.controllers.profileController',
-                                        'directory.controllers.logoController',
+                                        'directory.controllers.logoController', 'directory.controllers.searchResetController',
                                         'directory.services.networkService', 'ngCordova'])
     .run(function ($ionicPlatform, $ionicPopup, networkService) {
         $ionicPlatform.ready(function () {
@@ -55,33 +55,48 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
     })
     .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         $stateProvider
-            .state('filter', {
+            .state('home', {
+                abstract: true, // to prepend url to child state urls
+                url: '/home',
+                templateUrl: "templates/home.html"
+            })
+            .state('home.search', {
+                url: '/search/:reset/:filter',
+                views: {
+                    "main": {
+                        templateUrl: "templates/search.html"
+                    }
+                },
+                controller: 'searchController'
+            })
+            .state('home.searchreset', {
+                url: '/searchreset',
+                views: {
+                    "main": {
+                        templateUrl: "templates/searchReset.html"
+                    }
+                },
+                controller: 'searchResetController'
+            })
+            .state('home.filter', {
                 url: '/filter',
-                templateUrl: 'templates/filter.html',
+                views: {
+                    "main": {
+                        templateUrl: "templates/filter.html"
+                    }
+                },
                 controller: 'filterController'
             })
-            .state('search', {
-                url: '/search',
-                templateUrl: 'templates/search.html',
-                controller: 'searchController'
-            })
-            .state('searchReset', {
-                cache: false,
-                url: '/search/:searchreset',
-                templateUrl: 'templates/search.html',
-                controller: 'searchController'
-            })
-            .state('searchFilter', {
-                url: '/search/:filter',
-                templateUrl: 'templates/search.html',
-                controller: 'searchController'
-            })
-            .state('profile', {
+            .state('home.profile', {
                 url: '/profile/:id',
-                templateUrl: 'templates/profile.html',
+                views: {
+                    "main": {
+                        templateUrl: "templates/profile.html"
+                    }
+                },
                 controller: 'profileController'
             });
-        $urlRouterProvider.otherwise('/search');
+        $urlRouterProvider.otherwise('/home/search//');
     })
     .value("appData", {
         responseTimeout: 30000,
