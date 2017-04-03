@@ -61,11 +61,12 @@
         </div>
         <div>
           <div class="row" ng-if="employee.addresses[0].hasStreetAddress">
-              <div class="profile-item">
-                  <span class="profile-label">OFFICE ADDRESS</span>
-                  <div class="profile-data" ng-click="actionGetDirections(employee.addresses[0])">
-                      <span class="bold-purple" ng-bind="getAddress(employee.addresses[0])"></span>
+              <div class="profile-item address">
+                  <span class="profile-label office-address">OFFICE ADDRESS</span>
+                  <div class="profile-data bold-purple" ng-click="actionGetDirections(employee.addresses[0])">
+                      <span  ng-bind="getAddress(employee.addresses[0])"></span>
                   </div>
+                  <a target="_blank" class="nbcu-directions-link" ng-click="actionGetDirections(employee.addresses[0])">Get Directions</a>
               </div>
           </div>
         </div>
