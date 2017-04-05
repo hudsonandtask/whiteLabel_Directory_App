@@ -122,6 +122,10 @@ span.back-text {
     width: 100%;
 }
 
+.profile-item.address{
+  margin-top:20px;
+}
+
 .profile-data {
     color: #3c3c42;
     font-family: rock-sans-normal;
@@ -141,6 +145,13 @@ span.back-text {
     float: right !important;
 }
 
+.nbcu-directions-link{
+  float: left;
+  font-family: rock-sans-normal;
+  margin-top: 10px;
+  color: #5c5b94;
+  text-decoration: underline;
+}
 
 /* Start Style refactor -- mhudson */
 
@@ -157,7 +168,7 @@ body.platform-android .bar-header {
 }
 
 body.platform-android .search-bar{
-  margin-top: 74px;
+  margin-top: 72px;
 }
 
 body.platform-ios .bar-header {
@@ -586,6 +597,14 @@ input:-ms-input-placeholder {
     display: block;
 }
 
+.profile-label.office-address {
+    font-family: rock-sans-bold;
+    margin-bottom: 0px;
+    color: #5c5b94;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+
 .profile-data-links{
     float:left;
     clear:left;
@@ -643,7 +662,7 @@ input:-ms-input-placeholder {
     border-bottom: 1px solid #c1c3c4;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    font-size: 26px;
+    font-size: 17px;
     margin-top: 40px;
 }
 

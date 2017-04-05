@@ -2,6 +2,8 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
     .factory('searchService', function ($q, $http, CacheFactory) {
         var SOLR_URL = "http://solr.inbcu.com:8080/solr/collection1/";
         // var D8_URL = "http://dev.nbcunow.com/api/v1/taxonomy/";
+        var D8_IDM_URL = "http://dev.nbcunow.com/api/v1/reportee/";
+
 
         var cacheKey = 'SEARCH_KEY_CACHE';
         var searchKeyCache;
@@ -227,7 +229,8 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 }
                 /** END TESTING **/
 
-                var URL = SOLR_URL + "select?q=category:worker%20AND%20supervisorid:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' +  "%20AND%20(usertype:Employee%20OR%20usertype:Contractor%20OR%20usertype:Hire%20OR%20usertype:Expat%20OR%20usertype:Hourly)&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=1000";
+                //var URL = SOLR_URL + "select?q=category:worker%20AND%20supervisorid:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' +  "%20AND%20(usertype:Employee%20OR%20usertype:Contractor%20OR%20usertype:Hire%20OR%20usertype:Expat%20OR%20usertype:Hourly)&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=1000";
+                var URL = D8_IDM_URL + id;
                 dataRequest = JSON.parse(angular.toJson(""));
                 $http({
                     method: 'GET',
