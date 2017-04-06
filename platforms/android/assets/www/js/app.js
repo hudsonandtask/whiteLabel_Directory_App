@@ -56,13 +56,15 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
         });
 
         // For android only, constrain the back button to in-app back only.
+        // NBCUN-1626
         if (isAndroid === true) {
             $ionicPlatform.registerBackButtonAction(function (event) {
                 console.log('Clicked back button!');
                 console.log($state);
 
-                if ($state.current.name=="app.home") {
-                    navigator.app.exitApp();
+                if (["app.home", "home", "home.search"].indexOf($state.current.name) >= 0) {
+                    console.log("Home screen, so no backsies.");
+                //    navigator.app.exitApp();
                 }
                 else {
                     navigator.app.backHistory();

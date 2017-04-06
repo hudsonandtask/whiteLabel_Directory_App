@@ -59,11 +59,8 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
         // NBCUN-1626
         if (isAndroid === true) {
             $ionicPlatform.registerBackButtonAction(function (event) {
-                console.log('Clicked back button!');
-                console.log($state);
-
-                if ($state.current.name=="app.home") {
-                    navigator.app.exitApp();
+                if (["app.home", "home", "home.search"].indexOf($state.current.name) >= 0) {
+                //    navigator.app.exitApp();
                 }
                 else {
                     navigator.app.backHistory();
