@@ -79,6 +79,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 }
 
                 // HR Managers
+                console.log("Flag", $scope.employee);
                 if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q') {
                   if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
                     searchService.searchById($scope.employee.hrmanager.custom_hrmanagerid)
@@ -154,7 +155,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 name: (typeof result.custom_orgname !== 'undefined') ? result.custom_orgname : null
             };
             employee.phoneNumbers = (typeof result.phoneNumbers !== 'undefined') ? preparePhones(result.phoneNumbers) : null;
-
+            employee.personTypeId = (typeof result.personTypeId !== 'undefined') ? result.personTypeId : null;
             /**
 
                @TODO
