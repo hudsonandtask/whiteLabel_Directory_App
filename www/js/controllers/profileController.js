@@ -60,18 +60,27 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 });
 
                 // Managers
-                searchService.searchById($scope.employee.manager.managerId)
-                .then(function (result) {
-                    $scope.managers = result;
-                    console.log("Managers",$scope.managers);
+                // Modify this code to test for the values of the flag
+                // based on that either call the services or return empty
+                if($scope.employee.flag_name && $scope.employee.flag_name != 'Q' && $scope.employee.flag_name != 'K' && $scope.employee.flag_name != 'R') {
+                    searchService.searchById($scope.employee.manager.managerId)
+                    .then(function (result) {
+                        $scope.managers = result;
+                        console.log("Managers",$scope.managers);
+                        promiseMgr.resolve();
+                    })
+                    .catch(function (error) {
+                        promiseMgr.reject(error);
+                    });
+                }else{
+                    $scope.managers = {};
+                    console.log("Managers hidden",$scope.managers);
                     promiseMgr.resolve();
-                })
-                .catch(function (error) {
-                    promiseMgr.reject(error);
-                });
+                }
 
                 // HR Managers
-                if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
+                if($scope.employee.flag_name && $scope.employee.flag_name != 'Q') {
+                  if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
                     searchService.searchById($scope.employee.hrmanager.custom_hrmanagerid)
                     .then(function (result) {
                         $scope.hrmanagers = result;
@@ -81,10 +90,15 @@ angular.module('directory.controllers.profileController', ['ionic'])
                     .catch(function (error) {
                         promiseHR.reject(error);
                     });
-                }
-                else {
-                    // If none to resolve, make sure to resolve,
-                    // so Promise.all will fire.
+                    }
+                    else {
+                        // If none to resolve, make sure to resolve,
+                        // so Promise.all will fire.
+                        promiseHR.resolve();
+                    }
+                }else{
+                    $scope.hrmanagers = {};
+                    console.log("HR Managers hidden", $scope.hrmanagers);
                     promiseHR.resolve();
                 }
 
