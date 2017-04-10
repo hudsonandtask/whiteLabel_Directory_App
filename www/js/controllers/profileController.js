@@ -62,7 +62,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 // Managers
                 // Modify this code to test for the values of the flag
                 // based on that either call the services or return empty
-                if($scope.employee.flag_name && $scope.employee.flag_name != 'Q' && $scope.employee.flag_name != 'K' && $scope.employee.flag_name != 'R') {
+                if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q' && $scope.employee.personTypeId != 'K' && $scope.employee.personTypeId != 'R') {
                     searchService.searchById($scope.employee.manager.managerId)
                     .then(function (result) {
                         $scope.managers = result;
@@ -79,7 +79,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 }
 
                 // HR Managers
-                if($scope.employee.flag_name && $scope.employee.flag_name != 'Q') {
+                if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q') {
                   if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
                     searchService.searchById($scope.employee.hrmanager.custom_hrmanagerid)
                     .then(function (result) {
