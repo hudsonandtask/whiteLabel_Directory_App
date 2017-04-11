@@ -1,9 +1,9 @@
 angular.module('directory.services.profileService', [])
     .factory('profileService', function ($q, $http, searchService) {
-        var IDM_URL = "https://api.inbcu.com/internal/users";
+        var IDM_URL = "https://idm.api.stg.inbcu.com/internal/users";
         var AUTH_HEADERS = {
             'Accept': 'application/json; charset=UTF-8',
-            'Authorization': 'Basic MjA2NDgzOTk3OkU5MDk5TG9va1Vw'
+            'Authorization': 'Basic OTAwMDE1NDgyOlBhNTV3b3JkMjAxNw=='
         };
 
         var testProfileData = {
