@@ -3,7 +3,10 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
                                         'directory.services.profileService', 'directory.controllers.profileController',
                                         'directory.controllers.logoController', 'directory.controllers.searchResetController',
                                         'directory.services.networkService', 'ngCordova'])
-    .run(function ($ionicPlatform, $ionicPopup, networkService) {
+    .run(function ($state, $ionicPlatform, $ionicPopup, networkService) {
+
+        var isAndroid = ionic.Platform.isAndroid();
+
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -50,8 +53,21 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
               }
 
             });
+        });
 
-        })
+        // For android only, constrain the back button to in-app back only.
+        // NBCUN-1626
+        if (isAndroid === true) {
+            $ionicPlatform.registerBackButtonAction(function (event) {
+                if (["app.home", "home", "home.search"].indexOf($state.current.name) >= 0) {
+                //    navigator.app.exitApp();
+                }
+                else {
+                    navigator.app.backHistory();
+                }
+
+            }, 100);
+        }
     })
     .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         $stateProvider
