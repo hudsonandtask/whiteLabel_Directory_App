@@ -2,7 +2,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
     .factory('searchService', function ($q, $http, CacheFactory) {
         var SOLR_URL = "http://solr.inbcu.com:8080/solr/collection1/";
         // var D8_URL = "http://dev.nbcunow.com/api/v1/taxonomy/";
-        var D8_IDM_URL = "http://dev.nbcunow.com/api/v1/reportee/";
+        var D8_IDM_URL = "https://nbcunow.com/api/v1/reportee/";
 
 
         var cacheKey = 'SEARCH_KEY_CACHE';
