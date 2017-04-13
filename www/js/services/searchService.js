@@ -185,7 +185,27 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 }
                 /** END TESTING **/
 
-                var URL = SOLR_URL + "select?q=category:worker%20AND%20id:" + id + '&fq=-businesssegment%3A("Comcast+Cable"%2520OR%2520"Comcast+Spectacor")' + "&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=1000";
+                // Businesses to exclude.
+                var exclude_businesses = [
+                    "Comcast Corporate",
+                    "Delaware Capital Group",
+                    "Comcast Cable",
+                    "Comcast Spectacor"
+                ];
+
+                // Format eachbusiness for SOLR.
+                for (var i = 0; i < exclude_businesses.length; i++) {
+                    exclude_businesses[i] = '"' + exclude_businesses[i].replace(/\s/g, "+") + '"';
+                }
+
+                // Assemble the final SOLR query addition.
+                var excludeBizQuery = '&fq=-'
+                    + 'businesssegment%3A('
+                    + exclude_businesses.join("%20OR%20")
+                    + ')';
+
+
+                var URL = SOLR_URL + "select?q=category:worker%20AND%20id:" + id + excludeBizQuery + "&sort=firstname+asc, lastname+asc, businessphone+asc&wt=json&rows=1000";
                 dataRequest = JSON.parse(angular.toJson(""));
                 $http({
                     method: 'GET',
