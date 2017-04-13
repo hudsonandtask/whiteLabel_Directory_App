@@ -11,8 +11,9 @@ angular.module('directory.controllers.profileController', ['ionic'])
             })
             .catch(function(err) {
                 $ionicPopup.alert({
-                  title: 'NBCU Now Directory',
-                  template: 'Please check your VPN connection.'
+                  title: 'Uh oh!',
+                  template: 'We have lost the connection to NBCUniversal. Keep calm and try again. ',
+                  okText: 'Try Again'
                 });
             })
             .finally(function() {
