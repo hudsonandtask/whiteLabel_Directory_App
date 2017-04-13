@@ -1,5 +1,5 @@
 angular.module('directory.controllers.profileController', ['ionic'])
-    .controller('profileController', function ($scope, $state, $stateParams, $ionicLoading, $q, appData, profileService, searchService) {
+    .controller('profileController', function ($scope, $state, $stateParams, $ionicPopup, $ionicLoading, $q, appData, profileService, searchService) {
         $scope.$on('$ionicView.beforeEnter', function () {
             // Show loading screen.
             $ionicLoading.show();
@@ -10,7 +10,11 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 console.log('LoadProfile completed.');
             })
             .catch(function(err) {
-                console.warn(err);
+                $ionicPopup.alert({
+                  title: 'Uh oh!',
+                  template: 'We have lost the connection to NBCUniversal. Keep calm and try again. ',
+                  okText: 'Try Again'
+                });
             })
             .finally(function() {
                 // Hide loading screen when loaded.
