@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="profile-section">
-            <div class="row" ng-if="managers || hrmanagers || directReports">
+            <div class="row" ng-if="managers.length > 0 || hrmanagers.length > 0 || directReports.length > 0">
                 <span class="profile-team-name" ng-bind="getTeam(employee.name)"></span>
             </div>
             <div class="row" ng-if="managers.length > 0">

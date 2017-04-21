@@ -10,10 +10,12 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 console.log('LoadProfile completed.');
             })
             .catch(function(err) {
+                $ionicLoading.hide();
+
                 $ionicPopup.alert({
-                  title: 'Uh oh!',
-                  template: 'We have lost the connection to NBCUniversal. Keep calm and try again. ',
-                  okText: 'Try Again'
+                  title: 'Connection Timeout',
+                  template: 'We have lost the connection to NBCUniversal VPN. Please reconnect and try again.',
+                  okText: 'OK'
                 });
             })
             .finally(function() {
@@ -31,7 +33,29 @@ angular.module('directory.controllers.profileController', ['ionic'])
           // rock on
           // alert("resume");
 
-          $scope.loadProfile();
+          // $scope.loadProfile();
+
+          // Show loading screen.
+          $ionicLoading.show();
+
+          // Load employee and related data.
+          $scope.loadProfile()
+          .then(function() {
+              console.log('LoadProfile completed.');
+          })
+          .catch(function(err) {
+              $ionicLoading.hide();
+
+              $ionicPopup.alert({
+                title: 'Connection Timeout',
+                template: 'We have lost the connection to NBCUniversal VPN. Please reconnect and try again.',
+                okText: 'OK'
+              });
+          })
+          .finally(function() {
+              // Hide loading screen when loaded.
+              $ionicLoading.hide();
+          });
         });
 
         /**

@@ -1,5 +1,5 @@
 angular.module('directory.controllers.profileController', ['ionic'])
-    .controller('profileController', function ($scope, $state, $stateParams, $ionicLoading, $q, appData, profileService, searchService) {
+    .controller('profileController', function ($scope, $state, $stateParams, $ionicPopup, $ionicLoading, $q, appData, profileService, searchService, $ionicPlatform) {
         $scope.$on('$ionicView.beforeEnter', function () {
             // Show loading screen.
             $ionicLoading.show();
@@ -10,12 +10,52 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 console.log('LoadProfile completed.');
             })
             .catch(function(err) {
-                console.warn(err);
+                $ionicLoading.hide();
+
+                $ionicPopup.alert({
+                  title: 'Connection Timeout',
+                  template: 'We have lost the connection to NBCUniversal. Please go back and try again. ',
+                  okText: 'OK'
+                });
             })
             .finally(function() {
                 // Hide loading screen when loaded.
                 $ionicLoading.hide();
             });
+        });
+
+        $ionicPlatform.ready(function() {
+          // ready
+          // alert("ready");
+        });
+
+        $ionicPlatform.on('resume', function(){
+          // rock on
+          // alert("resume");
+
+          // $scope.loadProfile();
+
+          // Show loading screen.
+          $ionicLoading.show();
+
+          // Load employee and related data.
+          $scope.loadProfile()
+          .then(function() {
+              console.log('LoadProfile completed.');
+          })
+          .catch(function(err) {
+              $ionicLoading.hide();
+
+              $ionicPopup.alert({
+                title: 'Connection Timeout',
+                template: 'We have lost the connection to NBCUniversal. Please go back and try again. ',
+                okText: 'OK'
+              });
+          })
+          .finally(function() {
+              // Hide loading screen when loaded.
+              $ionicLoading.hide();
+          });
         });
 
         /**
@@ -25,6 +65,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
          *   A promise for all loading functions.
          */
         $scope.loadProfile = function () {
+            // alert('loading profile');
 
             // Promise for our loadProfile.
             var promiseEmployee = $q.defer();
@@ -60,18 +101,28 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 });
 
                 // Managers
-                searchService.searchById($scope.employee.manager.managerId)
-                .then(function (result) {
-                    $scope.managers = result;
-                    console.log("Managers",$scope.managers);
+                // Modify this code to test for the values of the flag
+                // based on that either call the services or return empty
+                if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q' && $scope.employee.personTypeId != 'K' && $scope.employee.personTypeId != 'R') {
+                    searchService.searchById($scope.employee.manager.managerId)
+                    .then(function (result) {
+                        $scope.managers = result;
+                        console.log("Managers",$scope.managers);
+                        promiseMgr.resolve();
+                    })
+                    .catch(function (error) {
+                        promiseMgr.reject(error);
+                    });
+                }else{
+                    $scope.managers = {};
+                    console.log("Managers hidden",$scope.managers);
                     promiseMgr.resolve();
-                })
-                .catch(function (error) {
-                    promiseMgr.reject(error);
-                });
+                }
 
                 // HR Managers
-                if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
+                console.log("Flag", $scope.employee);
+                if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q') {
+                  if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
                     searchService.searchById($scope.employee.hrmanager.custom_hrmanagerid)
                     .then(function (result) {
                         $scope.hrmanagers = result;
@@ -81,10 +132,15 @@ angular.module('directory.controllers.profileController', ['ionic'])
                     .catch(function (error) {
                         promiseHR.reject(error);
                     });
-                }
-                else {
-                    // If none to resolve, make sure to resolve,
-                    // so Promise.all will fire.
+                    }
+                    else {
+                        // If none to resolve, make sure to resolve,
+                        // so Promise.all will fire.
+                        promiseHR.resolve();
+                    }
+                }else{
+                    $scope.hrmanagers = {};
+                    console.log("HR Managers hidden", $scope.hrmanagers);
                     promiseHR.resolve();
                 }
 
@@ -140,7 +196,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
                 name: (typeof result.custom_orgname !== 'undefined') ? result.custom_orgname : null
             };
             employee.phoneNumbers = (typeof result.phoneNumbers !== 'undefined') ? preparePhones(result.phoneNumbers) : null;
-
+            employee.personTypeId = (typeof result.personTypeId !== 'undefined') ? result.personTypeId : null;
             /**
 
                @TODO

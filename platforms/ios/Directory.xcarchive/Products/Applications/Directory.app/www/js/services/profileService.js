@@ -3,7 +3,7 @@ angular.module('directory.services.profileService', [])
         var IDM_URL = "https://api.inbcu.com/internal/users";
         var AUTH_HEADERS = {
             'Accept': 'application/json; charset=UTF-8',
-            'Authorization': 'Basic MjA2NDgzOTk3OkU5MDk5TG9va1Vw'
+            'Authorization': 'Basic MjA2NTI4Mjk1OlBANTVXMHJkMkAxeg=='
         };
 
         var testProfileData = {
@@ -70,7 +70,7 @@ angular.module('directory.services.profileService', [])
                     console.log("Got IDM data:");
                     console.log(data);
                 }).error(function (data, status) {
-                  alert("Error retrieving profile data.\nPlease go back and try again.");
+                  // alert("Error retrieving profile data.\nPlease go back and try again.");
                   // Return to search results page?
                   deferred.reject(status);
                 });
