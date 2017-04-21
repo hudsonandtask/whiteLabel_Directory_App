@@ -1,5 +1,5 @@
 angular.module('directory.controllers.profileController', ['ionic'])
-    .controller('profileController', function ($scope, $state, $stateParams, $ionicPopup, $ionicLoading, $q, appData, profileService, searchService) {
+    .controller('profileController', function ($scope, $state, $stateParams, $ionicPopup, $ionicLoading, $q, appData, profileService, searchService, $ionicPlatform) {
         $scope.$on('$ionicView.beforeEnter', function () {
             // Show loading screen.
             $ionicLoading.show();
@@ -22,6 +22,18 @@ angular.module('directory.controllers.profileController', ['ionic'])
             });
         });
 
+        $ionicPlatform.ready(function() {
+          // ready
+          // alert("ready");
+        });
+
+        $ionicPlatform.on('resume', function(){
+          // rock on
+          // alert("resume");
+
+          $scope.loadProfile();
+        });
+
         /**
          * Load all data for the user's profile.
          *
@@ -29,6 +41,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
          *   A promise for all loading functions.
          */
         $scope.loadProfile = function () {
+            // alert('loading profile');
 
             // Promise for our loadProfile.
             var promiseEmployee = $q.defer();
