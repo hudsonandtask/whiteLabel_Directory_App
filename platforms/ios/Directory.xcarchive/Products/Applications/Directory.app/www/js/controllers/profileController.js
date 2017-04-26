@@ -14,7 +14,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
 
                 $ionicPopup.alert({
                   title: 'Connection Timeout',
-                  template: 'We have lost the connection to NBCUniversal. Please go back and try again. ',
+                  template: 'We have lost the connection to NBCUniversal VPN. Please reconnect and try again.',
                   okText: 'OK'
                 });
             })
@@ -48,7 +48,7 @@ angular.module('directory.controllers.profileController', ['ionic'])
 
               $ionicPopup.alert({
                 title: 'Connection Timeout',
-                template: 'We have lost the connection to NBCUniversal. Please go back and try again. ',
+                template: 'We have lost the connection to NBCUniversal VPN. Please reconnect and try again.',
                 okText: 'OK'
               });
           })

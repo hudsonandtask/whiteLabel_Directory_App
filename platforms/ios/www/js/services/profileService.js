@@ -70,7 +70,7 @@ angular.module('directory.services.profileService', [])
                     console.log("Got IDM data:");
                     console.log(data);
                 }).error(function (data, status) {
-                  // alert("Error retrieving profile data.\nPlease go back and try again.");
+                  alert("Error retrieving profile data.\nPlease go back and try again.");
                   // Return to search results page?
                   deferred.reject(status);
                 });
