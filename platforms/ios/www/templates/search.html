@@ -3,7 +3,7 @@
     <div id="searchForm" class="search-bar">
         <form class="search-form" ng-submit="search()">
             <div class="item-input-wrapper search-wrapper">
-                <i class="icon white-icon icon-search"></i>
+                <!-- <i class="icon white-icon icon-search"></i> -->
                 <input id="searchControl" type="search" placeholder="Search" ng-model="searchKey" class="search-control" />
                 <i ng-if="searchKey" ng-click="$event.stopImmediatePropagation(); $event.preventDefault(); clearSearch();" class="icon white-icon icon-cancel"></i>
             </div>

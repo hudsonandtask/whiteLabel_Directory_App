@@ -70,7 +70,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		lHu+KxxaudxWrDggiD9TKTIyaHw=
+		By2W3XTnl90YIbOa8XErOD73Fqk=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -78,11 +78,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		VaNQlewGW48ICERmOy23SzXQ1dg=
+		3mVQc8YHLsLqUiEtWYxuUWi9rm4=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		X0Z3wDXqWATBA8WV7Z6bssRnjjA=
+		6sAp4tl1gczaiVHABZ93Tl/AsJk=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		BH6mbjRrMtDtROPUBlOnneLzAfU=
+		iAro1xBIUh4yH65D2oE7TXiwQ0c=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>config.xml</key>
 		<data>
-		+hDCIfyBykSSokOeVRz5e3/j9YA=
+		geictEsNpyxnY+j5pehrTnvxX/E=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -178,11 +178,11 @@
 		</data>
 		<key>www/css/app.css</key>
 		<data>
-		uC904yBGF52oHKfeAXtqBdByGwM=
+		qhltde6IhphpQ7JcjTohwgOPMAU=
 		</data>
 		<key>www/css/fonts.css</key>
 		<data>
-		cW3fVJFzV4cd8QIwo0V1Kip5pXQ=
+		7MMAHLtcOUVNVuSUBlxnVqTRNVM=
 		</data>
 		<key>www/fonts/Rock-SansBold.ttf</key>
 		<data>
@@ -268,6 +268,10 @@
 		<data>
 		OkcaFev7Zujtguoux7cLTmBcEOQ=
 		</data>
+		<key>www/img/search.png</key>
+		<data>
+		ihNETD1gqCAF/NTy/U+899MFpAg=
+		</data>
 		<key>www/index.html</key>
 		<data>
 		mUFTwlgt0R/dH8hbzBo+DpB4Bpk=
@@ -286,7 +290,7 @@
 		</data>
 		<key>www/js/controllers/profileController.js</key>
 		<data>
-		atVM/lY7o5A4HzX5Bf4PTFwzrs8=
+		gSak2LCclvl93PcMrXGd03PSOLE=
 		</data>
 		<key>www/js/controllers/searchController.js</key>
 		<data>
@@ -306,7 +310,7 @@
 		</data>
 		<key>www/js/services/profileService.js</key>
 		<data>
-		KrHoJcEb9298yb/ny/wn3l9bzcg=
+		08oiV14d2VybLIYcaGeZvxA1+RQ=
 		</data>
 		<key>www/js/services/searchService.js</key>
 		<data>
@@ -874,7 +878,7 @@
 		</data>
 		<key>www/templates/search.html</key>
 		<data>
-		AkR/+9kOlOkA7x3+XMPf6ivXBWI=
+		vzohBWw+bd99Su8PviEZ8PqAm9I=
 		</data>
 		<key>www/templates/searchReset.html</key>
 		<data>
@@ -1063,11 +1067,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lHu+KxxaudxWrDggiD9TKTIyaHw=
+			By2W3XTnl90YIbOa8XErOD73Fqk=
 			</data>
 			<key>hash2</key>
 			<data>
-			NCkskZ/tEQkMpRjUu2f/PzFOKPUEGwyAc7g2pebo7Xk=
+			ThpAc63vY8rIQuzFlxyWan/QoPuSdtOtsimBQ3lOeb4=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1085,11 +1089,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VaNQlewGW48ICERmOy23SzXQ1dg=
+			3mVQc8YHLsLqUiEtWYxuUWi9rm4=
 			</data>
 			<key>hash2</key>
 			<data>
-			t7JYW5eCmVkLUojNeLZPklYsOyuvkYkWz3XZeN7DWHM=
+			dmE79r6gnjuESf2fi+GgRLhPtqu4V0FXT8+H2oUB5RQ=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1250,11 +1254,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BH6mbjRrMtDtROPUBlOnneLzAfU=
+			iAro1xBIUh4yH65D2oE7TXiwQ0c=
 			</data>
 			<key>hash2</key>
 			<data>
-			c2qHIeNmuj/xMtSGGHQlZw4U8QY7FFJ6jECGWua0RBI=
+			PK91xjZCla5uHTtBFse6vA7f8STk9uRfXf4LAiV+1pM=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1272,11 +1276,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+hDCIfyBykSSokOeVRz5e3/j9YA=
+			geictEsNpyxnY+j5pehrTnvxX/E=
 			</data>
 			<key>hash2</key>
 			<data>
-			e1FiQwjVf+7W86qPCgl8qyVFUCfwpr0gv1vv6KifCWk=
+			KDa2AMHliwl+7TKH6DEXrAPQBopgxJLhDQAdt7/bFDE=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
@@ -1338,22 +1342,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uC904yBGF52oHKfeAXtqBdByGwM=
+			qhltde6IhphpQ7JcjTohwgOPMAU=
 			</data>
 			<key>hash2</key>
 			<data>
-			3wEkDbW83bpcT/4PkF2n5qpOtJ5p8FjdqCQpbEIIFpI=
+			zyaDczdtm+iLagJae1RfiJnCIkFspWpkBYSGjwhBUxs=
 			</data>
 		</dict>
 		<key>www/css/fonts.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cW3fVJFzV4cd8QIwo0V1Kip5pXQ=
+			7MMAHLtcOUVNVuSUBlxnVqTRNVM=
 			</data>
 			<key>hash2</key>
 			<data>
-			qCJNC5aNK7QPrQLimFZ04UdPab0PPFCRa7yDRWEcnTE=
+			iB5M6gP4HAE3CV6/DFCrx/i9J33Fwi7rL/+3rJho3Jw=
 			</data>
 		</dict>
 		<key>www/fonts/Rock-SansBold.ttf</key>
@@ -1587,6 +1591,17 @@
 			D3cOYSsmdrZ55cP/+X115sBWv6pBV7FKw7EUsytM0CI=
 			</data>
 		</dict>
+		<key>www/img/search.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ihNETD1gqCAF/NTy/U+899MFpAg=
+			</data>
+			<key>hash2</key>
+			<data>
+			z0qA+IbWG3L1PZXHWYhBMg9duLALyHBbhrmUpr69cow=
+			</data>
+		</dict>
 		<key>www/index.html</key>
 		<dict>
 			<key>hash</key>
@@ -1635,11 +1650,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			atVM/lY7o5A4HzX5Bf4PTFwzrs8=
+			gSak2LCclvl93PcMrXGd03PSOLE=
 			</data>
 			<key>hash2</key>
 			<data>
-			SCdbVTbLrbDz5mHkWPS5XoZ8nfOIvAIOJBPEYDtG1JI=
+			78kx2YJBKc4WVAm0G7A0jyc5y5UsxZFkwZzjDrlYTug=
 			</data>
 		</dict>
 		<key>www/js/controllers/searchController.js</key>
@@ -1690,11 +1705,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KrHoJcEb9298yb/ny/wn3l9bzcg=
+			08oiV14d2VybLIYcaGeZvxA1+RQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z0Yqb08fqTQYSCm6alUa9Rx3TcpkwQtRAS5ael59eA8=
+			84bS1PqtzOqECCqtBpg+BHRa55xlxfy7ZPD5JAsq7fo=
 			</data>
 		</dict>
 		<key>www/js/services/searchService.js</key>
@@ -3252,11 +3267,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AkR/+9kOlOkA7x3+XMPf6ivXBWI=
+			vzohBWw+bd99Su8PviEZ8PqAm9I=
 			</data>
 			<key>hash2</key>
 			<data>
-			OWbcGdjHfuDER5AL52eGjOgIQi2WTfcbaCilqk5gIf4=
+			mFcumL700Fed2Kl4aTCcPK/kUWdL9k7W7k54eNGsIRI=
 			</data>
 		</dict>
 		<key>www/templates/searchReset.html</key>

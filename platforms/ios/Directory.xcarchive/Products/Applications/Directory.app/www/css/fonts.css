@@ -27,6 +27,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: Ionicons;
+    src: url('../lib/fonts/ionicons.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 [data-icon]:before {
     font-family: nbcunow-icons !important;
     content: attr(data-icon);

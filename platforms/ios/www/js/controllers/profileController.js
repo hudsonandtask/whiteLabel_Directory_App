@@ -79,6 +79,8 @@ angular.module('directory.controllers.profileController', ['ionic'])
             // Get Employee
             profileService.getProfile($stateParams.id)
             .then(function (result) {
+                // Show loading screen.
+                $ionicLoading.show();
 
                 // Promises for each subtask.
                 var promiseDR = $q.defer(),
@@ -153,9 +155,14 @@ angular.module('directory.controllers.profileController', ['ionic'])
                     promiseEmployee.reject(err);
                 });
 
+                // Hide loading screen when loaded.
+                $ionicLoading.hide();
             })
             .catch(function employeeCatch(error) {
                 promiseEmployee.reject(error);
+
+                // Hide loading screen when loaded.
+                $ionicLoading.hide();
             });
 
             return promiseEmployee.promise;
