@@ -70,7 +70,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		By2W3XTnl90YIbOa8XErOD73Fqk=
+		gHeBaW1oe5rp03gYBgfSUC3Tdx0=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		3mVQc8YHLsLqUiEtWYxuUWi9rm4=
+		WBxr1DEnQ2Pt3qPz9f0oeM3/2vg=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		iAro1xBIUh4yH65D2oE7TXiwQ0c=
+		nTxfY1LAV8l71Vfh3vyKowQUZA8=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -178,7 +178,7 @@
 		</data>
 		<key>www/css/app.css</key>
 		<data>
-		qhltde6IhphpQ7JcjTohwgOPMAU=
+		C2CGdgJf3mNx58yZS9hftKPLhUc=
 		</data>
 		<key>www/css/fonts.css</key>
 		<data>
@@ -1067,11 +1067,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			By2W3XTnl90YIbOa8XErOD73Fqk=
+			gHeBaW1oe5rp03gYBgfSUC3Tdx0=
 			</data>
 			<key>hash2</key>
 			<data>
-			ThpAc63vY8rIQuzFlxyWan/QoPuSdtOtsimBQ3lOeb4=
+			Bx7gouChY3IFIvZqnMZRj0QTkau8Fb2SBzAlBHIH2Ow=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1089,11 +1089,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3mVQc8YHLsLqUiEtWYxuUWi9rm4=
+			WBxr1DEnQ2Pt3qPz9f0oeM3/2vg=
 			</data>
 			<key>hash2</key>
 			<data>
-			dmE79r6gnjuESf2fi+GgRLhPtqu4V0FXT8+H2oUB5RQ=
+			NrLix68AyjvNywkNo2UVNPEz2/n021iAze8UzjEXACI=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1254,11 +1254,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iAro1xBIUh4yH65D2oE7TXiwQ0c=
+			nTxfY1LAV8l71Vfh3vyKowQUZA8=
 			</data>
 			<key>hash2</key>
 			<data>
-			PK91xjZCla5uHTtBFse6vA7f8STk9uRfXf4LAiV+1pM=
+			CnoQT8WM1YgZNOWumFaoeNcq0RTBu7Pw3jNO9kB4H7w=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -1342,11 +1342,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qhltde6IhphpQ7JcjTohwgOPMAU=
+			C2CGdgJf3mNx58yZS9hftKPLhUc=
 			</data>
 			<key>hash2</key>
 			<data>
-			zyaDczdtm+iLagJae1RfiJnCIkFspWpkBYSGjwhBUxs=
+			anCZgjDMzKixmy3XwbsW5BQIgf3VJLmaCaJeMgKdJVc=
 			</data>
 		</dict>
 		<key>www/css/fonts.css</key>
