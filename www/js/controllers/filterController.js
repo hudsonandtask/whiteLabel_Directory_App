@@ -5,10 +5,10 @@ angular.module('directory.controllers.filterController', [])
             $scope.groups = [];
             $scope.companies = [];
             $scope.locations = [];
+            $scope.showcompanies = false;
 
             $scope.$on('$ionicView.beforeEnter', function () {
                 $ionicLoading.show();
-
                 var promises = [ filterService.getAllBusiness(), filterService.getAllLocations() ];
                 $q.all(promises).then(function(values) {
                     var biz = Object.keys(values[0]).map(function(k) { return values[0][k]; });
@@ -53,8 +53,10 @@ angular.module('directory.controllers.filterController', [])
                                       return bizFilters.name == selectValue;
                                   }).children;
                 $scope.companies = rawChildren.sort($scope.sortbyIndex);
+                $scope.showcompanies = true;
               }else{
                 $scope.companies = $scope.groups.sort($scope.sortbyIndex);
+                $scope.showcompanies = true;
               }
             };
 
