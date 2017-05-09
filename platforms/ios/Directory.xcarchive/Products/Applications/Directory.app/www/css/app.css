@@ -488,7 +488,7 @@ input[type="search"].search-control {
     width: 100%;
     background-color: #00a8a7;
     color: #ffffff;
-    height: 50px;
+    height: 60px;
     padding-left: 30px !important;
     padding-top: 0px !important;
     font-size: 20px !important;
@@ -499,7 +499,7 @@ input[type="search"].search-control {
     background: url('../img/search.png');
     background-size: 30px 30px;
     background-repeat: no-repeat;
-    background-position: 1px 9px;
+    background-position: 1px 14px;
 }
 
 .search-control:before {
