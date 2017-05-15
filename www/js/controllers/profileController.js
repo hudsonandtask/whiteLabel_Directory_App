@@ -1,6 +1,10 @@
 angular.module('directory.controllers.profileController', ['ionic'])
     .controller('profileController', function ($scope, $state, $stateParams, $ionicPopup, $ionicLoading, $q, appData, profileService, searchService, $ionicPlatform) {
+
+        $scope.profileControllerEntry = $state;
+
         $scope.$on('$ionicView.beforeEnter', function () {
+            console.log('In $scope.$on - $ionicView.beforeEnter');
             // Show loading screen.
             $ionicLoading.show();
 
@@ -30,32 +34,35 @@ angular.module('directory.controllers.profileController', ['ionic'])
         });
 
         $ionicPlatform.on('resume', function(){
-          // rock on
-          // alert("resume");
+          console.log('In $ionicPlatform.on - resume');
+          if($scope.profileControllerEntry.$current.url.prefix == '/home/profile/'){
+              // rock on
+              // alert("resume");
 
-          // $scope.loadProfile();
+              // $scope.loadProfile();
 
-          // Show loading screen.
-          $ionicLoading.show();
+              // Show loading screen.
+              $ionicLoading.show();
 
-          // Load employee and related data.
-          $scope.loadProfile()
-          .then(function() {
-              console.log('LoadProfile completed.');
-          })
-          .catch(function(err) {
-              $ionicLoading.hide();
+              // Load employee and related data.
+              $scope.loadProfile()
+              .then(function() {
+                  console.log('LoadProfile completed.');
+              })
+              .catch(function(err) {
+                  $ionicLoading.hide();
 
-              $ionicPopup.alert({
-                title: 'Connection Timeout',
-                template: 'We have lost the connection to NBCUniversal VPN. Please reconnect and try again.',
-                okText: 'OK'
+                  $ionicPopup.alert({
+                    title: 'Connection Timeout',
+                    template: 'We have lost the connection to NBCUniversal VPN. Please reconnect and try again.',
+                    okText: 'OK'
+                  });
+              })
+              .finally(function() {
+                  // Hide loading screen when loaded.
+                  $ionicLoading.hide();
               });
-          })
-          .finally(function() {
-              // Hide loading screen when loaded.
-              $ionicLoading.hide();
-          });
+          }
         });
 
         /**
@@ -77,93 +84,98 @@ angular.module('directory.controllers.profileController', ['ionic'])
             $scope.employee = {};
 
             // Get Employee
-            profileService.getProfile($stateParams.id)
-            .then(function (result) {
-                // Show loading screen.
-                $ionicLoading.show();
-
-                // Promises for each subtask.
-                var promiseDR = $q.defer(),
-                    promiseHR = $q.defer(),
-                    promiseMgr = $q.defer();
-
-                // Transform to a predictable state.
-                $scope.employee = $scope.transform(result);
-                console.log("Employee", $scope.employee);
-
-                // Direct Reports
-                searchService.searchBySupervisor($stateParams.id)
+            if($stateParams.id){
+                profileService.getProfile($stateParams.id)
                 .then(function (result) {
-                    $scope.directReports = result;
-                    console.log("Direct Reports", $scope.directReports);
-                    promiseDR.resolve();
-                })
-                .catch(function (error) {
-                    promiseDR.reject(error);
-                });
+                    // Show loading screen.
+                    $ionicLoading.show();
 
-                // Managers
-                // Modify this code to test for the values of the flag
-                // based on that either call the services or return empty
-                if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q' && $scope.employee.personTypeId != 'K' && $scope.employee.personTypeId != 'R' && $scope.employee.personTypeId != 'P') {
-                    searchService.searchById($scope.employee.manager.managerId)
+                    // Promises for each subtask.
+                    var promiseDR = $q.defer(),
+                        promiseHR = $q.defer(),
+                        promiseMgr = $q.defer();
+
+                    // Transform to a predictable state.
+                    $scope.employee = $scope.transform(result);
+                    console.log("Employee", $scope.employee);
+
+                    // Direct Reports
+                    searchService.searchBySupervisor($stateParams.id)
                     .then(function (result) {
-                        $scope.managers = result;
-                        console.log("Managers",$scope.managers);
+                        $scope.directReports = result;
+                        console.log("Direct Reports", $scope.directReports);
+                        promiseDR.resolve();
+                    })
+                    .catch(function (error) {
+                        promiseDR.reject(error);
+                    });
+
+                    // Managers
+                    // Modify this code to test for the values of the flag
+                    // based on that either call the services or return empty
+                    if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q' && $scope.employee.personTypeId != 'K' && $scope.employee.personTypeId != 'R' && $scope.employee.personTypeId != 'P') {
+                        searchService.searchById($scope.employee.manager.managerId)
+                        .then(function (result) {
+                            $scope.managers = result;
+                            console.log("Managers",$scope.managers);
+                            promiseMgr.resolve();
+                        })
+                        .catch(function (error) {
+                            promiseMgr.reject(error);
+                        });
+                    }else{
+                        $scope.managers = {};
+                        console.log("Managers hidden",$scope.managers);
                         promiseMgr.resolve();
-                    })
-                    .catch(function (error) {
-                        promiseMgr.reject(error);
-                    });
-                }else{
-                    $scope.managers = {};
-                    console.log("Managers hidden",$scope.managers);
-                    promiseMgr.resolve();
-                }
-
-                // HR Managers
-                console.log("Flag", $scope.employee);
-                if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q' && $scope.employee.personTypeId != 'K' && $scope.employee.personTypeId != 'R') {
-                  if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
-                    searchService.searchById($scope.employee.hrmanager.custom_hrmanagerid)
-                    .then(function (result) {
-                        $scope.hrmanagers = result;
-                        console.log("HR Managers", $scope.hrmanagers);
-                        promiseHR.resolve();
-                    })
-                    .catch(function (error) {
-                        promiseHR.reject(error);
-                    });
                     }
-                    else {
-                        // If none to resolve, make sure to resolve,
-                        // so Promise.all will fire.
+
+                    // HR Managers
+                    console.log("Flag", $scope.employee);
+                    if($scope.employee.personTypeId && $scope.employee.personTypeId != 'Q' && $scope.employee.personTypeId != 'K' && $scope.employee.personTypeId != 'R') {
+                      if (($scope.employee.hrmanager) || ($scope.employee.hrmanager)) {
+                        searchService.searchById($scope.employee.hrmanager.custom_hrmanagerid)
+                        .then(function (result) {
+                            $scope.hrmanagers = result;
+                            console.log("HR Managers", $scope.hrmanagers);
+                            promiseHR.resolve();
+                        })
+                        .catch(function (error) {
+                            promiseHR.reject(error);
+                        });
+                        }
+                        else {
+                            // If none to resolve, make sure to resolve,
+                            // so Promise.all will fire.
+                            promiseHR.resolve();
+                        }
+                    }else{
+                        $scope.hrmanagers = {};
+                        console.log("HR Managers hidden", $scope.hrmanagers);
                         promiseHR.resolve();
                     }
-                }else{
-                    $scope.hrmanagers = {};
-                    console.log("HR Managers hidden", $scope.hrmanagers);
-                    promiseHR.resolve();
-                }
 
-                // Only resolve once all operations have completed.
-                $q.all([promiseDR, promiseHR, promiseMgr])
-                .then(function allLoadThen() {
-                    promiseEmployee.resolve();
+                    // Only resolve once all operations have completed.
+                    $q.all([promiseDR, promiseHR, promiseMgr])
+                    .then(function allLoadThen() {
+                        promiseEmployee.resolve();
+                    })
+                    .catch(function allLoadCatch(err) {
+                        promiseEmployee.reject(err);
+                    });
+
+                    // Hide loading screen when loaded.
+                    $ionicLoading.hide();
                 })
-                .catch(function allLoadCatch(err) {
-                    promiseEmployee.reject(err);
+                .catch(function employeeCatch(error) {
+                    promiseEmployee.reject(error);
+
+                    // Hide loading screen when loaded.
+                    $ionicLoading.hide();
                 });
 
-                // Hide loading screen when loaded.
-                $ionicLoading.hide();
-            })
-            .catch(function employeeCatch(error) {
-                promiseEmployee.reject(error);
-
-                // Hide loading screen when loaded.
-                $ionicLoading.hide();
-            });
+            }else{
+                promiseEmployee.reject();
+            }
 
             return promiseEmployee.promise;
         };
