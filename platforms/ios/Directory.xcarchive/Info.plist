@@ -9,16 +9,16 @@
 		<key>CFBundleIdentifier</key>
 		<string>com.nbcu.corpsys.nbcunow.directory</string>
 		<key>CFBundleShortVersionString</key>
-		<string>1.0.24</string>
+		<string>1.0.26</string>
 		<key>CFBundleVersion</key>
-		<string>1.0.24</string>
+		<string>1.0.26</string>
 		<key>SigningIdentity</key>
 		<string>iPhone Developer: denis dogadkin (G65K5LYD4J)</string>
 	</dict>
 	<key>ArchiveVersion</key>
 	<integer>2</integer>
 	<key>CreationDate</key>
-	<date>2017-05-15T15:26:58Z</date>
+	<date>2017-05-19T16:17:15Z</date>
 	<key>Name</key>
 	<string>Directory</string>
 	<key>SchemeName</key>
