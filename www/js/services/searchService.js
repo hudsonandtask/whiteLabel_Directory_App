@@ -2,7 +2,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
     .factory('searchService', function ($q, $http, CacheFactory) {
         var SOLR_URL = "http://solr.inbcu.com:8080/solr/collection1/";
         // var D8_URL = "http://dev.nbcunow.com/api/v1/taxonomy/";
-        var D8_IDM_URL = "https://nbcunow.com/api/v1/reportee/";
+        var D8_IDM_URL = "http://www.nbcunow.com/api/v1/reportee/";
 
 
         var cacheKey = 'SEARCH_KEY_CACHE';
@@ -241,8 +241,10 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                     cache: false,
                     timeout: 30000
                 }).success(function (data, status, config) {
+                    console.log("Direct reports - success");
                     deferred.resolve(data.response.docs);
                 }).error(function (data, status) {
+                    console.log("Direct reports - error");
                     deferred.reject(status);
                 });
                 return deferred.promise;
