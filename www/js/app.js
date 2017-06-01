@@ -3,7 +3,7 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
                                         'directory.services.profileService', 'directory.controllers.profileController',
                                         'directory.controllers.logoController', 'directory.controllers.searchResetController',
                                         'directory.services.networkService', 'ngCordova'])
-    .run(function ($state, $ionicPlatform, $ionicPopup, networkService) {
+    .run(function ($state, $ionicPlatform, $ionicPopup, networkService, $rootScope) {
 
         var isAndroid = ionic.Platform.isAndroid();
 
@@ -53,6 +53,9 @@ angular.module('directory', ['ionic', 'directory.services.filterService', 'direc
               }
 
             });
+            document.addEventListener("resume", function () {
+                $rootScope.$broadcast('onAppResume');
+            }, false); 
         });
 
         // For android only, constrain the back button to in-app back only.
