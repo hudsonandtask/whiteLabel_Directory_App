@@ -244,7 +244,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                     console.log("Direct reports - success");
                     deferred.resolve(data.response.docs);
                 }).error(function (data, status) {
-                    console.log("Direct reports - error");
+                    console.log("Direct reports - error: " + status);
                     deferred.reject(status);
                 });
                 return deferred.promise;
