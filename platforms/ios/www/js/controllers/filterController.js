@@ -49,12 +49,14 @@ angular.module('directory.controllers.filterController', [])
             $scope.onChangeGroup = function () {
               var selectValue = $scope.filter.selectedGroup;
               if(selectValue){
+                $scope.filter.selectedCompany = "";
                 var rawChildren = $scope.groups.find(function(bizFilters){
                                       return bizFilters.name == selectValue;
                                   }).children;
                 $scope.companies = rawChildren.sort($scope.sortbyIndex);
                 $scope.showcompanies = true;
               }else{
+                $scope.filter.selectedCompany = "";
                 $scope.companies = $scope.groups.sort($scope.sortbyIndex);
                 $scope.showcompanies = true;
               }

@@ -103,7 +103,7 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                   params = "select?q=title:(" + trimSearchText + ")%20OR%20firstname:(" + trimSearchText + ")" + "%20OR%20lastname:(" + trimSearchText + ")" + "%20OR%20businessphone:(" + trimSearchText + ")";
                 } else {
                   console.log("blank data: " + trimSearchText);
-                  params = "select?q=*:*";
+                  params = "select?q=*";
                 }
                 console.log(params);
 
@@ -112,26 +112,29 @@ angular.module('directory.services.searchService', [ 'angular-cache' ])
                 // 1a. location
                 if (filteredLocation) {
                     var locations = JSON.parse(filteredLocation);
+                    locations.forEach(function(value, index, data){
+                        data[index] = encodeURIComponent(value);
+                    });
                     console.log(locations);
-                    console.log(locations.join(" "));
-                    params += "&fq=workcity:(" + locations.join(" ") + ")";
+                    console.log(locations.join('", "'));
+                    params += '&fq=workcity:("' + locations.join('", "') + '")';
                 }
 
                 // 1b. group
                 if (filteredGroup) {
                   // $search_query .= '&fq=businesssegment:' . $query['group'];
-                  params += "&fq=businesssegment:" + filteredGroup;
+                  params += '&fq=businesssegment:("' + encodeURIComponent(filteredGroup) + '")';
                 }
 
                 // 1b. subgroup
                 if (filteredCompany) {
                   // $search_query .= '&fq=subbusinesssegment:' . $query['subgroup'];
-                  params += "&fq=subbusinesssegment:" + filteredCompany;
+                  params += '&fq=subbusinesssegment:("' + encodeURIComponent(filteredCompany) + '")';
                 }
 
                 // NBCUN-1495+NBCUN-1659: Filter out Comcast employees
                 // exclude business segment of "Comcast Cable" or "Comcast Spectacor"
-                params += '&fq=-businesssegment:("Comcast+Corporate"%20OR%20"Delaware+Capital+Group"%20OR%20"Comcast+Cable"%2520OR%2520"Comcast+Spectacor")';
+                params += '&fq=-businesssegment:("Comcast+Corporate"%20OR%20"Delaware+Capital+Group"%20OR%20"Comcast+Cable"%20OR%20"Comcast+Spectacor")';
 
                 //     // category: worker
                 // $search_query .= 'fq=category:worker';
